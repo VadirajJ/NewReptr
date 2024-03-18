@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C0C4A3E0-F377-4985-8260-E22E51134AFC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>BusinesLayer</RootNamespace>
+    <AssemblyName>BusinesLayer</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>BusinesLayer.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>BusinesLayer.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppConfig\AllSession.vb" />
+    <Compile Include="AppConfig\AppException.vb" />
+    <Compile Include="AppConfig\ErrorClass.vb" />
+    <Compile Include="Assignment\clsAuditAssignment.vb" />
+    <Compile Include="Assignment\clsITReturnsFiling.vb" />
+    <Compile Include="Audit\clsAnnualPlan.vb" />
+    <Compile Include="Audit\clsAPM.vb" />
+    <Compile Include="Audit\clsAuditClouser.vb" />
+    <Compile Include="Audit\clsAuditMapping.vb" />
+    <Compile Include="Audit\clsAuditPlanSignOff.vb" />
+    <Compile Include="Audit\clsAuditProgress.vb" />
+    <Compile Include="Audit\ClsAuditScore.vb" />
+    <Compile Include="Audit\clsAUDPlanSchedule.vb" />
+    <Compile Include="Audit\clsBranchAuditChecklist.vb" />
+    <Compile Include="Audit\clsBRRChecklist.vb" />
+    <Compile Include="Audit\clsBRRIssueTracker.vb" />
+    <Compile Include="Audit\clsBRRPlanning.vb" />
+    <Compile Include="Audit\clsBRRReport.vb" />
+    <Compile Include="Audit\clsBRRSchedule.vb" />
+    <Compile Include="Audit\clsCAIQ.vb" />
+    <Compile Include="Audit\clsCAIQAuditUniverse.vb" />
+    <Compile Include="Audit\clsCAIQMaster.vb" />
+    <Compile Include="Audit\ClsCBAAuditScore.vb" />
+    <Compile Include="Audit\clsCBAAUDPlanSchedule.vb" />
+    <Compile Include="Audit\ClsCBADashBoard.vb" />
+    <Compile Include="Audit\clsCBAIssueFollowup.vb" />
+    <Compile Include="Audit\clsComplianceGeneral.vb" />
+    <Compile Include="Audit\clsControlLibrary.vb" />
+    <Compile Include="Audit\clsCorporateMaster.vb" />
+    <Compile Include="Audit\clsCostBudget.vb" />
+    <Compile Include="Audit\clsCRIssueTracker.vb" />
+    <Compile Include="Audit\ClsDashBoard.vb" />
+    <Compile Include="Audit\clsDRLLog.vb" />
+    <Compile Include="Audit\clsExecutiveSummary.vb" />
+    <Compile Include="Audit\clsFRRConduct.vb" />
+    <Compile Include="Audit\clsFRRKCCReport.vb" />
+    <Compile Include="Audit\clsFRRPlanning.vb" />
+    <Compile Include="Audit\clsFunctionMaster.vb" />
+    <Compile Include="Audit\clsGeneralCMaster.vb" />
+    <Compile Include="Audit\clsIntacct.vb" />
+    <Compile Include="Audit\clsIssueFollowupTracker.vb" />
+    <Compile Include="Audit\clsIssueKnowledgeBase.vb" />
+    <Compile Include="Audit\clsIssueTracker.vb" />
+    <Compile Include="Audit\clsKCCPlanning.vb" />
+    <Compile Include="Audit\clsKIR.vb" />
+    <Compile Include="Audit\clsKRI.vb" />
+    <Compile Include="Audit\clsProcessMaster.vb" />
+    <Compile Include="Audit\clsQAAuditClosure.vb" />
+    <Compile Include="Audit\clsQuickAudit.vb" />
+    <Compile Include="Audit\clsRAChecklist.vb" />
+    <Compile Include="Audit\clsRADetails.vb" />
+    <Compile Include="Audit\clsRCSADetails.vb" />
+    <Compile Include="Audit\clsRCSAMonitor.vb" />
+    <Compile Include="Audit\clsReportGeneration.vb" />
+    <Compile Include="Audit\clsRiskColorMatrix.vb" />
+    <Compile Include="Audit\clsRiskGeneral.vb" />
+    <Compile Include="Audit\clsRiskIssueTracker.vb" />
+    <Compile Include="Audit\clsRiskLibrary.vb" />
+    <Compile Include="Audit\clsRiskMaster.vb" />
+    <Compile Include="Audit\ClsRTF.vb" />
+    <Compile Include="Audit\ClsRTFHF.vb" />
+    <Compile Include="Audit\clsSampling.vb" />
+    <Compile Include="Audit\clsSelfAssessment.vb" />
+    <Compile Include="Audit\clsServiceCharges.vb" />
+    <Compile Include="Audit\clsTimeCost.vb" />
+    <Compile Include="Audit\clsTRACe360.vb" />
+    <Compile Include="Audit\clsWorkPaper.vb" />
+    <Compile Include="clsServerDB.vb" />
+    <Compile Include="CustclsLogin.vb" />
+    <Compile Include="CustomerUsers\clsCustomerUserSearch.vb" />
+    <Compile Include="DigitalFilling\clsArchive.vb" />
+    <Compile Include="DigitalFilling\clsCabinet.vb" />
+    <Compile Include="DigitalFilling\clsDescriptor.vb" />
+    <Compile Include="DigitalFilling\clsDigitalFilingDashboard.vb" />
+    <Compile Include="DigitalFilling\clsDocumentType.vb" />
+    <Compile Include="DigitalFilling\clsFolders.vb" />
+    <Compile Include="DigitalFilling\clsIndexing.vb" />
+    <Compile Include="DigitalFilling\clsReports.vb" />
+    <Compile Include="DigitalFilling\clsSearch.vb" />
+    <Compile Include="DigitalFilling\clsSubCabinet.vb" />
+    <Compile Include="DigitalFilling\clsView.vb" />
+    <Compile Include="Digital_AuditOffice\clsADOBatch.vb" />
+    <Compile Include="Digital_AuditOffice\clsAuxilaryReport.vb" />
+    <Compile Include="Digital_AuditOffice\clsChartOfAccounts.vb" />
+    <Compile Include="Digital_AuditOffice\clsCollation.vb" />
+    <Compile Include="Digital_AuditOffice\ClsCustomerGLLink.vb" />
+    <Compile Include="Digital_AuditOffice\ClsDataCapture.vb" />
+    <Compile Include="Digital_AuditOffice\ClsFinancialAddAssign.vb" />
+    <Compile Include="Digital_AuditOffice\clsGmail.vb" />
+    <Compile Include="Digital_AuditOffice\clsInward.vb" />
+    <Compile Include="FIN Statement\clsAccountingRatios.vb" />
+    <Compile Include="FIN Statement\clsAccountpolicies.vb" />
+    <Compile Include="FIN Statement\clsCashFlow.vb" />
+    <Compile Include="FIN Statement\clsJournalEntry.vb" />
+    <Compile Include="Digital_AuditOffice\ClsManualEntryforInventory.vb" />
+    <Compile Include="Digital_AuditOffice\ClsManualSeparateSchedule.vb" />
+    <Compile Include="Digital_AuditOffice\clsNormalScan.vb" />
+    <Compile Include="Digital_AuditOffice\clsOpeningBalance.vb" />
+    <Compile Include="Digital_AuditOffice\clsOutward.vb" />
+    <Compile Include="Digital_AuditOffice\clsReport.vb" />
+    <Compile Include="Digital_AuditOffice\clsScheduleLinkage.vb" />
+    <Compile Include="FIN Statement\clsPartnerFund.vb" />
+    <Compile Include="FIN Statement\clsScheduleNote.vb" />
+    <Compile Include="FIN Statement\clsScheduleReport.vb" />
+    <Compile Include="FIN Statement\clsScheduleTemplate.vb" />
+    <Compile Include="Digital_AuditOffice\clsTRACeKnowledge.vb" />
+    <Compile Include="Digital_AuditOffice\clsTRACeKnowledgeBase.vb" />
+    <Compile Include="Digital_AuditOffice\clsUploadStockEntry.vb" />
+    <Compile Include="FIN Statement\ClsTrade.vb" />
+    <Compile Include="FIN Statement\clsTrailBalanceVersion.vb" />
+    <Compile Include="FIN Statement\ClsUploadTailBal.vb" />
+    <Compile Include="FixedAsset\ClsAssetAdditionalDtls.vb" />
+    <Compile Include="FixedAsset\ClsAssetAdditionDashBoard.vb" />
+    <Compile Include="FixedAsset\ClsAssetDeletion.vb" />
+    <Compile Include="FixedAsset\ClsAssetMaster.vb" />
+    <Compile Include="FixedAsset\ClsAssetOpeningBalExcelUpload.vb" />
+    <Compile Include="FixedAsset\ClsAssetRegister.vb" />
+    <Compile Include="FixedAsset\ClsAssetTransactionAddition.vb" />
+    <Compile Include="FixedAsset\ClsAssetTransactionDeletion.vb" />
+    <Compile Include="FixedAsset\ClsDepreciationComputation.vb" />
+    <Compile Include="FixedAsset\ClsFexedAsst.vb" />
+    <Compile Include="FixedAsset\ClsFXADynamicReport.vb" />
+    <Compile Include="FixedAsset\ClsFXAPhysicalReport.vb" />
+    <Compile Include="FixedAsset\ClsLocationSetup.vb" />
+    <Compile Include="FixedAsset\ClsPhysicalRPTVerification.vb" />
+    <Compile Include="General\clsAllActiveMaster.vb" />
+    <Compile Include="General\clsCheckMasterIsInUse.vb" />
+    <Compile Include="General\clsEDICTGeneral.vb" />
+    <Compile Include="General\clsEMail.vb" />
+    <Compile Include="General\clsGeneralFunctions.vb" />
+    <Compile Include="General\clsGRACeCustomerModules.vb" />
+    <Compile Include="General\clsGRACeGeneral.vb" />
+    <Compile Include="General\clsGRACePermission.vb" />
+    <Compile Include="Home\clsHomeDashboard.vb" />
+    <Compile Include="Home\clsHomeMaster.vb" />
+    <Compile Include="Masters\clsAdminMaster.vb" />
+    <Compile Include="Masters\clsApplicationSetting.vb" />
+    <Compile Include="Masters\clsAttachments.vb" />
+    <Compile Include="Masters\clsAuditChecklist.vb" />
+    <Compile Include="Masters\clsAuditGeneral.vb" />
+    <Compile Include="Masters\clsAuditLog.vb" />
+    <Compile Include="Masters\clsCompanyDetails.vb" />
+    <Compile Include="Masters\clsCPFP.vb" />
+    <Compile Include="Masters\clsCustDashbord.vb" />
+    <Compile Include="Masters\clsCustDetails.vb" />
+    <Compile Include="Masters\clsCustomerMaster.vb" />
+    <Compile Include="Masters\clsDynamicReport.vb" />
+    <Compile Include="Masters\clsEmployeeMaster.vb" />
+    <Compile Include="Masters\clsEProfile.vb" />
+    <Compile Include="Masters\clsExcelUpload.vb" />
+    <Compile Include="Masters\clsHolidayMaster.vb" />
+    <Compile Include="Masters\clsLeaveDetails.vb" />
+    <Compile Include="Masters\clsLogin.vb" />
+    <Compile Include="Masters\clsModulePermission.vb" />
+    <Compile Include="Masters\clsOrgStructure.vb" />
+    <Compile Include="Masters\clsReportContentMaster.vb" />
+    <Compile Include="Masters\clsReportTemplate.vb" />
+    <Compile Include="Masters\clsUsers.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Permission\clsAccessRights.vb" />
+    <Compile Include="StandardAudit\clsSAAuditSummary.vb" />
+    <Compile Include="StandardAudit\clsStandardAudit.vb" />
+    <Compile Include="StandardAudit\clsUploadLedger.vb" />
+    <Compile Include="StandardAudit\clsUploadTBExcel.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DatabaseLayer\DatabaseLayer.vbproj">
+      <Project>{5ba6773b-5163-4352-9621-094448cf04c1}</Project>
+      <Name>DatabaseLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Release\BusinesLayer.dll" />
+    <Content Include="bin\Release\BusinesLayer.pdb" />
+    <Content Include="bin\Release\BusinesLayer.xml" />
+    <Content Include="bin\Release\DatabaseLayer.dll" />
+    <Content Include="bin\Release\DatabaseLayer.pdb" />
+    <Content Include="bin\Release\DatabaseLayer.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>

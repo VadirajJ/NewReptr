@@ -1,0 +1,945 @@
+
+http://tracemkt.multimedia.interactivedns.com/
+
+CREATE TABLE [dbo].[Acc_AssetDepITAct](
+	[ADITAct_ID] [int] NULL,
+	[ADITAct_AssetClassID] [int] NULL,
+	[ADITAct_RateofDep] [money] NULL,
+	[ADITAct_OPBForYR] [money] NULL,
+	[ADITAct_DepreciationforFY] [money] NULL,
+	[ADITAct_WrittenDownValue] [money] NULL,
+	[ADITAct_BfrQtrAmount] [money] NULL,
+	[ADITAct_BfrQtrDep] [money] NULL,
+	[ADITAct_AftQtrAmount] [money] NULL,
+	[ADITAct_AftQtrDep] [money] NULL,
+	[ADITAct_DelAmount] [money] NULL,
+	[ADITAct_CreatedBy] [int] NULL,
+	[ADITAct_CreatedOn] [datetime] NULL,
+	[ADITAct_UpdatedBy] [int] NULL,
+	[ADITAct_UpdatedOn] [datetime] NULL,
+	[ADITAct_ApprovedBy] [int] NULL,
+	[ADITAct_ApprovedOn] [datetime] NULL,
+	[ADITAct_DelFlag] [char](1) NULL,
+	[ADITAct_Status] [varchar](2) NULL,
+	[ADITAct_YearID] [int] NULL,
+	[ADITAct_CompID] [int] NULL,
+	[ADITAct_CustId] [int] NULL,
+	[ADITAct_Opeartion] [varchar](1) NULL,
+	[ADITAct_IPAddress] [varchar](25) NULL
+) ON [PRIMARY]
+GO
+
+
+CREATE TABLE [dbo].[Acc_AssetDepreciation](
+	[ADep_ID] [int] NULL,
+	[ADep_AssetID] [int] NULL,
+	[ADep_Item] [varchar](250) NULL,
+	[ADep_RateofDep] [money] NULL,
+	[ADep_OPBForYR] [money] NULL,
+	[ADep_DepreciationforFY] [money] NULL,
+	[ADep_WrittenDownValue] [money] NULL,
+	[ADep_ClosingDate] [datetime] NULL,
+	[ADep_CreatedBy] [int] NULL,
+	[ADep_CreatedOn] [datetime] NULL,
+	[ADep_UpdatedBy] [int] NULL,
+	[ADep_UpdatedOn] [datetime] NULL,
+	[ADep_ApprovedBy] [int] NULL,
+	[ADep_ApprovedOn] [datetime] NULL,
+	[ADep_DelFlag] [char](1) NULL,
+	[ADep_Status] [varchar](2) NULL,
+	[ADep_YearID] [int] NULL,
+	[ADep_CompID] [int] NULL,
+	[ADep_CustId] [int] NULL,
+	[ADep_Location] [int] NULL,
+	[ADep_Division] [int] NULL,
+	[ADep_Department] [int] NULL,
+	[ADep_Bay] [int] NULL,
+	[ADep_TransType] [int] NULL,
+	[ADep_Method] [int] NULL,
+	[ADep_Opeartion] [varchar](1) NULL,
+	[ADep_IPAddress] [varchar](25) NULL
+) ON [PRIMARY]
+GO
+
+
+CREATE TABLE [dbo].[Acc_AssetLocationSetup](
+	[LS_ID] [int] NULL,
+	[LS_Description] [varchar](500) NULL,
+	[LS_DescCode] [varchar](500) NULL,
+	[LS_Code] [varchar](500) NULL,
+	[LS_LevelCode] [int] NULL,
+	[LS_ParentID] [int] NULL,
+	[LS_CreatedBy] [int] NULL,
+	[LS_CreatedOn] [datetime] NULL,
+	[LS_UpdatedBy] [int] NULL,
+	[LS_UpdatedOn] [datetime] NULL,
+	[LS_DelFlag] [char](1) NULL,
+	[LS_Status] [varchar](50) NULL,
+	[LS_YearID] [int] NULL,
+	[LS_CompID] [int] NULL,
+	[LS_CustId] [int] NULL,
+	[LS_ApprovedBy] [int] NULL,
+	[LS_ApprovedOn] [datetime] NULL,
+	[LS_Opeartion] [varchar](1) NULL,
+	[LS_IPAddress] [varchar](25) NULL
+) ON [PRIMARY]
+GO
+
+
+CREATE TABLE [dbo].[Acc_AssetMaster](
+	[AM_ID] [int] NULL,
+	[AM_Description] [varchar](500) NULL,
+	[AM_Code] [varchar](500) NULL,
+	[AM_LevelCode] [int] NULL,
+	[AM_ParentID] [int] NULL,
+	[AM_WDVITAct] [money] NULL,
+	[AM_ITRate] [money] NULL,
+	[AM_ResidualValue] [int] NULL,
+	[AM_CreatedBy] [int] NULL,
+	[AM_CreatedOn] [datetime] NULL,
+	[AM_UpdatedBy] [int] NULL,
+	[AM_UpdatedOn] [datetime] NULL,
+	[AM_DelFlag] [char](1) NULL,
+	[AM_Status] [varchar](50) NULL,
+	[AM_YearID] [int] NULL,
+	[AM_CompID] [int] NULL,
+	[AM_CustId] [int] NULL,
+	[AM_ApprovedBy] [int] NULL,
+	[AM_ApprovedOn] [datetime] NULL,
+	[AM_Opeartion] [varchar](1) NULL,
+	[AM_IPAddress] [varchar](25) NULL
+) ON [PRIMARY]
+GO
+
+
+CREATE TABLE [dbo].[Acc_FixedAssetAdditionDel](
+	[AFAA_ID] [int] NULL,
+	[AFAA_AssetTrType] [int] NULL,
+	[AFAA_CurrencyType] [int] NULL,
+	[AFAA_CurrencyAmnt] [money] NULL,
+	[AFAA_Location] [int] NULL,
+	[AFAA_Division] [int] NULL,
+	[AFAA_Department] [int] NULL,
+	[AFAA_Bay] [int] NULL,
+	[AFAA_ActualLocn] [varchar](100) NULL,
+	[AFAA_SupplierName] [int] NULL,
+	[AFAA_SupplierCode] [int] NULL,
+	[AFAA_TrType] [int] NULL,
+	[AFAA_AssetType] [varchar](50) NULL,
+	[AFAA_AssetNo] [varchar](50) NULL,
+	[AFAA_AssetRefNo] [varchar](50) NULL,
+	[AFAA_Description] [varchar](500) NULL,
+	[AFAA_ItemCode] [varchar](50) NULL,
+	[AFAA_ItemDescription] [varchar](500) NULL,
+	[AFAA_Quantity] [int] NULL,
+	[AFAA_CommissionDate] [datetime] NULL,
+	[AFAA_PurchaseDate] [datetime] NULL,
+	[AFAA_AssetAge] [money] NULL,
+	[AFAA_AssetAmount] [money] NULL,
+	[AFAA_FYAmount] [money] NULL,
+	[AFAA_DepreAmount] [money] NULL,
+	[AFAA_AssetDelID] [int] NULL,
+	[AFAA_AssetDelDate] [datetime] NULL,
+	[AFAA_AssetDeletionDate] [datetime] NULL,
+	[AFAA_Assetvalue] [money] NULL,
+	[AFAA_AssetDesc] [varchar](500) NULL,
+	[AFAA_CreatedBy] [int] NULL,
+	[AFAA_CreatedOn] [datetime] NULL,
+	[AFAA_UpdatedBy] [int] NULL,
+	[AFAA_UpdatedOn] [datetime] NULL,
+	[AFAA_Status] [varchar](25) NULL,
+	[AFAA_Delflag] [char](1) NULL,
+	[AFAA_YearID] [int] NULL,
+	[AFAA_CompID] [int] NULL,
+	[AFAA_Operation] [varchar](1) NULL,
+	[AFAA_IPAddress] [varchar](100) NULL,
+	[AFAA_AddnType] [varchar](5) NULL,
+	[AFAA_DelnType] [varchar](5) NULL,
+	[AFAA_Depreciation] [money] NULL,
+	[AFAA_AddtnDate] [datetime] NULL,
+	[AFAA_ApprovedBy] [int] NULL,
+	[AFAA_ApprovedOn] [datetime] NULL,
+	[AFAA_ItemType] [int] NULL,
+	[AFAA_CustId] [int] NULL
+) ON [PRIMARY]
+GO
+
+
+CREATE TABLE [dbo].[Acc_FixedAssetAdditionDetails](
+	[FAAD_PKID] [int] NULL,
+	[FAAD_MasID] [int] NULL,
+	[FAAD_Location] [int] NULL,
+	[FAAD_Division] [int] NULL,
+	[FAAD_Department] [int] NULL,
+	[FAAD_Bay] [int] NULL,
+	[FAAD_Particulars] [varchar](250) NULL,
+	[FAAD_DocNo] [varchar](25) NULL,
+	[FAAD_DocDate] [datetime] NULL,
+	[FAAD_chkCost] [int] NULL,
+	[FAAD_BasicCost] [money] NULL,
+	[FAAD_TaxAmount] [money] NULL,
+	[FAAD_Total] [money] NULL,
+	[FAAD_AssetValue] [money] NULL,
+	[FAAD_CreatedBy] [int] NULL,
+	[FAAD_CreatedOn] [datetime] NULL,
+	[FAAD_UpdatedBy] [int] NULL,
+	[FAAD_UpdatedOn] [datetime] NULL,
+	[FAAD_IPAddress] [varchar](25) NULL,
+	[FAAD_CompID] [int] NULL,
+	[FAAD_Status] [varchar](2) NULL,
+	[FAAD_AssetType] [int] NULL,
+	[FAAD_ItemType] [int] NULL,
+	[FAAD_SupplierName] [varchar](50) NULL,
+	[FAAD_CustId] [int] NULL,
+	[FAAD_YearID] [int] NULL
+) ON [PRIMARY]
+GO
+
+
+CREATE TABLE [dbo].[Acc_FixedAssetDeletion](
+	[AFAD_ID] [int] NULL,
+	[AFAD_CustomerName] [int] NULL,
+	[AFAD_TransNo] [varchar](500) NULL,
+	[AFAD_Location] [int] NULL,
+	[AFAD_Division] [int] NULL,
+	[AFAD_Department] [int] NULL,
+	[AFAD_Bay] [int] NULL,
+	[AFAD_AssetClass] [int] NULL,
+	[AFAD_Asset] [int] NULL,
+	[AFAD_AssetDeletion] [int] NULL,
+	[AFAD_AssetDeletionType] [int] NULL,
+	[AFAD_DeletionDate] [datetime] NULL,
+	[AFAD_Amount] [money] NULL,
+	[AFAD_Quantity] [int] NULL,
+	[AFAD_Paymenttype] [int] NULL,
+	[AFAD_CostofTransport] [money] NULL,
+	[AFAD_InstallationCost] [money] NULL,
+	[AFAD_DateofInitiate] [datetime] NULL,
+	[AFAD_DateofReceived] [datetime] NULL,
+	[AFAD_ToLocation] [int] NULL,
+	[AFAD_ToDivision] [int] NULL,
+	[AFAD_ToDepartment] [int] NULL,
+	[AFAD_ToBay] [int] NULL,
+	[AFAD_AssetDelDesc] [varchar](500) NULL,
+	[AFAD_PorLStatus] [varchar](50) NULL,
+	[AFAD_PorLAmount] [money] NULL,
+	[AFAD_SalesPrice] [money] NULL,
+	[AFAD_DelDeprec] [money] NULL,
+	[AFAD_WDVValue] [money] NULL,
+	[AFAD_ContAssetValue] [money] NULL,
+	[AFAD_ContDep] [money] NULL,
+	[AFAD_ContWDV] [money] NULL,
+	[AFAD_CreatedBy] [int] NULL,
+	[AFAD_CreatedOn] [datetime] NULL,
+	[AFAD_ApprovedBy] [int] NULL,
+	[AFAD_ApprovedOn] [datetime] NULL,
+	[AFAD_Status] [varchar](25) NULL,
+	[AFAD_Delflag] [char](1) NULL,
+	[AFAD_YearID] [int] NULL,
+	[AFAD_CompID] [int] NULL,
+	[AFAD_Deletedby] [int] NULL,
+	[AFAD_DeletedOn] [datetime] NULL,
+	[AFAD_IPAddress] [varchar](100) NULL,
+	[AFAD_InsClaimedNo] [varchar](500) NULL,
+	[AFAD_InsAmtClaimed] [money] NULL,
+	[AFAD_InsClaimedDate] [datetime] NULL,
+	[AFAD_InsAmtRecvd] [money] NULL,
+	[AFAD_InsRefNo] [varchar](1) NULL,
+	[AFAD_InsRefDate] [datetime] NULL,
+	[AFAD_Remarks] [varchar](200) NULL
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[Acc_FixedAssetMaster](
+	[AFAM_ID] [int] NULL,
+	[AFAM_AssetType] [varchar](50) NULL,
+	[AFAM_AssetCode] [varchar](50) NULL,
+	[AFAM_Description] [varchar](500) NULL,
+	[AFAM_ItemCode] [varchar](50) NULL,
+	[AFAM_ItemDescription] [varchar](500) NULL,
+	[AFAM_CommissionDate] [datetime] NULL,
+	[AFAM_PurchaseDate] [datetime] NULL,
+	[AFAM_Quantity] [int] NULL,
+	[AFAM_Unit] [int] NULL,
+	[AFAM_AssetAge] [money] NULL,
+	[AFAM_PurchaseAmount] [money] NULL,
+	[AFAM_PolicyNo] [varchar](50) NULL,
+	[AFAM_Amount] [money] NULL,
+	[AFAM_BrokerName] [varchar](50) NULL,
+	[AFAM_CompanyName] [varchar](100) NULL,
+	[AFAM_Date] [datetime] NULL,
+	[AFAM_ToDate] [datetime] NULL,
+	[AFAM_Location] [int] NULL,
+	[AFAM_Division] [int] NULL,
+	[AFAM_Department] [int] NULL,
+	[AFAM_Bay] [int] NULL,
+	[AFAM_EmployeeName] [varchar](100) NULL,
+	[AFAM_EmployeeCode] [varchar](100) NULL,
+	[AFAM_Code] [varchar](100) NULL,
+	[AFAM_SuplierName] [varchar](50) NULL,
+	[AFAM_ContactPerson] [varchar](50) NULL,
+	[AFAM_Address] [varchar](500) NULL,
+	[AFAM_Phone] [varchar](15) NULL,
+	[AFAM_Fax] [varchar](10) NULL,
+	[AFAM_EmailID] [varchar](100) NULL,
+	[AFAM_Website] [varchar](500) NULL,
+	[AFAM_CreatedBy] [int] NULL,
+	[AFAM_CreatedOn] [datetime] NULL,
+	[AFAM_UpdatedBy] [int] NULL,
+	[AFAM_UpdatedOn] [datetime] NULL,
+	[AFAM_DelFlag] [varchar](50) NULL,
+	[AFAM_Status] [varchar](50) NULL,
+	[AFAM_YearID] [int] NULL,
+	[AFAM_CompID] [int] NULL,
+	[AFAM_Opeartion] [varchar](1) NULL,
+	[AFAM_IPAddress] [varchar](25) NULL,
+	[AFAM_WrntyDesc] [varchar](500) NULL,
+	[AFAM_ContactPrsn] [varchar](50) NULL,
+	[AFAM_AMCFrmDate] [datetime] NULL,
+	[AFAM_AMCTo] [datetime] NULL,
+	[AFAM_Contprsn] [varchar](100) NULL,
+	[AFAM_PhoneNo] [varchar](15) NULL,
+	[AFAM_AMCCompanyName] [varchar](500) NULL,
+	[AFAM_AssetDeletion] [int] NULL,
+	[AFAM_DlnDate] [datetime] NULL,
+	[AFAM_DateOfDeletion] [datetime] NULL,
+	[AFAM_Value] [money] NULL,
+	[AFAM_Remark] [varchar](500) NULL,
+	[AFAM_EMPCode] [varchar](10) NULL,
+	[AFAM_LToWhom] [varchar](500) NULL,
+	[AFAM_LAmount] [money] NULL,
+	[AFAM_LAggriNo] [varchar](50) NULL,
+	[AFAM_LDate] [datetime] NULL,
+	[AFAM_LCurrencyType] [int] NULL,
+	[AFAM_LExchDate] [datetime] NULL,
+	[AFAM_CustId] [int] NULL
+) ON [PRIMARY]
+GO
+
+
+CREATE TABLE [dbo].[SAD_SUPPLIER_MASTER](
+	[SUP_ID] [int] NULL,
+	[SUP_Name] [varchar](150) NULL,
+	[SUP_Code] [varchar](50) NULL,
+	[SUP_ContactPerson] [varchar](50) NULL,
+	[SUP_Address] [varchar](50) NULL,
+	[SUP_PhoneNo] [varchar](50) NULL,
+	[SUP_Fax] [varchar](50) NULL,
+	[SUP_Email] [varchar](50) NULL,
+	[SUP_Website] [varchar](50) NULL,
+	[SUP_CRBY] [int] NULL,
+	[SUP_CRON] [datetime] NULL,
+	[SUP_STATUS] [varchar](25) NULL,
+	[SUP_IPAddress] [varchar](25) NULL,
+	[SUP_CompID] [int] NULL
+) ON [PRIMARY]
+GO
+
+
+
+ALTER  procedure [dbo].[spAcc_AsetDepreciation]
+(
+
+@ADep_ID int,
+	@ADep_AssetID int,
+	@ADep_Item varchar(250),
+	@ADep_RateofDep money,
+	@ADep_OPBForYR money,
+	@ADep_DepreciationforFY money,
+	@ADep_WrittenDownValue money,
+	@ADep_ClosingDate datetime,
+	@ADep_CreatedBy int,
+	@ADep_CreatedOn datetime,
+	@ADep_UpdatedBy int,
+	@ADep_UpdatedOn datetime,
+	@ADep_ApprovedBy int,
+	@ADep_ApprovedOn datetime,
+	@ADep_DelFlag char(1),
+	@ADep_Status varchar(2),
+	@ADep_YearID int,
+	@ADep_CompID int,
+	@ADep_CustId int,
+	@ADep_Location int,
+	@ADep_Division int,
+	@ADep_Department int,
+	@ADep_Bay int,
+	@ADep_TransType int,
+	@ADep_Method int,
+	@ADep_Opeartion varchar(1),
+	@ADep_IPAddress varchar(25),
+	@iUpdateOrSave int Output,    
+    @iOper int Output   
+
+)
+as                       
+  if exists(select ADep_ID from Acc_AssetDepreciation where ADep_ID=@ADep_ID and ADep_YearID=@ADep_YearID And ADep_CompID=@ADep_CompID)                        
+   begin  
+   update Acc_AssetDepreciation Set ADep_AssetID=@ADep_AssetID,ADep_Item=@ADep_Item,ADep_RateofDep=@ADep_RateofDep,ADep_OPBForYR=@ADep_OPBForYR,
+  ADep_DepreciationforFY=@ADep_DepreciationforFY,ADep_WrittenDownValue=@ADep_WrittenDownValue,ADep_ClosingDate=@ADep_ClosingDate,ADep_UpdatedBy=@ADep_UpdatedBy,
+ADep_UpdatedOn=getdate(),ADep_DelFlag=@ADep_DelFlag,ADep_Status=@ADep_Status,ADep_YearID=@ADep_YearID,ADep_CompID=@ADep_CompID,ADep_CustId=@ADep_CustId,
+ADep_Location=@ADep_Location,ADep_Division=@ADep_Division,ADep_Department=@ADep_Department,ADep_Bay=@ADep_Bay,ADep_TransType=@ADep_TransType,ADep_Method=@ADep_Method,
+ADep_ApprovedBy=@ADep_ApprovedBy,ADep_ApprovedOn=@ADep_ApprovedOn,ADep_Opeartion=@ADep_Opeartion,ADep_IPAddress=@ADep_IPAddress 
+   Where ADep_ID=@ADep_ID and ADep_YearID=@ADep_YearID And ADep_CompID=@ADep_CompID
+  set @iUpdateOrSave=2                    
+ set @iOper = @ADep_ID
+
+ end                              
+ else                   
+ begin       
+ 
+  set @ADep_ID=(select isnull(max(ADep_ID)+1,1) from Acc_AssetDepreciation)                  
+  Insert into Acc_AssetDepreciation (ADep_ID,ADep_AssetID,ADep_Item,ADep_RateofDep,ADep_OPBForYR,ADep_DepreciationforFY,ADep_WrittenDownValue,ADep_ClosingDate,ADep_CreatedBy,ADep_CreatedOn,
+ADep_DelFlag,ADep_Status,ADep_YearID,ADep_CompID,ADep_CustId,ADep_Location,ADep_Division,ADep_Department,ADep_Bay,ADep_TransType,ADep_Method,ADep_Opeartion,ADep_IPAddress)
+
+ values
+(@ADep_ID,@ADep_AssetID,@ADep_Item,@ADep_RateofDep,@ADep_OPBForYR,@ADep_DepreciationforFY,@ADep_WrittenDownValue,
+@ADep_ClosingDate,@ADep_CreatedBy,@ADep_CreatedOn,@ADep_DelFlag,@ADep_Status,@ADep_YearID,@ADep_CompID,@ADep_CustId,@ADep_Location,@ADep_Division,@ADep_Department,@ADep_Bay,@ADep_TransType,@ADep_Method,@ADep_Opeartion,@ADep_IPAddress) 
+
+  
+  set @iUpdateOrSave=3                 
+  set @iOper = @ADep_ID                     
+    end 
+
+
+
+ALTER  procedure [dbo].[spAcc_AssetDepITAct]
+(
+
+    @ADITAct_ID int,
+	@ADITAct_AssetClassID int,
+    @ADITAct_RateofDep money,
+    @ADITAct_OPBForYR money,
+	@ADITAct_DepreciationforFY money,
+	@ADITAct_WrittenDownValue money,
+	@ADITAct_BfrQtrAmount money,
+	@ADITAct_BfrQtrDep money,
+	@ADITAct_AftQtrAmount money,
+	@ADITAct_AftQtrDep money,
+	@ADITAct_DelAmount money,
+	@ADITAct_CreatedBy int,
+	@ADITAct_CreatedOn datetime,
+	@ADITAct_UpdatedBy int,
+	@ADITAct_UpdatedOn datetime,
+	@ADITAct_ApprovedBy int,
+	@ADITAct_ApprovedOn datetime,
+	@ADITAct_DelFlag char(1),
+	@ADITAct_Status varchar(2),
+	@ADITAct_YearID int,
+	@ADITAct_CompID int,
+	@ADITAct_CustId int,
+	@ADITAct_Opeartion varchar(1),
+	@ADITAct_IPAddress varchar(25),
+	@iUpdateOrSave int Output,    
+    @iOper int Output   
+
+)
+as                       
+  if exists(select ADITAct_ID from Acc_AssetDepITAct where ADITAct_ID=@ADITAct_ID and ADITAct_YearID=@ADITAct_YearID And ADITAct_CompID=@ADITAct_CompID)                        
+   begin  
+   update Acc_AssetDepITAct Set ADITAct_AssetClassID=@ADITAct_AssetClassID,ADITAct_RateofDep=@ADITAct_RateofDep,ADITAct_OPBForYR=@ADITAct_OPBForYR,
+  ADITAct_DepreciationforFY=@ADITAct_DepreciationforFY,ADITAct_WrittenDownValue=@ADITAct_WrittenDownValue,ADITAct_BfrQtrAmount=@ADITAct_BfrQtrAmount,ADITAct_BfrQtrDep=@ADITAct_BfrQtrDep,
+ ADITAct_AftQtrAmount=@ADITAct_AftQtrAmount,ADITAct_AftQtrDep=@ADITAct_AftQtrDep,ADITAct_DelAmount=@ADITAct_DelAmount,ADITAct_UpdatedBy=@ADITAct_UpdatedBy,
+ADITAct_UpdatedOn=getdate(),ADITAct_DelFlag=@ADITAct_DelFlag,ADITAct_Status=@ADITAct_Status,ADITAct_YearID=@ADITAct_YearID,ADITAct_CompID=@ADITAct_CompID,ADITAct_CustId=@ADITAct_CustId,
+ADITAct_ApprovedBy=@ADITAct_ApprovedBy,ADITAct_ApprovedOn=@ADITAct_ApprovedOn,ADITAct_Opeartion=@ADITAct_Opeartion,ADITAct_IPAddress=@ADITAct_IPAddress 
+   Where ADITAct_ID=@ADITAct_ID and ADITAct_YearID=@ADITAct_YearID And ADITAct_CompID=@ADITAct_CompID
+  set @iUpdateOrSave=2                    
+ set @iOper = @ADITAct_ID
+
+ end                              
+ else                   
+ begin       
+ 
+  set @ADITAct_ID=(select isnull(max(ADITAct_ID)+1,1) from Acc_AssetDepITAct)                  
+  Insert into Acc_AssetDepITAct (ADITAct_ID,ADITAct_AssetClassID,ADITAct_RateofDep,ADITAct_OPBForYR,ADITAct_DepreciationforFY,ADITAct_WrittenDownValue,ADITAct_BfrQtrAmount,
+ADITAct_BfrQtrDep,ADITAct_AftQtrAmount,ADITAct_AftQtrDep,ADITAct_DelAmount,ADITAct_CreatedBy,ADITAct_CreatedOn,ADITAct_DelFlag,ADITAct_Status,ADITAct_YearID,ADITAct_CompID,ADITAct_CustId,ADITAct_Opeartion,ADITAct_IPAddress)
+
+ values
+(@ADITAct_ID,@ADITAct_AssetClassID,@ADITAct_RateofDep,@ADITAct_OPBForYR,@ADITAct_DepreciationforFY,@ADITAct_WrittenDownValue,@ADITAct_BfrQtrAmount,@ADITAct_BfrQtrDep,
+@ADITAct_AftQtrAmount,@ADITAct_AftQtrDep,@ADITAct_DelAmount,@ADITAct_CreatedBy,@ADITAct_CreatedOn,@ADITAct_DelFlag,@ADITAct_Status,@ADITAct_YearID,@ADITAct_CompID,@ADITAct_CustId,@ADITAct_Opeartion,@ADITAct_IPAddress) 
+
+ set @iUpdateOrSave=3                 
+ set @iOper = @ADITAct_ID                     
+ end   
+
+
+
+
+ALTER procedure [dbo].[spAcc_AssetLocationSetup](
+
+     @LS_ID int,
+	 @LS_Description varchar(500),
+	  @LS_DescCode varchar(500),
+	 @LS_Code varchar(500),
+	 @LS_LevelCode int,
+	 @LS_ParentID int,
+     @LS_CreatedBy int,
+	 @LS_CreatedOn datetime,
+	 @LS_UpdatedBy int,
+	 @LS_UpdatedOn datetime,
+	 @LS_DelFlag char(1),
+	 @LS_Status varchar(50),
+	 @LS_YearID int,
+	 @LS_CompID int,
+	 @LS_CustId int,
+	 @LS_ApprovedBy int,
+	 @LS_ApprovedOn datetime,
+     @LS_Opeartion varchar(1),
+	 @LS_IPAddress varchar(25),
+	 @iUpdateOrSave int Output,    
+     @iOper int Output   
+)
+as                       
+  if exists(select LS_ID from Acc_AssetLocationSetup where LS_ID=@LS_ID and LS_CompID=@LS_CompID)                        
+   begin  
+   update Acc_AssetLocationSetup Set LS_UpdatedBy=@LS_UpdatedBy,LS_UpdatedOn=getdate(),
+   LS_DelFlag=@LS_DelFlag,LS_Status=@LS_Status,LS_YearID=@LS_YearID,LS_CompID=@LS_CompID,LS_CustId=@LS_CustId,
+   LS_Opeartion=@LS_Opeartion,LS_IPAddress=@LS_IPAddress, 
+   LS_Code=@LS_Code,LS_LevelCode=@LS_LevelCode,LS_Description=@LS_Description,LS_DescCode=@LS_DescCode,LS_ParentID=@LS_ParentID,LS_ApprovedBy=@LS_ApprovedBy,LS_ApprovedOn=getdate()
+   where LS_CompID=@LS_CompID and LS_ID=@LS_ID
+  set @iUpdateOrSave=2                    
+    set @iOper = @LS_ID 
+ end                              
+  else                                    
+        begin              
+  set @LS_ID=(select isnull(max(LS_ID)+1,1) from Acc_AssetLocationSetup)                  
+  Insert into Acc_AssetLocationSetup(LS_ID,LS_Description,LS_DescCode,LS_Code,LS_LevelCode,LS_ParentID,
+  LS_CreatedBy,LS_CreatedOn,LS_DelFlag,LS_Status,LS_YearID,LS_CompID,LS_CustId,LS_Opeartion,LS_IPAddress)
+ values
+(@LS_ID,@LS_Description,@LS_DescCode,@LS_Code,@LS_LevelCode,@LS_ParentID, @LS_CreatedBy,getdate(),@LS_DelFlag,@LS_Status,
+ @LS_YearID,@LS_CompID,@LS_CustId,@LS_Opeartion,@LS_IPAddress)          
+  set @iUpdateOrSave=3                 
+  set @iOper = @LS_ID                     
+    end 
+
+
+
+ALTER  procedure [dbo].[spAcc_AssetMaster](
+
+     @AM_ID int,
+	 @AM_Description varchar(500),
+	 @AM_Code varchar(500),
+	 @AM_LevelCode int,
+	 @AM_ParentID int,
+     @AM_WDVITAct money,
+	 @AM_ITRate money,
+	 @AM_ResidualValue int,
+	 @AM_CreatedBy int,
+	 @AM_CreatedOn datetime,
+	 @AM_UpdatedBy int,
+	 @AM_UpdatedOn datetime,
+	 @AM_DelFlag char(1),
+	 @AM_Status varchar(50),
+	 @AM_YearID int,
+	 @AM_CompID int,
+	 @AM_CustId int,
+	 @AM_ApprovedBy int,
+	 @AM_ApprovedOn datetime,
+     @AM_Opeartion varchar(1),
+	 @AM_IPAddress varchar(25),
+	 @iUpdateOrSave int Output,    
+     @iOper int Output   
+)
+as                       
+  if exists(select AM_ID from Acc_AssetMaster where AM_ID=@AM_ID and AM_CompID=@AM_CompID)                        
+   begin  
+   update Acc_AssetMaster Set AM_UpdatedBy=@AM_UpdatedBy,AM_UpdatedOn=getdate(),
+   AM_DelFlag=@AM_DelFlag,AM_Status=@AM_Status,AM_YearID=@AM_YearID,AM_CompID=@AM_CompID,AM_CustId=@AM_CustId,
+   AM_WDVITAct=@AM_WDVITAct,AM_Opeartion=@AM_Opeartion,AM_IPAddress=@AM_IPAddress,AM_ITRate=@AM_ITRate,AM_ResidualValue=@AM_ResidualValue, 
+   AM_Code=@AM_Code,AM_LevelCode=@AM_LevelCode,AM_Description=@AM_Description,AM_ParentID=@AM_ParentID,AM_ApprovedBy=@AM_ApprovedBy,AM_ApprovedOn=getdate()
+   where  AM_CompID=@AM_CompID and AM_ID=@AM_ID
+  set @iUpdateOrSave=2                    
+    set @iOper = @AM_ID 
+ end                              
+  else                                    
+        begin              
+  set @AM_ID=(select isnull(max(AM_ID)+1,1) from Acc_AssetMaster)                  
+  Insert into Acc_AssetMaster(AM_ID,AM_Description,AM_Code,AM_LevelCode,AM_ParentID,AM_WDVITAct,AM_ITRate,AM_ResidualValue,
+  AM_CreatedBy,AM_CreatedOn,AM_DelFlag,AM_Status,AM_YearID,AM_CompID,AM_CustId,AM_Opeartion,AM_IPAddress)
+ values
+(@AM_ID,@AM_Description,@AM_Code,@AM_LevelCode,@AM_ParentID,@AM_WDVITAct,@AM_ITRate,@AM_ResidualValue,
+  @AM_CreatedBy,getdate(),@AM_DelFlag,@AM_Status,@AM_YearID,@AM_CompID,@AM_CustId,@AM_Opeartion,@AM_IPAddress)          
+  set @iUpdateOrSave=3                 
+  set @iOper = @AM_ID                     
+    end 
+
+
+
+ALTER  Procedure [dbo].[spAcc_FixedAssetAdditionDel]        
+(
+    @AFAA_ID int,
+	@AFAA_AssetTrType int ,
+	@AFAA_CurrencyType int ,
+	@AFAA_CurrencyAmnt money ,
+	@AFAA_Location int,
+	@AFAA_Division int,
+	@AFAA_Department int,
+	@AFAA_Bay int,
+	@AFAA_ActualLocn varchar(100) ,
+	@AFAA_SupplierName int ,
+	@AFAA_SupplierCode int ,
+	@AFAA_TrType int ,
+	@AFAA_AssetType varchar(50) ,
+	@AFAA_AssetNo varchar(50) ,
+	@AFAA_AssetRefNo varchar(50) ,	
+	@AFAA_Description varchar(500) ,
+	@AFAA_ItemCode varchar(50) ,
+	@AFAA_ItemDescription varchar(500) ,
+	@AFAA_Quantity int ,
+	@AFAA_CommissionDate datetime ,
+	@AFAA_PurchaseDate datetime ,	
+	@AFAA_AssetAge money ,
+	@AFAA_AssetAmount money ,
+    @AFAA_FYAmount money,
+	@AFAA_DepreAmount money,
+	@AFAA_AssetDelID int ,
+	@AFAA_AssetDelDate datetime ,
+	@AFAA_AssetDeletionDate datetime ,
+	@AFAA_Assetvalue money ,
+	@AFAA_AssetDesc varchar(500) ,
+	@AFAA_CreatedBy int ,
+    @AFAA_CreatedOn datetime ,
+    @AFAA_UpdatedBy int ,
+    @AFAA_UpdatedOn datetime ,   
+    @AFAA_Status varchar(25) ,
+	@AFAA_Delflag char(1) ,
+    @AFAA_YearID int ,
+    @AFAA_CompID int ,
+    @AFAA_Operation varchar(1) ,
+    @AFAA_IPAddress varchar(100),
+	@AFAA_AddnType varchar(5),
+	@AFAA_DelnType varchar(5),
+	@AFAA_Depreciation money,
+	@AFAA_AddtnDate datetime,
+	@AFAA_ApprovedBy int,
+	@AFAA_ApprovedOn datetime,
+	@AFAA_ItemType int,
+	@AFAA_CustId int,
+@iUpdateOrSave int Output,      
+@iOper int Output      
+)          
+as
+ if exists(select AFAA_ID from Acc_FixedAssetAdditionDel where AFAA_ID=@AFAA_ID and AFAA_CompID=@AFAA_CompID and AFAA_YearID=@AFAA_YearID)              
+     begin                	            
+		Update Acc_FixedAssetAdditionDel set AFAA_AssetTrType=@AFAA_AssetTrType,AFAA_CurrencyType=@AFAA_CurrencyType,
+	AFAA_CurrencyAmnt=@AFAA_CurrencyAmnt,AFAA_Location=@AFAA_Location,AFAA_Division=@AFAA_Division,AFAA_Department=@AFAA_Department,AFAA_Bay=@AFAA_Bay,
+	AFAA_ActualLocn=@AFAA_ActualLocn,AFAA_SupplierName=@AFAA_SupplierName,AFAA_SupplierCode=@AFAA_SupplierCode,
+	AFAA_TrType=@AFAA_TrType,AFAA_AssetType=@AFAA_AssetType,AFAA_AssetRefNo=@AFAA_AssetRefNo,AFAA_Description=@AFAA_Description,AFAA_ItemCode=@AFAA_ItemCode,
+AFAA_ItemDescription=@AFAA_ItemDescription,AFAA_Quantity=@AFAA_Quantity,AFAA_CommissionDate=@AFAA_CommissionDate,
+AFAA_PurchaseDate=@AFAA_PurchaseDate,AFAA_AssetAge=@AFAA_AssetAge,AFAA_AssetAmount=@AFAA_AssetAmount,AFAA_FYAmount=@AFAA_FYAmount,AFAA_DepreAmount=@AFAA_DepreAmount,AFAA_UpdatedBy=@AFAA_UpdatedBy,
+AFAA_UpdatedOn=@AFAA_UpdatedOn,AFAA_Operation=@AFAA_Operation,AFAA_AddnType=@AFAA_AddnType,AFAA_DelnType=@AFAA_DelnType,
+AFAA_Depreciation=@AFAA_Depreciation,AFAA_AddtnDate=@AFAA_AddtnDate,AFAA_ApprovedBy=@AFAA_ApprovedBy,AFAA_ApprovedOn=@AFAA_ApprovedOn,AFAA_ItemType=@AFAA_ItemType,AFAA_CustId=@AFAA_CustId
+		Where AFAA_ID=@AFAA_ID and AFAA_CompID=@AFAA_CompID and AFAA_YearID=@AFAA_YearID
+		set @iUpdateOrSave=2          
+		set @iOper = @AFAA_ID
+	 end      
+	 else         
+	  begin        
+		set @AFAA_ID=(select isnull(max(AFAA_ID)+1,1) from Acc_FixedAssetAdditionDel)   
+		Insert into Acc_FixedAssetAdditionDel (AFAA_ID,AFAA_AssetTrType,AFAA_CurrencyType,AFAA_CurrencyAmnt,AFAA_Location,AFAA_Division,AFAA_Department,
+AFAA_Bay,AFAA_ActualLocn,AFAA_SupplierName,AFAA_SupplierCode,AFAA_TrType,AFAA_AssetType,AFAA_AssetNo,AFAA_AssetRefNo,AFAA_Description,AFAA_ItemCode,
+AFAA_ItemDescription,AFAA_Quantity,AFAA_CommissionDate,AFAA_PurchaseDate,AFAA_AssetAge,AFAA_AssetAmount,AFAA_FYAmount,AFAA_DepreAmount,AFAA_AssetDelID,AFAA_AssetDelDate,
+AFAA_AssetDeletionDate,AFAA_Assetvalue,AFAA_AssetDesc,AFAA_CreatedBy,AFAA_CreatedOn,
+AFAA_Status,AFAA_Delflag,AFAA_YearID,AFAA_CompID,AFAA_Operation,AFAA_IPAddress,AFAA_AddnType,AFAA_DelnType,AFAA_Depreciation,AFAA_AddtnDate,AFAA_ItemType,AFAA_CustId)
+		values(@AFAA_ID,@AFAA_AssetTrType,@AFAA_CurrencyType,@AFAA_CurrencyAmnt,@AFAA_Location,@AFAA_Division,@AFAA_Department,
+@AFAA_Bay,@AFAA_ActualLocn,@AFAA_SupplierName,@AFAA_SupplierCode,@AFAA_TrType,@AFAA_AssetType,@AFAA_AssetNo,@AFAA_AssetRefNo,@AFAA_Description,@AFAA_ItemCode,
+@AFAA_ItemDescription,@AFAA_Quantity,@AFAA_CommissionDate,@AFAA_PurchaseDate,@AFAA_AssetAge,@AFAA_AssetAmount,@AFAA_FYAmount,@AFAA_DepreAmount,@AFAA_AssetDelID,@AFAA_AssetDelDate,
+@AFAA_AssetDeletionDate,@AFAA_Assetvalue,@AFAA_AssetDesc,@AFAA_CreatedBy,@AFAA_CreatedOn,
+@AFAA_Status,@AFAA_Delflag,@AFAA_YearID,@AFAA_CompID,'C',@AFAA_IPAddress,@AFAA_AddnType,@AFAA_DelnType,@AFAA_Depreciation,@AFAA_AddtnDate,@AFAA_ItemType,@AFAA_CustId)
+		set @iUpdateOrSave=3       
+		set @iOper = @AFAA_ID        
+  end
+
+
+
+
+ALTER Procedure [dbo].[spAcc_FixedAssetAdditionDetails]           
+(              
+@FAAD_PKID int,
+@FAAD_MasID int,
+@FAAD_Location int,
+@FAAD_Division int,
+@FAAD_Department int,
+@FAAD_Bay int,
+@FAAD_Particulars varchar(250),
+@FAAD_DocNo varchar(25),
+@FAAD_DocDate datetime,
+@FAAD_chkCost int,
+@FAAD_BasicCost money,
+@FAAD_TaxAmount money,
+@FAAD_Total money,
+@FAAD_AssetValue money,
+@FAAD_CreatedBy int,
+@FAAD_CreatedOn  datetime,
+@FAAD_UpdatedBy int,
+@FAAD_UpdatedOn datetime,
+@FAAD_IPAddress varchar(25),
+@FAAD_CompID int,
+@FAAD_Status varchar(2),
+@FAAD_AssetType int,
+@FAAD_ItemType int,
+@FAAD_SupplierName varchar(50),
+@FAAD_CustId int,
+@FAAD_YearID int,
+@iUpdateOrSave int Output,              
+@iOper int Output                
+)     
+As                    
+if exists(select FAAD_PKID from Acc_FixedAssetAdditionDetails where FAAD_PKID=@FAAD_PKID And FAAD_CompID=@FAAD_CompID)                
+Begin  
+set @FAAD_PKID=(select  FAAD_PKID from Acc_FixedAssetAdditionDetails where FAAD_PKID=@FAAD_PKID And FAAD_CompID=@FAAD_CompID)
+
+Update Acc_FixedAssetAdditionDetails set FAAD_Location=@FAAD_Location,FAAD_Division=@FAAD_Division,FAAD_Department=@FAAD_Department,FAAD_Bay=@FAAD_Bay, FAAD_Particulars=@FAAD_Particulars,FAAD_DocNo=@FAAD_DocNo,FAAD_DocDate=@FAAD_DocDate,FAAD_chkCost=@FAAD_chkCost,FAAD_BasicCost=@FAAD_BasicCost,
+FAAD_TaxAmount=@FAAD_TaxAmount,FAAD_Total=@FAAD_Total,FAAD_IPAddress =@FAAD_IPAddress,FAAD_AssetValue=@FAAD_AssetValue,FAAD_UpdatedOn=getdate(),FAAD_Status=@FAAD_Status,FAAD_AssetType=@FAAD_AssetType,FAAD_ItemType=@FAAD_ItemType,FAAD_SupplierName=@FAAD_SupplierName,FAAD_CustId=@FAAD_CustId
+where FAAD_PKID=@FAAD_PKID And FAAD_CompID=@FAAD_CompID        
+set @iUpdateOrSave=2             
+set @iOper =@FAAD_PKID  
+End              
+Else                
+Begin                
+set @FAAD_PKID=(select IsNull(Max(FAAD_PKID)+1,1) from Acc_FixedAssetAdditionDetails)                
+insert into Acc_FixedAssetAdditionDetails(FAAD_PKID,FAAD_MasID,FAAD_Location,FAAD_Division,FAAD_Department,FAAD_Bay,FAAD_Particulars,FAAD_DocNo,FAAD_DocDate,FAAD_chkCost,FAAD_BasicCost,FAAD_TaxAmount,
+FAAD_Total,FAAD_AssetValue,FAAD_CreatedBy,FAAD_CreatedOn,FAAD_UpdatedBy,FAAD_UpdatedOn,FAAD_IPAddress,FAAD_CompID,FAAD_Status,FAAD_AssetType,FAAD_ItemType,FAAD_SupplierName,FAAD_CustId,FAAD_YearID) 
+
+values(@FAAD_PKID,@FAAD_MasID,@FAAD_Location,@FAAD_Division,@FAAD_Department,@FAAD_Bay,@FAAD_Particulars,@FAAD_DocNo,@FAAD_DocDate,@FAAD_chkCost,@FAAD_BasicCost,@FAAD_TaxAmount,
+@FAAD_Total,@FAAD_AssetValue,@FAAD_CreatedBy,getdate(),@FAAD_UpdatedBy,@FAAD_UpdatedOn,@FAAD_IPAddress,@FAAD_CompID,@FAAD_Status,@FAAD_AssetType,@FAAD_ItemType,@FAAD_SupplierName,@FAAD_CustId,@FAAD_YearID)                
+set @iUpdateOrSave=3               
+set @iOper = @FAAD_PKID         
+End 
+
+
+
+
+ALTER  Procedure [dbo].[spAcc_FixedAssetDeletion]        
+(
+     @AFAD_ID int ,
+	 @AFAD_CustomerName int,
+	 @AFAD_TransNo varchar(500),
+	 @AFAD_Location int,
+	 @AFAD_Division int,
+	 @AFAD_Department int,
+	 @AFAD_Bay int,
+	 @AFAD_AssetClass int,
+	 @AFAD_Asset int,
+	 @AFAD_AssetDeletion int,
+	 @AFAD_AssetDeletionType int,
+	 @AFAD_DeletionDate datetime,
+	 @AFAD_Amount money,
+	 @AFAD_Quantity int,
+	 @AFAD_Paymenttype int,
+	 @AFAD_CostofTransport money,
+	 @AFAD_InstallationCost money,
+	 @AFAD_DateofInitiate datetime,
+	 @AFAD_DateofReceived datetime,
+	 @AFAD_ToLocation int,
+	 @AFAD_ToDivision int,
+	 @AFAD_ToDepartment int,
+	 @AFAD_ToBay int,
+	 @AFAD_AssetDelDesc varchar(500),
+	 @AFAD_PorLStatus varchar(50),
+	 @AFAD_PorLAmount money,
+	 @AFAD_SalesPrice money,
+	 @AFAD_DelDeprec money,
+	 @AFAD_WDVValue money,
+	 @AFAD_ContAssetValue money,
+	 @AFAD_ContDep money,
+	 @AFAD_ContWDV money,
+	@AFAD_InsClaimedNo varchar(500) ,
+	@AFAD_InsAmtClaimed money ,
+	@AFAD_InsClaimedDate datetime ,
+	@AFAD_InsAmtRecvd money ,
+	@AFAD_InsRefNo varchar(500) ,
+	@AFAD_InsRefDate datetime ,
+	@AFAD_Remarks varchar(200),
+	 @AFAD_CreatedBy int,
+	 @AFAD_CreatedOn datetime,
+	 @AFAD_ApprovedBy int,
+	 @AFAD_ApprovedOn datetime,
+	 @AFAD_Status varchar(25),
+	 @AFAD_Delflag char(1),
+	 @AFAD_YearID int,
+	 @AFAD_CompID int,
+	 @AFAD_Deletedby int,
+	 @AFAD_DeletedOn datetime,
+	 @AFAD_IPAddress varchar(100),
+@iUpdateOrSave int Output,      
+@iOper int Output      
+)          
+as
+ if exists(select AFAD_ID from Acc_FixedAssetDeletion where AFAD_ID=@AFAD_ID and AFAD_CompID=@AFAD_CompID and AFAD_YearID=@AFAD_YearID)              
+     begin                	            
+		Update Acc_FixedAssetDeletion set AFAD_AssetDelDesc=@AFAD_AssetDelDesc,AFAD_Quantity=@AFAD_Quantity,AFAD_Amount=@AFAD_Amount,AFAD_Remarks=@AFAD_Remarks, AFAD_ApprovedBy=@AFAD_ApprovedBy,AFAD_ApprovedOn=GETDATE (),AFAD_Deletedby=@AFAD_Deletedby,AFAD_DeletedOn=@AFAD_DeletedOn
+		Where AFAD_ID=@AFAD_ID and AFAD_CompID=@AFAD_CompID and AFAD_YearID=@AFAD_YearID
+		set @iUpdateOrSave=2          
+		set @iOper = @AFAD_ID
+	 end      
+	 else         
+	  begin        
+		set @AFAD_ID=(select isnull(max(AFAD_ID)+1,1) from Acc_FixedAssetDeletion)   
+		Insert into Acc_FixedAssetDeletion(AFAD_ID,AFAD_CustomerName,AFAD_TransNo,AFAD_Location,AFAD_Division,AFAD_Department,AFAD_Bay,AFAD_AssetClass,AFAD_Asset,
+		AFAD_AssetDeletion,AFAD_AssetDeletionType,AFAD_DeletionDate,AFAD_Amount,AFAD_Quantity,AFAD_Paymenttype,AFAD_CostofTransport,
+		AFAD_InstallationCost,AFAD_DateofInitiate,AFAD_DateofReceived,AFAD_ToLocation,AFAD_ToDivision,AFAD_ToDepartment,AFAD_ToBay,AFAD_AssetDelDesc,AFAD_PorLStatus,AFAD_PorLAmount,
+		AFAD_SalesPrice,AFAD_DelDeprec,AFAD_WDVValue,AFAD_ContAssetValue,AFAD_ContDep,AFAD_ContWDV,AFAD_InsClaimedNo,AFAD_InsAmtClaimed,AFAD_InsClaimedDate,AFAD_InsAmtRecvd,AFAD_InsRefNo,AFAD_InsRefDate,AFAD_Remarks,AFAD_CreatedBy,AFAD_CreatedOn,AFAD_Status,AFAD_Delflag,AFAD_YearID,AFAD_CompID,AFAD_IPAddress)
+		values(@AFAD_ID,@AFAD_CustomerName,@AFAD_TransNo,@AFAD_Location,@AFAD_Division,@AFAD_Department,@AFAD_Bay,@AFAD_AssetClass,@AFAD_Asset,
+		@AFAD_AssetDeletion,@AFAD_AssetDeletionType,@AFAD_DeletionDate,@AFAD_Amount,@AFAD_Quantity,@AFAD_Paymenttype,@AFAD_CostofTransport,
+		@AFAD_InstallationCost,@AFAD_DateofInitiate,@AFAD_DateofReceived,@AFAD_ToLocation,@AFAD_ToDivision,@AFAD_ToDepartment,@AFAD_ToBay,@AFAD_AssetDelDesc,@AFAD_PorLStatus,@AFAD_PorLAmount,
+		@AFAD_SalesPrice,@AFAD_DelDeprec,@AFAD_WDVValue,@AFAD_ContAssetValue,@AFAD_ContDep,@AFAD_ContWDV,@AFAD_InsClaimedNo,@AFAD_InsAmtClaimed,@AFAD_InsClaimedDate,@AFAD_InsAmtRecvd,@AFAD_InsRefNo,@AFAD_InsRefDate,@AFAD_Remarks,@AFAD_CreatedBy,getdate(),@AFAD_Status,@AFAD_Delflag,@AFAD_YearID,@AFAD_CompID,@AFAD_IPAddress)
+		set @iUpdateOrSave=3       
+		set @iOper = @AFAD_ID        
+  end
+
+
+
+
+
+ALTER  procedure [dbo].[spAcc_FixedAssetMaster](
+	@AFAM_ID int ,
+	@AFAM_AssetType varchar(50) ,
+	@AFAM_AssetCode varchar(50) ,
+	@AFAM_Description varchar(500) ,
+	@AFAM_ItemCode varchar(50) ,
+	@AFAM_ItemDescription varchar(500) ,
+	@AFAM_CommissionDate datetime ,	
+	@AFAM_PurchaseDate datetime ,
+	@AFAM_Quantity int ,
+	@AFAM_Unit int ,
+	@AFAM_AssetAge money ,
+	@AFAM_PurchaseAmount money ,
+	@AFAM_PolicyNo varchar(50) ,
+	@AFAM_Amount money ,
+	@AFAM_BrokerName varchar(50) ,
+	@AFAM_CompanyName varchar(100) ,	
+	@AFAM_Date datetime ,
+	@AFAM_ToDate datetime ,
+	@AFAM_Location int,
+@AFAM_Division int,
+@AFAM_Department int,
+@AFAM_Bay int,
+	@AFAM_EmployeeName varchar(100),
+	@AFAM_EmployeeCode varchar(100),
+    @AFAM_Code varchar(100),
+	@AFAM_SuplierName varchar(50) ,
+	@AFAM_ContactPerson varchar(50) ,
+	@AFAM_Address varchar(500) ,
+	@AFAM_Phone varchar(15) ,
+	@AFAM_Fax varchar(10) ,
+	@AFAM_EmailID varchar(100) ,
+	@AFAM_Website varchar(500) ,
+	@AFAM_CreatedBy int ,
+	@AFAM_CreatedOn datetime ,
+	@AFAM_UpdatedBy int ,
+	@AFAM_UpdatedOn datetime ,
+	@AFAM_DelFlag varchar(50) ,
+	@AFAM_Status varchar(50) ,
+	@AFAM_YearID int ,
+	@AFAM_CompID int ,
+	@AFAM_Opeartion varchar(1) ,
+	@AFAM_IPAddress varchar(25) ,	
+	@AFAM_WrntyDesc varchar(500) ,
+	@AFAM_ContactPrsn varchar(50) ,
+	@AFAM_AMCFrmDate datetime ,
+	@AFAM_AMCTo datetime ,
+	@AFAM_Contprsn varchar(100) ,
+	@AFAM_PhoneNo varchar(15) ,
+	@AFAM_AMCCompanyName varchar(500) ,
+	@AFAM_AssetDeletion int ,
+	@AFAM_DlnDate datetime ,
+	@AFAM_DateOfDeletion datetime ,
+	@AFAM_Value money ,	
+	@AFAM_Remark varchar(500),
+	@AFAM_EMPCode varchar(10),
+	@AFAM_LToWhom varchar(500),
+	@AFAM_LAmount money,
+	@AFAM_LAggriNo varchar(50),
+	@AFAM_LDate datetime,
+	@AFAM_LCurrencyType integer,
+	@AFAM_LExchDate datetime,
+	@AFAM_CustId  int ,
+	@iUpdateOrSave int Output,    
+    @iOper int Output   
+)
+as                       
+  if exists(select AFAM_ID from Acc_FixedAssetMaster where AFAM_ID=@AFAM_ID and AFAM_YearID=@AFAM_YearID And AFAM_CompID=@AFAM_CompID)                        
+   begin  
+   update Acc_FixedAssetMaster Set AFAM_Description=@AFAM_Description,AFAM_ItemCode=@AFAM_ItemCode,
+   AFAM_ItemDescription=@AFAM_ItemDescription,AFAM_CommissionDate=@AFAM_CommissionDate,	
+AFAM_PurchaseDate=@AFAM_PurchaseDate,AFAM_Quantity=@AFAM_Quantity,AFAM_Unit=@AFAM_Unit,AFAM_AssetAge=@AFAM_AssetAge,
+AFAM_PurchaseAmount=@AFAM_PurchaseAmount,AFAM_PolicyNo=@AFAM_PolicyNo,AFAM_Amount=@AFAM_Amount,
+AFAM_BrokerName=@AFAM_BrokerName,AFAM_CompanyName=@AFAM_CompanyName,AFAM_Date=@AFAM_Date,
+AFAM_ToDate=@AFAM_ToDate,AFAM_Location=@AFAM_Location,AFAM_Division=@AFAM_Division,AFAM_Department=@AFAM_Department,AFAM_Bay=@AFAM_Bay,AFAM_EmployeeName=@AFAM_EmployeeName,
+AFAM_EmployeeCode=@AFAM_EmployeeCode,AFAM_Code=@AFAM_Code,AFAM_SuplierName=@AFAM_SuplierName,AFAM_ContactPerson=@AFAM_ContactPerson,
+AFAM_Address=@AFAM_Address,AFAM_Phone=@AFAM_Phone,AFAM_Fax=@AFAM_Fax,AFAM_EmailID=@AFAM_EmailID,AFAM_Website=@AFAM_Website,
+AFAM_UpdatedBy=@AFAM_UpdatedBy,AFAM_UpdatedOn=getdate(),AFAM_DelFlag=@AFAM_DelFlag,AFAM_Status=@AFAM_Status,AFAM_YearID=@AFAM_YearID,
+AFAM_CompID=@AFAM_CompID,AFAM_Opeartion=@AFAM_Opeartion,AFAM_IPAddress=@AFAM_IPAddress,AFAM_WrntyDesc=@AFAM_WrntyDesc,
+AFAM_ContactPrsn=@AFAM_ContactPrsn,AFAM_AMCFrmDate=@AFAM_AMCFrmDate,AFAM_AMCTo=@AFAM_AMCTo,AFAM_Contprsn=@AFAM_Contprsn,
+AFAM_PhoneNo=@AFAM_PhoneNo,AFAM_AMCCompanyName=@AFAM_AMCCompanyName,AFAM_AssetDeletion=@AFAM_AssetDeletion,
+AFAM_DlnDate=@AFAM_DlnDate,AFAM_DateOfDeletion=@AFAM_DateOfDeletion,AFAM_Value=@AFAM_Value,AFAM_Remark=@AFAM_Remark,AFAM_EMPCode=@AFAM_EMPCode,
+AFAM_LToWhom=@AFAM_LToWhom,AFAM_LAmount=@AFAM_LAmount,AFAM_LAggriNo=@AFAM_LAggriNo,AFAM_LDate=@AFAM_LDate,AFAM_LCurrencyType=@AFAM_LCurrencyType,
+AFAM_LExchDate=@AFAM_LExchDate,AFAM_CustId=@AFAM_CustId
+Where  AFAM_ID=@AFAM_ID and AFAM_YearID=@AFAM_YearID And AFAM_CompID=@AFAM_CompID
+    set @iUpdateOrSave=2                    
+    set @iOper = @AFAM_ID 
+ end                              
+  else               
+     begin              
+  set @AFAM_ID=(select isnull(max(AFAM_ID )+1,1) from Acc_FixedAssetMaster)                  
+  Insert into Acc_FixedAssetMaster (AFAM_ID,AFAM_AssetType,AFAM_AssetCode,AFAM_Description,AFAM_ItemCode,AFAM_ItemDescription,AFAM_CommissionDate,	
+AFAM_PurchaseDate,AFAM_Quantity,AFAM_Unit,AFAM_AssetAge,AFAM_PurchaseAmount,AFAM_PolicyNo,AFAM_Amount,AFAM_BrokerName,AFAM_CompanyName,	
+AFAM_Date,AFAM_ToDate,AFAM_Location,AFAM_Division,AFAM_Department,AFAM_Bay,AFAM_EmployeeName,AFAM_EmployeeCode,AFAM_Code,AFAM_SuplierName,AFAM_ContactPerson,AFAM_Address,
+AFAM_Phone,AFAM_Fax,AFAM_EmailID,AFAM_Website,AFAM_CreatedBy,AFAM_CreatedOn,AFAM_DelFlag,
+AFAM_Status,AFAM_YearID,AFAM_CompID,AFAM_Opeartion,AFAM_IPAddress,AFAM_WrntyDesc,AFAM_ContactPrsn,AFAM_AMCFrmDate,
+AFAM_AMCTo,AFAM_Contprsn,AFAM_PhoneNo,AFAM_AMCCompanyName,AFAM_AssetDeletion,
+AFAM_DlnDate,AFAM_DateOfDeletion,AFAM_Value,AFAM_Remark,AFAM_EMPCode,AFAM_LToWhom,AFAM_LAmount,AFAM_LAggriNo,AFAM_LDate,AFAM_LCurrencyType,AFAM_LExchDate,AFAM_CustId)
+ values
+(@AFAM_ID,@AFAM_AssetType,@AFAM_AssetCode,@AFAM_Description,@AFAM_ItemCode,@AFAM_ItemDescription,@AFAM_CommissionDate,	
+@AFAM_PurchaseDate,@AFAM_Quantity,@AFAM_Unit,@AFAM_AssetAge,@AFAM_PurchaseAmount,@AFAM_PolicyNo,@AFAM_Amount,@AFAM_BrokerName,@AFAM_CompanyName,	
+@AFAM_Date,@AFAM_ToDate,@AFAM_Location,@AFAM_Division,@AFAM_Department,@AFAM_Bay,@AFAM_EmployeeName,@AFAM_EmployeeCode,@AFAM_Code,@AFAM_SuplierName,@AFAM_ContactPerson,@AFAM_Address,
+@AFAM_Phone,@AFAM_Fax,@AFAM_EmailID,@AFAM_Website,@AFAM_CreatedBy,getdate(),@AFAM_DelFlag,
+@AFAM_Status,@AFAM_YearID,@AFAM_CompID,@AFAM_Opeartion,@AFAM_IPAddress,@AFAM_WrntyDesc,@AFAM_ContactPrsn,@AFAM_AMCFrmDate,
+@AFAM_AMCTo,@AFAM_Contprsn,@AFAM_PhoneNo,@AFAM_AMCCompanyName,@AFAM_AssetDeletion,@AFAM_DlnDate,@AFAM_DateOfDeletion,
+@AFAM_Value,@AFAM_Remark,@AFAM_EMPCode,@AFAM_LToWhom,@AFAM_LAmount,@AFAM_LAggriNo,@AFAM_LDate,@AFAM_LCurrencyType,@AFAM_LExchDate,@AFAM_CustId)        
+  set @iUpdateOrSave=3                 
+  set @iOper = @AFAM_ID                     
+    end
+
+
+
+ALTER Procedure [dbo].[spSAD_SUPPLIER_MASTER]                 
+(                    
+@SUP_ID int,
+@SUP_Name varchar (150),
+@SUP_Code varchar(50),
+@SUP_ContactPerson varchar(50),
+@SUP_Address varchar(50),
+@SUP_PhoneNo varchar(50),
+@SUP_Fax varchar(50),
+@SUP_Email varchar(50),
+@SUP_Website varchar(50),
+@SUP_CRBY int,
+@SUP_CRON datetime,
+@SUP_STATUS varchar(25),
+@SUP_IPAddress varchar(25),
+@SUP_CompID int,
+@iUpdateOrSave int Output,                    
+@iOper int Output              
+)           
+As                          
+if exists(select SUP_ID from SAD_SUPPLIER_MASTER where SUP_ID= @SUP_ID And SUP_CompID=@SUP_CompID)                      
+Begin                          
+ set @SUP_ID=(select SUP_ID from SAD_SUPPLIER_MASTER where SUP_ID= @SUP_ID And SUP_CompID=@SUP_CompID)                      
+  Update SAD_SUPPLIER_MASTER set  SUP_Name=@SUP_Name,SUP_Code=@SUP_Code,SUP_ContactPerson=@SUP_ContactPerson,SUP_Address=@SUP_Address,
+  SUP_PhoneNo=@SUP_PhoneNo,SUP_Fax=@SUP_Fax,SUP_Email=@SUP_Email,SUP_Website=@SUP_Website,
+ SUP_STATUS='U',SUP_IPAddress=@SUP_IPAddress      
+  where SUP_ID=@SUP_ID and SUP_CompID=@SUP_CompID                 
+  set @iUpdateOrSave=2                   
+  set @iOper = @SUP_ID               
+End                    
+Else                       
+Begin                      
+set @SUP_ID=(select IsNull(Max(SUP_ID)+1,1) from SAD_SUPPLIER_MASTER)                      
+   insert into SAD_SUPPLIER_MASTER(SUP_ID,SUP_Name,SUP_Code,SUP_ContactPerson,SUP_Address,SUP_PhoneNo,SUP_Fax,
+   SUP_Email,SUP_Website,SUP_CRBY,SUP_CRON,SUP_STATUS,SUP_IPAddress,SUP_CompID)                    
+   values(@SUP_ID,@SUP_Name,@SUP_Code,@SUP_ContactPerson,@SUP_Address,@SUP_PhoneNo,@SUP_Fax,
+   @SUP_Email,@SUP_Website,@SUP_CRBY,GETDATE(),'C',@SUP_IPAddress,@SUP_CompID)                 
+   set @iUpdateOrSave=3                     
+   set @iOper = @SUP_ID                      
+End

@@ -1,0 +1,2312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>TRACePA</RootNamespace>
+    <AssemblyName>TRACePA</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MyType>Custom</MyType>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44377</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>WebForms_Basic.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>WebForms_Basic.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=1.0.11119.19681, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="FusionCharts">
+      <HintPath>..\..\TRACeLite\TRACeLite\bin\FusionCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Runtime.Common.12.0.2402.15\lib\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.2015.12.0.2.2403\lib\net40\Microsoft.ReportViewer.Design.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.2015.Runtime.12.0.2.2402\lib\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.2015.12.0.2.2403\lib\net40\Microsoft.ReportViewer.WebDesign.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.2015.Runtime.12.0.2.2402\lib\Microsoft.ReportViewer.WebForms.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.2015.12.0.2.2403\lib\net40\Microsoft.ReportViewer.WinForms.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.2015.12.0.2.2403\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenOfficeExcelUpload">
+      <HintPath>..\..\TRACeLite\TRACeLite\bin\OpenOfficeExcelUpload.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenPop">
+      <HintPath>..\..\TRACeLite\TRACeLite\bin\OpenPop.dll</HintPath>
+    </Reference>
+    <Reference Include="powerup.web.ui.webtree">
+      <HintPath>..\..\TRACeLite\TRACeLite\bin\powerup.web.ui.webtree.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.XLS, Version=14.2.1.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.XLS.14.2.1\lib\net40\Spire.XLS.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.DataVisualization.Design" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.bootstrap">
+      <HintPath>..\packages\AspNet.ScriptManager.bootstrap.3.4.1\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.3.4.1\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.MSAjax">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.WebForms">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.3\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls">
+      <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.Routing" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="API\traceapi.asmx" />
+    <Content Include="assets\demo\chart-area-demo.js" />
+    <Content Include="assets\demo\chart-bar-demo.js" />
+    <Content Include="assets\demo\chart-pie-demo.js" />
+    <Content Include="assets\demo\datatables-demo.js" />
+    <Content Include="assets\img\error-404-monochrome.svg" />
+    <Content Include="Assignment\AssignmentMaster.aspx" />
+    <Content Include="Assignment\AssignmentMasterDetails.aspx" />
+    <Content Include="Assignment\AssignmentsDashboard.aspx" />
+    <Content Include="Assignment\ComplianceAsgTask.aspx" />
+    <Content Include="Assignment\ComplianceTask.aspx" />
+    <Content Include="Assignment\DynamicReports.aspx" />
+    <Content Include="Assignment\EmpAssignmentSubTask.aspx" />
+    <Content Include="Assignment\Invoice.aspx" />
+    <Content Include="Assignment\InvoiceDetails.aspx" />
+    <Content Include="Assignment\ITReturnsFiling.aspx" />
+    <Content Include="Assignment\ScheduleAssignments.aspx" />
+    <Content Include="bin\AjaxControlToolkit.dll" />
+    <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\Antlr3.Runtime.pdb" />
+    <Content Include="bin\AspNet.ScriptManager.bootstrap.dll" />
+    <Content Include="bin\AspNet.ScriptManager.jQuery.dll" />
+    <Content Include="bin\BusinesLayer.dll" />
+    <Content Include="bin\BusinesLayer.pdb" />
+    <Content Include="bin\BusinesLayer.xml" />
+    <Content Include="bin\DatabaseLayer.dll" />
+    <Content Include="bin\DatabaseLayer.pdb" />
+    <Content Include="bin\DatabaseLayer.xml" />
+    <Content Include="bin\de\Microsoft.ReportViewer.Design.resources.dll" />
+    <Content Include="bin\de\Microsoft.ReportViewer.WebDesign.resources.dll" />
+    <Content Include="bin\de\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="bin\EnvDTE.dll" />
+    <Content Include="bin\EnvDTE80.dll" />
+    <Content Include="bin\es\Microsoft.ReportViewer.Design.resources.dll" />
+    <Content Include="bin\es\Microsoft.ReportViewer.WebDesign.resources.dll" />
+    <Content Include="bin\es\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="bin\fr\Microsoft.ReportViewer.Design.resources.dll" />
+    <Content Include="bin\fr\Microsoft.ReportViewer.WebDesign.resources.dll" />
+    <Content Include="bin\fr\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="bin\FusionCharts.dll" />
+    <Content Include="bin\it\Microsoft.ReportViewer.Design.resources.dll" />
+    <Content Include="bin\it\Microsoft.ReportViewer.WebDesign.resources.dll" />
+    <Content Include="bin\it\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="bin\ja\Microsoft.ReportViewer.Design.resources.dll" />
+    <Content Include="bin\ja\Microsoft.ReportViewer.WebDesign.resources.dll" />
+    <Content Include="bin\ja\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="bin\ko\Microsoft.ReportViewer.Design.resources.dll" />
+    <Content Include="bin\ko\Microsoft.ReportViewer.WebDesign.resources.dll" />
+    <Content Include="bin\ko\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="bin\Microsoft.AspNet.FriendlyUrls.dll" />
+    <Content Include="bin\Microsoft.AspNet.FriendlyUrls.xml" />
+    <Content Include="bin\Microsoft.AspNet.Web.Optimization.WebForms.dll" />
+    <Content Include="bin\Microsoft.Build.Tasks.Core.dll" />
+    <Content Include="bin\Microsoft.Build.Utilities.Core.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="bin\Microsoft.MSXML.dll" />
+    <Content Include="bin\Microsoft.ReportViewer.Common.dll" />
+    <Content Include="bin\Microsoft.ReportViewer.DataVisualization.dll" />
+    <Content Include="bin\Microsoft.ReportViewer.Design.DLL" />
+    <Content Include="bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL" />
+    <Content Include="bin\Microsoft.ReportViewer.WebDesign.DLL" />
+    <Content Include="bin\Microsoft.ReportViewer.WebForms.DLL" />
+    <Content Include="bin\Microsoft.ReportViewer.WinForms.DLL" />
+    <Content Include="bin\Microsoft.ScriptManager.MSAjax.dll" />
+    <Content Include="bin\Microsoft.ScriptManager.WebForms.dll" />
+    <Content Include="bin\Microsoft.SqlServer.Types.dll" />
+    <Content Include="bin\Microsoft.VisualStudio.ComponentModelHost.dll" />
+    <Content Include="bin\Microsoft.VisualStudio.Data.Core.dll" />
+    <Content Include="bin\Microsoft.VisualStudio.Data.Services.dll" />
+    <Content Include="bin\Microsoft.VisualStudio.Debugger.Interop.11.0.dll" />
+    <Content Include="bin\Microsoft.VisualStudio.Debugger.InteropA.dll" />
+    <Content Include="bin\Microsoft.VisualStudio.GraphModel.dll" />
+    <Content Include="bin\Microsoft.VisualStudio.ManagedInterfaces.dll" />
+    <Content Include="bin\Microsoft.VisualStudio.OLE.Interop.dll" />
+    <Content Include="bin\Microsoft.VisualStudio.ProjectAggregator.dll" />
+    <Content Include="bin\Microsoft.VisualStudio.Shell.Interop.10.0.dll" />
+    <Content Include="bin\Microsoft.VisualStudio.Shell.Interop.11.0.dll" />
+    <Content Include="bin\Microsoft.VisualStudio.Shell.Interop.8.0.dll" />
+    <Content Include="bin\Microsoft.VisualStudio.Shell.Interop.9.0.dll" />
+    <Content Include="bin\Microsoft.VisualStudio.Shell.Interop.dll" />
+    <Content Include="bin\Microsoft.VisualStudio.TemplateWizardInterface.dll" />
+    <Content Include="bin\Microsoft.VisualStudio.TemplateWizardInterface.xml" />
+    <Content Include="bin\Microsoft.VisualStudio.TextManager.Interop.10.0.dll" />
+    <Content Include="bin\Microsoft.VisualStudio.TextManager.Interop.8.0.dll" />
+    <Content Include="bin\Microsoft.VisualStudio.TextManager.Interop.dll" />
+    <Content Include="bin\Microsoft.VisualStudio.VSHelp.dll" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Newtonsoft.Json.xml" />
+    <Content Include="bin\OpenOfficeExcelUpload.dll" />
+    <Content Include="bin\OpenPop.dll" />
+    <Content Include="bin\powerup.web.ui.webtree.dll" />
+    <Content Include="bin\pt\Microsoft.ReportViewer.Design.resources.dll" />
+    <Content Include="bin\pt\Microsoft.ReportViewer.WebDesign.resources.dll" />
+    <Content Include="bin\pt\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="bin\roslyn\csc.exe" />
+    <Content Include="bin\roslyn\csi.exe" />
+    <Content Include="bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="bin\roslyn\Microsoft.Win32.Primitives.dll" />
+    <Content Include="bin\roslyn\System.AppContext.dll" />
+    <Content Include="bin\roslyn\System.Collections.Immutable.dll" />
+    <Content Include="bin\roslyn\System.Console.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.FileVersionInfo.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.StackTrace.dll" />
+    <Content Include="bin\roslyn\System.Globalization.Calendars.dll" />
+    <Content Include="bin\roslyn\System.IO.Compression.dll" />
+    <Content Include="bin\roslyn\System.IO.Compression.ZipFile.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="bin\roslyn\System.Net.Http.dll" />
+    <Content Include="bin\roslyn\System.Net.Sockets.dll" />
+    <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
+    <Content Include="bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="bin\roslyn\System.Text.Encoding.CodePages.dll" />
+    <Content Include="bin\roslyn\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="bin\roslyn\System.ValueTuple.dll" />
+    <Content Include="bin\roslyn\System.Xml.ReaderWriter.dll" />
+    <Content Include="bin\roslyn\System.Xml.XmlDocument.dll" />
+    <Content Include="bin\roslyn\System.Xml.XPath.dll" />
+    <Content Include="bin\roslyn\System.Xml.XPath.XDocument.dll" />
+    <Content Include="bin\roslyn\vbc.exe" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="bin\ru\Microsoft.ReportViewer.Design.resources.dll" />
+    <Content Include="bin\ru\Microsoft.ReportViewer.WebDesign.resources.dll" />
+    <Content Include="bin\ru\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="bin\Spire.XLS.dll" />
+    <Content Include="bin\Spire.XLS.xml" />
+    <Content Include="bin\stdole.dll" />
+    <Content Include="bin\System.Web.Optimization.dll" />
+    <Content Include="bin\System.Web.Optimization.xml" />
+    <Content Include="bin\TRACePA.dll" />
+    <Content Include="bin\TRACePA.pdb" />
+    <Content Include="bin\VSLangProj.dll" />
+    <Content Include="bin\VSLangProj2.dll" />
+    <Content Include="bin\VSLangProj80.dll" />
+    <Content Include="bin\WebForms_Basic.xml" />
+    <Content Include="bin\WebGrease.dll" />
+    <Content Include="bin\zh-CHS\Microsoft.ReportViewer.Design.resources.dll" />
+    <Content Include="bin\zh-CHS\Microsoft.ReportViewer.WebDesign.resources.dll" />
+    <Content Include="bin\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="bin\zh-CHT\Microsoft.ReportViewer.Design.resources.dll" />
+    <Content Include="bin\zh-CHT\Microsoft.ReportViewer.WebDesign.resources.dll" />
+    <Content Include="bin\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="ConcurrentLogin.aspx" />
+    <Content Include="css\styles.css" />
+    <Content Include="css\StyleSheet1.css" />
+    <Content Include="CustLogin.aspx" />
+    <Content Include="CustomerUsers\CustomerImageView.aspx" />
+    <Content Include="CustomerUsers\DigitalVouching.aspx" />
+    <Content Include="CustomerUsers\DigitalVouchingDetails.aspx" />
+    <Content Include="CustomerUsers\Images\Edit16.png" />
+    <Content Include="CustomerUsers\Images\Share_document24.png" />
+    <Content Include="CustomerUsers\Images\Trash16.png" />
+    <Content Include="CustomerUsers\SearchDocuments.aspx" />
+    <Content Include="CustomerUsers\UploadDocument.aspx" />
+    <Content Include="DigitalFilling\Cabinet.aspx" />
+    <Content Include="DigitalFilling\Descriptor.aspx" />
+    <Content Include="DigitalFilling\DigitalDocument.aspx" />
+    <Content Include="DigitalFilling\DigitalFilingDashboard.aspx" />
+    <Content Include="DigitalFilling\DigitalPermission.aspx" />
+    <Content Include="DigitalFilling\DocumentType.aspx" />
+    <Content Include="DigitalFilling\Folders.aspx" />
+    <Content Include="DigitalFilling\ImageView.aspx" />
+    <Content Include="DigitalFilling\Indexing.aspx" />
+    <Content Include="DigitalFilling\ReportGeneration.aspx" />
+    <Content Include="DigitalFilling\Search.aspx" />
+    <Content Include="DigitalFilling\SubCabinet.aspx" />
+    <Content Include="FIN Statement\accountingRatio.aspx" />
+    <Content Include="FIN Statement\AccountPolicies.aspx" />
+    <Content Include="FIN Statement\ADODashboard.aspx" />
+    <Content Include="FIN Statement\ADO_Batchdetails.aspx" />
+    <Content Include="FIN Statement\CashFlow.aspx" />
+    <Content Include="FIN Statement\Images\Best-Pictures-HD-Nature-Download-23313846.jpg" />
+    <Content Include="FIN Statement\Images\DigitalFilling_ReportGeneration.doc" />
+    <Content Include="FIN Statement\Images\New Text Document.txt" />
+    <Content Include="FIN Statement\Images\PC001.png" />
+    <Content Include="FIN Statement\Images\PC002.png" />
+    <Content Include="FIN Statement\Images\Screenshot %281%29.png" />
+    <Content Include="FIN Statement\Images\th-2307701065.jpg" />
+    <Content Include="FIN Statement\Images\th-377369580.jpg" />
+    <Content Include="FIN Statement\Images\th-4129264821.jpg" />
+    <Content Include="FIN Statement\JournalEntry.aspx" />
+    <Content Include="FIN Statement\JournalEntryDetails.aspx" />
+    <Content Include="FIN Statement\PartnersFund.aspx" />
+    <Content Include="FIN Statement\ScheduleDashboard.aspx" />
+    <Content Include="FIN Statement\ScheduleNote.aspx" />
+    <Content Include="FIN Statement\ScheduleReport.aspx" />
+    <Content Include="FIN Statement\Schedules.aspx" />
+    <Content Include="FIN Statement\Trade.aspx" />
+    <Content Include="FIN Statement\UploadStockEntry.aspx" />
+    <Content Include="FIN Statement\UploadTrailbalanceSchedule.aspx" />
+    <Content Include="FixedAsset\AssetAdditionDashBoard.aspx" />
+    <Content Include="FixedAsset\AssetAdditionExcelUpload.aspx" />
+    <Content Include="FixedAsset\AssetDeletion.aspx" />
+    <Content Include="FixedAsset\AssetDeletionDashboard.aspx" />
+    <Content Include="FixedAsset\AssetMaster.aspx" />
+    <Content Include="FixedAsset\AssetMasterPage.aspx" />
+    <Content Include="FixedAsset\AssetOpeningBalExcelUpload.aspx" />
+    <Content Include="FixedAsset\AssetRegister.aspx" />
+    <Content Include="FixedAsset\AssetTransactionAddition.aspx" />
+    <Content Include="FixedAsset\DepreciationComputation.aspx" />
+    <Content Include="FixedAsset\FixedReport.aspx" />
+    <Content Include="FixedAsset\FXADynamicReport.aspx" />
+    <Content Include="FixedAsset\FXAInvReport.aspx" />
+    <Content Include="FixedAsset\FXAPhysicalReport.aspx" />
+    <Content Include="FixedAsset\LocationSetUp.aspx" />
+    <Content Include="FixedAsset\PhysicalRPTVerification.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="HomePages\Cust_user_Homepage.aspx" />
+    <Content Include="HomePages\Home.aspx" />
+    <Content Include="Images\Acc.png" />
+    <Content Include="Images\AccRatio.png" />
+    <Content Include="Images\Addnote.png" />
+    <Content Include="Images\Addnote16.png" />
+    <Content Include="Images\Addnote24.png" />
+    <Content Include="Images\Archive24_Header.png" />
+    <Content Include="Images\Best-Pictures-HD-Nature-Download-23313846.jpg" />
+    <Content Include="Images\bgl.jpeg" />
+    <Content Include="Images\Calendar.gif" />
+    <Content Include="Images\Cashflow.png" />
+    <Content Include="Images\EMail16.png" />
+    <Content Include="Images\EMail24.png" />
+    <Content Include="Images\GR2.jpg" />
+    <Content Include="Images\Icon-Add.svg" />
+    <Content Include="Images\Icon-Dashboard.svg" />
+    <Content Include="Images\Icon-eProfile.png" />
+    <Content Include="Images\Icon-eProfile.svg" />
+    <Content Include="Images\IconLogo.png" />
+    <Content Include="Images\licon.jpg" />
+    <Content Include="Images\log.png" />
+    <Content Include="Images\logoBAck.jpg" />
+    <Content Include="Images\logobg.png" />
+    <Content Include="Images\NoPhoto.jpg" />
+    <Content Include="Images\partnar.png" />
+    <Content Include="Images\PramatiPro logo.png" />
+    <Content Include="Images\Screenshot %281%29.png" />
+    <Content Include="Images\Submit32.png" />
+    <Content Include="Images\th-2307701065.jpg" />
+    <Content Include="Images\th-377369580.jpg" />
+    <Content Include="Images\TRACe PA-Logo.svg" />
+    <Content Include="Images\TRACe-PA-Logo-OE-RGB.png" />
+    <Content Include="Images\TRACe.jpg" />
+    <Content Include="Images\user.png" />
+    <Content Include="js\datatables-simple-demo.js" />
+    <Content Include="js\togglescripts.js" />
+    <Content Include="Contact.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="HomePages\Audit.aspx" />
+    <Content Include="HomePages\DigitalFillingHome.aspx" />
+    <Content Include="HomePages\Master.aspx" />
+    <Content Include="JavaScripts\elevatezoom.jquery.json" />
+    <Content Include="Audit.Master" />
+    <Content Include="DigitalFilling.Master" />
+    <Content Include="Home.Master" />
+    <Content Include="Master.Master" />
+    <Content Include="libman.json" />
+    <Content Include="DataSet\AssetDepreciation.xsc">
+      <DependentUpon>AssetDepreciation.xsd</DependentUpon>
+    </Content>
+    <Content Include="CustomerUserMaster.Master" />
+    <Content Include="bin\PowerUp.Web.UI.WebTree.lic" />
+    <Content Include="bin\roslyn\csc.exe.config" />
+    <Content Include="bin\roslyn\csc.rsp" />
+    <Content Include="bin\roslyn\csi.exe.config" />
+    <Content Include="bin\roslyn\csi.rsp" />
+    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.Managed.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="bin\roslyn\vbc.exe.config" />
+    <Content Include="bin\roslyn\vbc.rsp" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="bin\TRACePA.dll.config" />
+    <None Include="DataSet\AssetDepreciation.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AssetDepreciation.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="DataSet\AssetDepreciation.xss">
+      <DependentUpon>AssetDepreciation.xsd</DependentUpon>
+    </Content>
+    <Content Include="DataSet\FixedAsset.xsc">
+      <DependentUpon>FixedAsset.xsd</DependentUpon>
+    </Content>
+    <Content Include="DataSet\DigitalAudit.xsc">
+      <DependentUpon>DigitalAudit.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet\DigitalAudit.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DigitalAudit.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="DataSet\DigitalAudit.xss">
+      <DependentUpon>DigitalAudit.xsd</DependentUpon>
+    </Content>
+    <Content Include="DataSet\dsMasters.xsc">
+      <DependentUpon>dsMasters.xsd</DependentUpon>
+    </Content>
+    <Content Include="DataSet\dsAuditAssignments.xsc">
+      <DependentUpon>dsAuditAssignments.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet\dsAuditAssignments.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsAuditAssignments.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="DataSet\dsAuditAssignments.xss">
+      <DependentUpon>dsAuditAssignments.xsd</DependentUpon>
+    </Content>
+    <Content Include="DataSet\dsDigitalFilling.xsc">
+      <DependentUpon>dsDigitalFilling.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet\dsDigitalFilling.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsDigitalFilling.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="DataSet\dsDigitalFilling.xss">
+      <DependentUpon>dsDigitalFilling.xsd</DependentUpon>
+    </Content>
+    <Content Include="DataSet\dsFinStatement.xsc">
+      <DependentUpon>dsFinStatement.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet\dsFinStatement.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsFinStatement1.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="DataSet\dsFinStatement.xss">
+      <DependentUpon>dsFinStatement.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet\dsMasters.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsMasters.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="DataSet\dsMasters.xss">
+      <DependentUpon>dsMasters.xsd</DependentUpon>
+    </Content>
+    <Content Include="DataSet\dsScheduleNote.xsc">
+      <DependentUpon>dsScheduleNote.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet\dsScheduleNote.xsd" />
+    <Content Include="DataSet\dsScheduleNote.xss">
+      <DependentUpon>dsScheduleNote.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet\FixedAsset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FixedAsset.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="DataSet\FixedAsset.xss">
+      <DependentUpon>FixedAsset.xsd</DependentUpon>
+    </Content>
+    <Content Include="ExcelUploads\AuditUniverse.xlsx" />
+    <Content Include="ExcelUploads\BranchAuditChecklist-BCM.xlsx" />
+    <Content Include="ExcelUploads\BranchAuditChecklist-BIA.xlsx" />
+    <Content Include="ExcelUploads\BranchAuditChecklist-BRR.xlsx" />
+    <Content Include="ExcelUploads\Checklist Scoring Audit Master.xlsx" />
+    <Content Include="ExcelUploads\ComplianceTask.xlsx" />
+    <Content Include="ExcelUploads\ControlMaster.xlsx" />
+    <Content Include="ExcelUploads\CustomerUserMaster.xlsx" />
+    <Content Include="ExcelUploads\EmployeeMaster.xlsx" />
+    <Content Include="ExcelUploads\Excel.xlsx" />
+    <Content Include="ExcelUploads\GeneralMaster.xlsx" />
+    <Content Include="ExcelUploads\HolidayMaster.xlsx" />
+    <Content Include="ExcelUploads\KeyControlChecksIssueTracker.xlsx" />
+    <Content Include="ExcelUploads\KeyInvestigationRiskTracker.xlsx" />
+    <Content Include="ExcelUploads\KeyRiskIndicators.xlsx" />
+    <Content Include="ExcelUploads\MappingofMaster.xlsx" />
+    <Content Include="ExcelUploads\OrganisationStructure.xlsx" />
+    <Content Include="ExcelUploads\RiskGeneralMaster.xlsx" />
+    <Content Include="ExcelUploads\RiskMaster.xlsx" />
+    <Content Include="ExcelUploads\RiskReviewFunctionIssueTracker.xlsx" />
+    <Content Include="ExcelUploads\ServiceandConveyanceMaster.xlsx" />
+    <Content Include="ExcelUploads\TrialBalance.xls" />
+    <Content Include="ExcelUploads\TrialBalance.xlsx" />
+    <Content Include="ExcelUploads\UserMaster.xlsx" />
+    <Content Include="ExcelUploads\VendorMaster.xlsx" />
+    <Content Include="ExcelUploads\WorkPaper.xlsx" />
+    <Content Include="ExcelUploads\WorkPaperUpload.xlsx" />
+    <Content Include="Masters\AuditChecklist.aspx" />
+    <Content Include="Masters\AuditChecklistDetails.aspx" />
+    <Content Include="Masters\CustomerDetails.aspx" />
+    <Content Include="Masters\ModuleSplPermission.aspx" />
+    <Content Include="Masters\ReportContentMaster.aspx" />
+    <Content Include="Masters\ReportTemplateMaster.aspx" />
+    <Content Include="SampleExcels\AssetAddition-Upload.xlsx" />
+    <Content Include="SampleExcels\AssetMaster-Upload.xlsx" />
+    <Content Include="SampleExcels\AssetOPB-Upload.xlsx" />
+    <Content Include="SampleExcels\BANKRECONCILIATION.xls" />
+    <Content Include="SampleExcels\BANKRECONCILIATION.xlsx" />
+    <Content Include="SampleExcels\BANKRECONCILIATION5.xlsx" />
+    <Content Include="SampleExcels\Customer.xls" />
+    <Content Include="SampleExcels\Customer.xlsx" />
+    <Content Include="SampleExcels\GST Schedule.xls" />
+    <Content Include="SampleExcels\GST Schedule.xlsx" />
+    <Content Include="SampleExcels\inventory.xls" />
+    <Content Include="SampleExcels\inventory.xlsx" />
+    <Content Include="SampleExcels\Journal Entry Transaction.xlsx" />
+    <Content Include="SampleExcels\NonFoodMasters.xls" />
+    <Content Include="SampleExcels\NonFoodMasters.xlsx" />
+    <Content Include="SampleExcels\Opening Balance Breakup.xls" />
+    <Content Include="SampleExcels\Opening Balance Breakup.xlsx" />
+    <Content Include="SampleExcels\OpeningBalance.xls" />
+    <Content Include="SampleExcels\OpeningBalance.xlsx" />
+    <Content Include="SampleExcels\Party.xls" />
+    <Content Include="SampleExcels\Party.xlsx" />
+    <Content Include="SampleExcels\Payment Transaction.xlsx" />
+    <Content Include="SampleExcels\PettyCash Transaction.xlsx" />
+    <Content Include="SampleExcels\PhysicalStock.xls" />
+    <Content Include="SampleExcels\PhysicalStock.xlsx" />
+    <Content Include="SampleExcels\PhysicalStockUpload.xls" />
+    <Content Include="SampleExcels\PhysicalStockUpload.xlsx" />
+    <Content Include="SampleExcels\Receipt Transaction.xlsx" />
+    <Content Include="SampleExcels\SalesPartyMasters.xls" />
+    <Content Include="SampleExcels\SalesPartyMasters.xlsx" />
+    <Content Include="SampleExcels\Supplier.xls" />
+    <Content Include="SampleExcels\Supplier.xlsx" />
+    <Content Include="SampleExcels\SupplierMaster.xls" />
+    <Content Include="SampleExcels\SupplierMaster.xlsx" />
+    <Content Include="SampleExcels\User.xls" />
+    <Content Include="SampleExcels\User.xlsx" />
+    <Content Include="SampleExcels\UserUploadDetails.xls" />
+    <Content Include="SampleExcels\UserUploadDetails.xlsx" />
+    <Content Include="SampleExcels\Vendor_Reconcilation1.xlsx" />
+    <Content Include="ExcelUploads\AuditChecklistMaster.xlsx" />
+    <Content Include="DataSet\StandardAudit.xsc">
+      <DependentUpon>StandardAudit.xsd</DependentUpon>
+    </Content>
+    <Content Include="DataSet\NewDataset.xsc">
+      <DependentUpon>NewDataset.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet\NewDataset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>NewDataset.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="DataSet\NewDataset.xss">
+      <DependentUpon>NewDataset.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet\StandardAudit.xsd" />
+    <Content Include="DataSet\StandardAudit.xss">
+      <DependentUpon>StandardAudit.xsd</DependentUpon>
+    </Content>
+    <Content Include="Reports\Master\EProfileEmpMaster.rdlc" />
+    <Content Include="Reports\FINStatement\JournalEntry.rdlc" />
+    <Content Include="Reports\FINStatement\ScheduleRep.rdlc" />
+    <Content Include="Reports\Master\DynamicSubModule.rdlc" />
+    <Content Include="Reports\StandardAudit\ReviewLedger.rdlc" />
+    <Content Include="Reports\Master\LOETemp.rdlc" />
+    <Content Include="Reports\Master\CustInformationAuditee.rdlc" />
+    <Content Include="ExcelUploads\CustomerMaster.xlsx" />
+    <Content Include="ExcelUploads\Tadereceivables.xlsx" />
+    <Content Include="ExcelUploads\CustomerMaster.xls" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Images\4delete.gif" />
+    <Content Include="Images\access_code_icon.png" />
+    <Content Include="Images\Activate16.png" />
+    <Content Include="Images\Activate24.png" />
+    <Content Include="Images\Add16.png" />
+    <Content Include="Images\Add24.png" />
+    <Content Include="Images\AddUser16.png" />
+    <Content Include="Images\AddUser24.png" />
+    <Content Include="Images\Asg_Compliance.png" />
+    <Content Include="Images\Asg_Customer.png" />
+    <Content Include="Images\Asg_Dashboard.png" />
+    <Content Include="Images\Asg_Invoice.png" />
+    <Content Include="Images\Asg_Reports.png" />
+    <Content Include="Images\Asg_Schedule.png" />
+    <Content Include="Images\Asg_Tasks.png" />
+    <Content Include="Images\Asg_User.png" />
+    <Content Include="Images\Attachment16.png" />
+    <Content Include="Images\Attachment24.png" />
+    <Content Include="Images\Backward16.png" />
+    <Content Include="Images\Backward24.png" />
+    <Content Include="Images\CheckedUser16.png" />
+    <Content Include="Images\CheckedUser24.png" />
+    <Content Include="Images\Checkmark16.png" />
+    <Content Include="Images\Checkmark24.png" />
+    <Content Include="Images\chk.jpg" />
+    <Content Include="Images\chkSelect.jpg" />
+    <Content Include="Images\Collation24.png" />
+    <Content Include="Images\compose16.png" />
+    <Content Include="Images\compose24.png" />
+    <Content Include="Images\contacts16.png" />
+    <Content Include="Images\contacts24.png" />
+    <Content Include="Images\Control.jpg" />
+    <Content Include="Images\DeActivate16.png" />
+    <Content Include="Images\DeActivate24.png" />
+    <Content Include="Images\Download16.png" />
+    <Content Include="Images\Download24.png" />
+    <Content Include="Images\Edit16.png" />
+    <Content Include="Images\Edit24.png" />
+    <Content Include="Images\ExcelSA.jpg" />
+    <Content Include="Images\Exit16.png" />
+    <Content Include="Images\Fast-Forward16.png" />
+    <Content Include="Images\Fast-Rewind16.png" />
+    <Content Include="Images\Filter16.png" />
+    <Content Include="Images\Filter24.png" />
+    <Content Include="Images\First16.png" />
+    <Content Include="Images\FitScreen16.png" />
+    <Content Include="Images\Flip16.png" />
+    <Content Include="Images\Forward.png" />
+    <Content Include="Images\Forward16.png" />
+    <Content Include="Images\Forward24.png" />
+    <Content Include="Images\Freeze24.png" />
+    <Content Include="Images\gears.gif" />
+    <Content Include="Images\glyphicons-halflings-white.png" />
+    <Content Include="Images\glyphicons-halflings.png" />
+    <Content Include="Images\Height16.png" />
+    <Content Include="Images\HomePage\Audit.jpg" />
+    <Content Include="Images\HomePage\AuditModule.jpg" />
+    <Content Include="Images\HomePage\Complaince.jpg" />
+    <Content Include="Images\HomePage\Compliance0.jpg" />
+    <Content Include="Images\HomePage\Compliance1.jpg" />
+    <Content Include="Images\HomePage\Compliance2.jpg" />
+    <Content Include="Images\HomePage\Compliance3.jpg" />
+    <Content Include="Images\HomePage\Compliance4.jpg" />
+    <Content Include="Images\HomePage\ComplianceModule.jpg" />
+    <Content Include="Images\HomePage\Governance0.jpg" />
+    <Content Include="Images\HomePage\Governance1.jpg" />
+    <Content Include="Images\HomePage\Governance2.jpg" />
+    <Content Include="Images\HomePage\Governance3.jpg" />
+    <Content Include="Images\HomePage\Governance4.jpg" />
+    <Content Include="Images\HomePage\MastersModule.jpg" />
+    <Content Include="Images\HomePage\Risk.jpg" />
+    <Content Include="Images\HomePage\Risk0.jpg" />
+    <Content Include="Images\HomePage\Risk1.jpg" />
+    <Content Include="Images\HomePage\Risk2.jpg" />
+    <Content Include="Images\HomePage\Risk3.jpg" />
+    <Content Include="Images\HomePage\Risk4.jpg" />
+    <Content Include="Images\HomePage\RiskModule.jpg" />
+    <Content Include="Images\Impact.jpg" />
+    <Content Include="Images\Impor24.png" />
+    <Content Include="Images\Import24.png" />
+    <Content Include="Images\Inbox16.png" />
+    <Content Include="Images\Inbox24.png" />
+    <Content Include="Images\Index16.png" />
+    <Content Include="Images\Index24.png" />
+    <Content Include="Images\Invalid_image20.png" />
+    <Content Include="Images\Invalid_image32.png" />
+    <Content Include="Images\Last16.png" />
+    <Content Include="Images\Likelihood.jpg" />
+    <Content Include="Images\line.png" />
+    <Content Include="Images\line1.png" />
+    <Content Include="Images\Load16.png" />
+    <Content Include="Images\Load24.png" />
+    <Content Include="Images\login_bg.png" />
+    <Content Include="Images\login_bg1.png" />
+    <Content Include="Images\Login_Button.png" />
+    <Content Include="Images\login_logo.png" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\Magnifier16.png" />
+    <Content Include="Images\Mail16.png" />
+    <Content Include="Images\Mail24.png" />
+    <Content Include="Images\Mirror16.png" />
+    <Content Include="Images\Multiply16.png" />
+    <Content Include="Images\Multiply24.png" />
+    <Content Include="Images\Next16.png" />
+    <Content Include="Images\Nextt16.png" />
+    <Content Include="Images\outbox16.png" />
+    <Content Include="Images\outbox24.png" />
+    <Content Include="Images\Outward.png" />
+    <Content Include="Images\pageloader.gif" />
+    <Content Include="Images\password_icon.png" />
+    <Content Include="Images\Pencil16.png" />
+    <Content Include="Images\Preview16.png" />
+    <Content Include="Images\Previous16.png" />
+    <Content Include="Images\Print16.png" />
+    <Content Include="Images\Rectangle16.png" />
+    <Content Include="Images\Reresh16.png" />
+    <Content Include="Images\Reresh24.png" />
+    <Content Include="Images\Risk.jpg" />
+    <Content Include="Images\Rotate180.png" />
+    <Content Include="Images\Rotate270.png" />
+    <Content Include="Images\Rotate90.png" />
+    <Content Include="Images\RotateLeft16.png" />
+    <Content Include="Images\RotateRight16.png" />
+    <Content Include="Images\Save16.png" />
+    <Content Include="Images\Save24.png" />
+    <Content Include="Images\Scanner16.png" />
+    <Content Include="Images\Search16.png" />
+    <Content Include="Images\Search24.png" />
+    <Content Include="Images\SearchImage\Collation24.png" />
+    <Content Include="Images\SearchImage\Exit16.png" />
+    <Content Include="Images\SearchImage\Fast-Forward16.png" />
+    <Content Include="Images\SearchImage\Fast-Rewind16.png" />
+    <Content Include="Images\SearchImage\First16.png" />
+    <Content Include="Images\SearchImage\FitScreen16.png" />
+    <Content Include="Images\SearchImage\Flip16.png" />
+    <Content Include="Images\SearchImage\Height16.png" />
+    <Content Include="Images\SearchImage\Index16.png" />
+    <Content Include="Images\SearchImage\Last16.png" />
+    <Content Include="Images\SearchImage\Magnifier16.png" />
+    <Content Include="Images\SearchImage\Mirror16.png" />
+    <Content Include="Images\SearchImage\Next16.png" />
+    <Content Include="Images\SearchImage\Nextt16.png" />
+    <Content Include="Images\SearchImage\Pencil16.png" />
+    <Content Include="Images\SearchImage\Preview16.png" />
+    <Content Include="Images\SearchImage\Previous16.png" />
+    <Content Include="Images\SearchImage\Print16.png" />
+    <Content Include="Images\SearchImage\Rectangle16.png" />
+    <Content Include="Images\SearchImage\Rotate180.png" />
+    <Content Include="Images\SearchImage\Rotate270.png" />
+    <Content Include="Images\SearchImage\Rotate90.png" />
+    <Content Include="Images\SearchImage\RotateLeft16.png" />
+    <Content Include="Images\SearchImage\RotateRight16.png" />
+    <Content Include="Images\SearchImage\Scanner16.png" />
+    <Content Include="Images\SearchImage\Scanner24.png" />
+    <Content Include="Images\SearchImage\Triangle16.png" />
+    <Content Include="Images\SearchImage\Width16.png" />
+    <Content Include="Images\SearchImage\ZoomIn16.png" />
+    <Content Include="Images\SearchImage\ZoomOut16.png" />
+    <Content Include="Images\SendBackImage32.png" />
+    <Content Include="Images\sent16.png" />
+    <Content Include="Images\sent24.png" />
+    <Content Include="Images\Setting16.png" />
+    <Content Include="Images\Setting24.png" />
+    <Content Include="Images\Share_document24.png" />
+    <Content Include="Images\Share_document32.png" />
+    <Content Include="Images\Submit16.png" />
+    <Content Include="Images\Submit24.png" />
+    <Content Include="Images\TaskCompleted.png" />
+    <Content Include="Images\TaskCompleted0.png" />
+    <Content Include="Images\TaskCompleted1.png" />
+    <Content Include="Images\TaskOpen.png" />
+    <Content Include="Images\TaskOpen0.png" />
+    <Content Include="Images\TaskOpen1.png" />
+    <Content Include="Images\TaskOverDue.png" />
+    <Content Include="Images\TaskOverDue0.png" />
+    <Content Include="Images\TaskOverDue1.png" />
+    <Content Include="Images\TaskToday.png" />
+    <Content Include="Images\TaskToday0.png" />
+    <Content Include="Images\TaskToday1.png" />
+    <Content Include="Images\Trash16.png" />
+    <Content Include="Images\Trash24.png" />
+    <Content Include="Images\TreeImages\A.gif" />
+    <Content Include="Images\TreeImages\B.gif" />
+    <Content Include="Images\TreeImages\C.gif" />
+    <Content Include="Images\TreeImages\D.gif" />
+    <Content Include="Images\TreeImages\E.gif" />
+    <Content Include="Images\TreeImages\F.gif" />
+    <Content Include="Images\TreeImages\FOLDER.GIF" />
+    <Content Include="Images\TreeImages\folder.png" />
+    <Content Include="Images\TreeImages\folderopen.gif" />
+    <Content Include="Images\TreeImages\G.gif" />
+    <Content Include="Images\TreeImages\greenfolder.gif" />
+    <Content Include="Images\TreeImages\H.gif" />
+    <Content Include="Images\TreeImages\I.gif" />
+    <Content Include="Images\TreeImages\J.gif" />
+    <Content Include="Images\TreeImages\K.gif" />
+    <Content Include="Images\TreeImages\L.gif" />
+    <Content Include="Images\TreeImages\M.gif" />
+    <Content Include="Images\TreeImages\N.gif" />
+    <Content Include="Images\TreeImages\O.gif" />
+    <Content Include="Images\TreeImages\P.gif" />
+    <Content Include="Images\Triangle16.png" />
+    <Content Include="Images\Unlock16.png" />
+    <Content Include="Images\Unlock24.png" />
+    <Content Include="Images\Update16.png" />
+    <Content Include="Images\Update24.png" />
+    <Content Include="Images\Upload16.png" />
+    <Content Include="Images\Upload24.png" />
+    <Content Include="Images\user_icon.png" />
+    <Content Include="Images\View16.png" />
+    <Content Include="Images\View24.png" />
+    <Content Include="Images\Width16.png" />
+    <Content Include="Images\ZoomIn16.png" />
+    <Content Include="Images\ZoomOut16.png" />
+    <Content Include="JavaScripts\aes.js" />
+    <Content Include="JavaScripts\ajax-libs-jszip-2.5.0-jszip-min.js" />
+    <Content Include="JavaScripts\animated.js" />
+    <Content Include="JavaScripts\bootstrap-multiselect.js" />
+    <Content Include="JavaScripts\bootstrap.min.js" />
+    <Content Include="JavaScripts\bpampuch-pdfmake-0.1.18-build-pdfmake-min.js" />
+    <Content Include="JavaScripts\bpampuch-pdfmake-0.1.18-build-vfs_fonts.js" />
+    <Content Include="JavaScripts\buttons-1.2.2-js-buttons.html5-min.js" />
+    <Content Include="JavaScripts\buttons-1.4.2-js-dataTables-buttons.js" />
+    <Content Include="JavaScripts\buttons.jqueryui.js" />
+    <Content Include="JavaScripts\charts.js" />
+    <Content Include="JavaScripts\core.js" />
+    <Content Include="JavaScripts\dataTables.bootstrap.min.js" />
+    <Content Include="JavaScripts\dataTables.buttons.min.js" />
+    <Content Include="JavaScripts\datatables.min.js" />
+    <Content Include="JavaScripts\fixedcolumns-3.2.6-js-dataTables.fixedColumns-min.js" />
+    <Content Include="JavaScripts\General.js" />
+    <Content Include="JavaScripts\html5shiv.js" />
+    <Content Include="JavaScripts\jquery-1.12.3.min.js" />
+    <Content Include="JavaScripts\jquery-1.8.3.min.js" />
+    <Content Include="JavaScripts\jquery.dataTables.min.js" />
+    <Content Include="JavaScripts\jquery.elevateZoom-3.0.8.min.js" />
+    <Content Include="JavaScripts\jquery.elevatezoom.js" />
+    <Content Include="JavaScripts\loader.js" />
+    <Content Include="JavaScripts\respond.min.js" />
+    <Content Include="JavaScripts\select2.min.js" />
+    <Content Include="JavaScripts\sweetalert-dev.js" />
+    <Content Include="Loginpage.aspx" />
+    <Content Include="Masters\AuditLog.aspx" />
+    <Content Include="Masters\CompanyDetails.aspx" />
+    <Content Include="Masters\CustomerMaster.aspx" />
+    <Content Include="Masters\DynamicReport.aspx" />
+    <Content Include="Masters\EmployeeMaster.aspx" />
+    <Content Include="Masters\EmployeeMasterDetailsaspx.aspx" />
+    <Content Include="Masters\EProfile.aspx" />
+    <Content Include="Masters\ExcelUpload.aspx" />
+    <Content Include="Masters\GeneralMaster.aspx" />
+    <Content Include="Masters\GeneralMasterDetails.aspx" />
+    <Content Include="Masters\GRACeSettings.aspx" />
+    <Content Include="Masters\HolidayMaster.aspx" />
+    <Content Include="Masters\LeaveDetails.aspx" />
+    <Content Include="Masters\ModulePermission.aspx" />
+    <Content Include="Masters\OrganizationStructure.aspx" />
+    <Content Include="Masters\UserMaster.aspx" />
+    <Content Include="Masters\UserMasterDetails.aspx" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\ScrollableGridViewPlugin_ASP.NetAJAXmin.js" />
+    <Content Include="Scripts\Trace\Script1.txt" />
+    <Content Include="Scripts\Trace\Script2.txt" />
+    <Content Include="Scripts\Trace\Script3.txt" />
+    <Content Include="Scripts\WebForms\DetailsView.js" />
+    <Content Include="Scripts\WebForms\Focus.js" />
+    <Content Include="Scripts\WebForms\GridView.js" />
+    <Content Include="Scripts\WebForms\Menu.js" />
+    <Content Include="Scripts\WebForms\MenuStandards.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="Scripts\WebForms\SmartNav.js" />
+    <Content Include="Scripts\WebForms\TreeView.js" />
+    <Content Include="Scripts\WebForms\WebForms.js" />
+    <Content Include="Scripts\WebForms\WebParts.js" />
+    <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="ServerError.aspx" />
+    <Content Include="StandardAudit\AuditorIssue.aspx" />
+    <Content Include="StandardAudit\AuditSummary.aspx" />
+    <Content Include="StandardAudit\ConductAudit.aspx" />
+    <Content Include="StandardAudit\DashboardAndSchedule.aspx" />
+    <Content Include="StandardAudit\DashboardAndScheduleDeatils.aspx" />
+    <Content Include="StandardAudit\DRLSampling.aspx" />
+    <Content Include="StandardAudit\DRLSamplingCU.aspx" />
+    <Content Include="StandardAudit\FinalAuditReport.aspx" />
+    <Content Include="StandardAudit\frmAuditLedgerUpload.aspx" />
+    <Content Include="StandardAudit\frmUploadTBExcel.aspx" />
+    <Content Include="StandardAudit\AnnualPlan.aspx" />
+    <Content Include="StandardAudit\MRIssue.aspx" />
+    <Content Include="StandardAudit\SampleSelection.aspx" />
+    <Content Include="StandardAudit\UploadObservations.aspx" />
+    <Content Include="StyleSheet\bootstrap-multiselect.css" />
+    <Content Include="StyleSheet\bootstrap.min.css" />
+    <Content Include="StyleSheet\buttons.1.4.2.dataTables-min.css" />
+    <Content Include="StyleSheet\buttons.dataTables.min.css" />
+    <Content Include="StyleSheet\buttons.jqueryui.min.css" />
+    <Content Include="StyleSheet\custom.css" />
+    <Content Include="StyleSheet\dataTables.bootstrap.min.css" />
+    <Content Include="StyleSheet\glyphicons-halflings-regular.svg" />
+    <Content Include="StyleSheet\login.css" />
+    <Content Include="StyleSheet\select2.min.css" />
+    <Content Include="StyleSheet\style.css" />
+    <Content Include="StyleSheet\sweetalert.css" />
+    <Content Include="Testing.aspx" />
+    <Content Include="testing1.aspx" />
+    <Content Include="tinymce\changelog.txt" />
+    <Content Include="tinymce\examples\css\content.css" />
+    <Content Include="tinymce\examples\css\word.css" />
+    <Content Include="tinymce\examples\full.html" />
+    <Content Include="tinymce\examples\index.html" />
+    <Content Include="tinymce\examples\lists\image_list.js" />
+    <Content Include="tinymce\examples\lists\link_list.js" />
+    <Content Include="tinymce\examples\lists\media_list.js" />
+    <Content Include="tinymce\examples\lists\template_list.js" />
+    <Content Include="tinymce\examples\media\logo.jpg" />
+    <Content Include="tinymce\examples\media\logo_over.jpg" />
+    <Content Include="tinymce\examples\media\sample.avi" />
+    <Content Include="tinymce\examples\media\sample.mov" />
+    <Content Include="tinymce\examples\media\sample.swf" />
+    <Content Include="tinymce\examples\menu.html" />
+    <Content Include="tinymce\examples\simple.html" />
+    <Content Include="tinymce\examples\skins.html" />
+    <Content Include="tinymce\examples\templates\layout1.htm" />
+    <Content Include="tinymce\examples\templates\snippet1.htm" />
+    <Content Include="tinymce\examples\word.html" />
+    <Content Include="tinymce\jscripts\tiny_mce\langs\en.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\license.txt" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\advhr\css\advhr.css" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\advhr\editor_plugin.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\advhr\editor_plugin_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\advhr\js\rule.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\advhr\langs\en_dlg.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\advhr\rule.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\advimage\css\advimage.css" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\advimage\editor_plugin.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\advimage\editor_plugin_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\advimage\image.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\advimage\img\sample.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\advimage\js\image.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\advimage\langs\en_dlg.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\advlink\css\advlink.css" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\advlink\editor_plugin.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\advlink\editor_plugin_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\advlink\js\advlink.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\advlink\langs\en_dlg.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\advlink\link.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\autosave\editor_plugin.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\autosave\editor_plugin_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\bbcode\editor_plugin.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\bbcode\editor_plugin_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\compat2x\editor_plugin.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\compat2x\editor_plugin_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\contextmenu\editor_plugin.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\contextmenu\editor_plugin_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\directionality\editor_plugin.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\directionality\editor_plugin_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\emotions\editor_plugin.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\emotions\editor_plugin_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\emotions\emotions.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-cool.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-cry.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-embarassed.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-foot-in-mouth.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-frown.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-innocent.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-kiss.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-laughing.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-money-mouth.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-sealed.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-smile.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-surprised.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-tongue-out.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-undecided.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-wink.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-yell.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\emotions\js\emotions.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\emotions\langs\en_dlg.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\example\dialog.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\example\editor_plugin.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\example\editor_plugin_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\example\img\example.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\example\js\dialog.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\example\langs\en.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\example\langs\en_dlg.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\fullpage\css\fullpage.css" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\fullpage\editor_plugin.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\fullpage\editor_plugin_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\fullpage\fullpage.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\fullpage\js\fullpage.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\fullpage\langs\en_dlg.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\fullscreen\editor_plugin.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\fullscreen\editor_plugin_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\fullscreen\fullscreen.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\iespell\editor_plugin.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\iespell\editor_plugin_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\inlinepopups\editor_plugin.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\inlinepopups\editor_plugin_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\alert.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\button.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\buttons.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\confirm.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\corners.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\horizontal.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\vertical.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\window.css" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\inlinepopups\template.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\insertdatetime\editor_plugin.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\insertdatetime\editor_plugin_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\layer\editor_plugin.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\layer\editor_plugin_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\media\css\content.css" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\media\css\media.css" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\media\editor_plugin.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\media\editor_plugin_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\media\img\flash.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\media\img\flv_player.swf" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\media\img\quicktime.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\media\img\realmedia.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\media\img\shockwave.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\media\img\trans.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\media\img\windowsmedia.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\media\js\embed.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\media\js\media.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\media\langs\en_dlg.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\media\media.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\nonbreaking\editor_plugin.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\nonbreaking\editor_plugin_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\noneditable\editor_plugin.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\noneditable\editor_plugin_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\pagebreak\css\content.css" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\pagebreak\editor_plugin.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\pagebreak\editor_plugin_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\pagebreak\img\pagebreak.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\pagebreak\img\trans.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\paste\blank.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\paste\css\blank.css" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\paste\css\pasteword.css" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\paste\editor_plugin.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\paste\editor_plugin_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\paste\js\pastetext.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\paste\js\pasteword.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\paste\langs\en_dlg.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\paste\pastetext.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\paste\pasteword.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\preview\editor_plugin.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\preview\editor_plugin_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\preview\example.html" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\preview\jscripts\embed.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\print\editor_plugin.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\print\editor_plugin_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\safari\blank.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\safari\editor_plugin.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\safari\editor_plugin_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\save\editor_plugin.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\save\editor_plugin_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\searchreplace\css\searchreplace.css" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\searchreplace\editor_plugin.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\searchreplace\editor_plugin_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\searchreplace\js\searchreplace.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\searchreplace\langs\en_dlg.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\searchreplace\searchreplace.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\spellchecker\css\content.css" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\spellchecker\editor_plugin.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\spellchecker\editor_plugin_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\spellchecker\img\wline.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\style\css\props.css" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\style\editor_plugin.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\style\editor_plugin_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\style\js\props.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\style\langs\en_dlg.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\style\props.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\table\cell.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\table\css\cell.css" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\table\css\row.css" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\table\css\table.css" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\table\editor_plugin.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\table\editor_plugin_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\table\js\cell.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\table\js\merge_cells.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\table\js\row.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\table\js\table.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\table\langs\en_dlg.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\table\merge_cells.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\table\row.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\table\table.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\template\blank.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\template\css\template.css" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\template\editor_plugin.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\template\editor_plugin_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\template\js\template.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\template\langs\en_dlg.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\template\template.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\visualchars\editor_plugin.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\visualchars\editor_plugin_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\abbr.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\acronym.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\attributes.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\cite.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\css\attributes.css" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\css\popup.css" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\css\xhtmlxtras.css" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\del.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\editor_plugin.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\editor_plugin_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\ins.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\js\abbr.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\js\acronym.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\js\attributes.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\js\cite.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\js\del.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\js\element_common.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\js\ins.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\langs\en_dlg.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\about.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\anchor.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\charmap.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\color_picker.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\editor_template.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\editor_template_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\image.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\img\colorpicker.jpg" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\img\icons.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\js\about.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\js\anchor.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\js\charmap.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\js\color_picker.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\js\image.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\js\link.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\js\source_editor.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\langs\en.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\langs\en_dlg.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\link.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\skins\default\content.css" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\skins\default\dialog.css" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\skins\default\img\buttons.png" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\skins\default\img\items.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\skins\default\img\menu_arrow.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\skins\default\img\menu_check.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\skins\default\img\progress.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\skins\default\img\tabs.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\skins\default\ui.css" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\skins\o2k7\content.css" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\skins\o2k7\dialog.css" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\skins\o2k7\img\button_bg.png" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\skins\o2k7\img\button_bg_black.png" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\skins\o2k7\img\button_bg_silver.png" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\skins\o2k7\ui.css" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\skins\o2k7\ui_black.css" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\skins\o2k7\ui_silver.css" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\advanced\source_editor.htm" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\simple\editor_template.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\simple\editor_template_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\simple\img\icons.gif" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\simple\langs\en.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\simple\skins\default\content.css" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\simple\skins\default\ui.css" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\simple\skins\o2k7\content.css" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\simple\skins\o2k7\img\button_bg.png" />
+    <Content Include="tinymce\jscripts\tiny_mce\themes\simple\skins\o2k7\ui.css" />
+    <Content Include="tinymce\jscripts\tiny_mce\tiny_mce.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\tiny_mce_popup.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\tiny_mce_src.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\utils\editable_selects.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\utils\form_utils.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\utils\mctabs.js" />
+    <Content Include="tinymce\jscripts\tiny_mce\utils\validate.js" />
+    <Content Include="togglescripts.js" />
+    <Content Include="Trial\Test2.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="Bundle.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="API\DBHelper.vb" />
+    <Compile Include="API\FormControl.vb" />
+    <Compile Include="API\traceapi.asmx.vb">
+      <DependentUpon>traceapi.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.vb" />
+    <Compile Include="App_Start\RouteConfig.vb" />
+    <Compile Include="About.aspx.designer.vb">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="About.aspx.vb">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Assignment\AssignmentMaster.aspx.designer.vb">
+      <DependentUpon>AssignmentMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Assignment\AssignmentMaster.aspx.vb">
+      <DependentUpon>AssignmentMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Assignment\AssignmentMasterDetails.aspx.designer.vb">
+      <DependentUpon>AssignmentMasterDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Assignment\AssignmentMasterDetails.aspx.vb">
+      <DependentUpon>AssignmentMasterDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Assignment\AssignmentsDashboard.aspx.designer.vb">
+      <DependentUpon>AssignmentsDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Assignment\AssignmentsDashboard.aspx.vb">
+      <DependentUpon>AssignmentsDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Assignment\ComplianceAsgTask.aspx.designer.vb">
+      <DependentUpon>ComplianceAsgTask.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Assignment\ComplianceAsgTask.aspx.vb">
+      <DependentUpon>ComplianceAsgTask.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Assignment\ComplianceTask.aspx.designer.vb">
+      <DependentUpon>ComplianceTask.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Assignment\ComplianceTask.aspx.vb">
+      <DependentUpon>ComplianceTask.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Assignment\DynamicReports.aspx.designer.vb">
+      <DependentUpon>DynamicReports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Assignment\DynamicReports.aspx.vb">
+      <DependentUpon>DynamicReports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Assignment\EmpAssignmentSubTask.aspx.designer.vb">
+      <DependentUpon>EmpAssignmentSubTask.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Assignment\EmpAssignmentSubTask.aspx.vb">
+      <DependentUpon>EmpAssignmentSubTask.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Assignment\Invoice.aspx.designer.vb">
+      <DependentUpon>Invoice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Assignment\Invoice.aspx.vb">
+      <DependentUpon>Invoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Assignment\InvoiceDetails.aspx.designer.vb">
+      <DependentUpon>InvoiceDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Assignment\InvoiceDetails.aspx.vb">
+      <DependentUpon>InvoiceDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Assignment\ITReturnsFiling.aspx.designer.vb">
+      <DependentUpon>ITReturnsFiling.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Assignment\ITReturnsFiling.aspx.vb">
+      <DependentUpon>ITReturnsFiling.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Assignment\ScheduleAssignments.aspx.designer.vb">
+      <DependentUpon>ScheduleAssignments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Assignment\ScheduleAssignments.aspx.vb">
+      <DependentUpon>ScheduleAssignments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Audit.Master.designer.vb">
+      <DependentUpon>Audit.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Audit.Master.vb">
+      <DependentUpon>Audit.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConcurrentLogin.aspx.designer.vb">
+      <DependentUpon>ConcurrentLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConcurrentLogin.aspx.vb">
+      <DependentUpon>ConcurrentLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.vb">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contact.aspx.vb">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustLogin.aspx.designer.vb">
+      <DependentUpon>CustLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustLogin.aspx.vb">
+      <DependentUpon>CustLogin.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="CustomerUserMaster.Master.designer.vb">
+      <DependentUpon>CustomerUserMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerUserMaster.Master.vb">
+      <DependentUpon>CustomerUserMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerUsers\CustomerImageView.aspx.designer.vb">
+      <DependentUpon>CustomerImageView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerUsers\CustomerImageView.aspx.vb">
+      <DependentUpon>CustomerImageView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerUsers\DigitalVouching.aspx.designer.vb">
+      <DependentUpon>DigitalVouching.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerUsers\DigitalVouching.aspx.vb">
+      <DependentUpon>DigitalVouching.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerUsers\DigitalVouchingDetails.aspx.designer.vb">
+      <DependentUpon>DigitalVouchingDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerUsers\DigitalVouchingDetails.aspx.vb">
+      <DependentUpon>DigitalVouchingDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerUsers\SearchDocuments.aspx.designer.vb">
+      <DependentUpon>SearchDocuments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerUsers\SearchDocuments.aspx.vb">
+      <DependentUpon>SearchDocuments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerUsers\UploadDocument.aspx.designer.vb">
+      <DependentUpon>UploadDocument.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerUsers\UploadDocument.aspx.vb">
+      <DependentUpon>UploadDocument.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DataSet\AssetDepreciation.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AssetDepreciation.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\DigitalAudit.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DigitalAudit.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\dsAuditAssignments.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsAuditAssignments.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\dsDigitalFilling.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsDigitalFilling.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\dsFinStatement1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsFinStatement.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\dsMasters.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsMasters.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\dsScheduleNote.Designer.vb" />
+    <Compile Include="DataSet\FixedAsset.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FixedAsset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\NewDataset.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NewDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\StandardAudit.Designer.vb" />
+    <Compile Include="DigitalFilling.Master.designer.vb">
+      <DependentUpon>DigitalFilling.Master</DependentUpon>
+    </Compile>
+    <Compile Include="DigitalFilling.Master.vb">
+      <DependentUpon>DigitalFilling.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DigitalFilling\Cabinet.aspx.designer.vb">
+      <DependentUpon>Cabinet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DigitalFilling\Cabinet.aspx.vb">
+      <DependentUpon>Cabinet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DigitalFilling\Descriptor.aspx.designer.vb">
+      <DependentUpon>Descriptor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DigitalFilling\Descriptor.aspx.vb">
+      <DependentUpon>Descriptor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DigitalFilling\DigitalDocument.aspx.designer.vb">
+      <DependentUpon>DigitalDocument.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DigitalFilling\DigitalDocument.aspx.vb">
+      <DependentUpon>DigitalDocument.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DigitalFilling\DigitalFilingDashboard.aspx.designer.vb">
+      <DependentUpon>DigitalFilingDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DigitalFilling\DigitalFilingDashboard.aspx.vb">
+      <DependentUpon>DigitalFilingDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DigitalFilling\DigitalPermission.aspx.designer.vb">
+      <DependentUpon>DigitalPermission.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DigitalFilling\DigitalPermission.aspx.vb">
+      <DependentUpon>DigitalPermission.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="DigitalFilling\DocumentType.aspx.designer.vb">
+      <DependentUpon>DocumentType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DigitalFilling\DocumentType.aspx.vb">
+      <DependentUpon>DocumentType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DigitalFilling\Folders.aspx.designer.vb">
+      <DependentUpon>Folders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DigitalFilling\Folders.aspx.vb">
+      <DependentUpon>Folders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DigitalFilling\ImageView.aspx.designer.vb">
+      <DependentUpon>ImageView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DigitalFilling\ImageView.aspx.vb">
+      <DependentUpon>ImageView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DigitalFilling\Indexing.aspx.designer.vb">
+      <DependentUpon>Indexing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DigitalFilling\Indexing.aspx.vb">
+      <DependentUpon>Indexing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DigitalFilling\ReportGeneration.aspx.designer.vb">
+      <DependentUpon>ReportGeneration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DigitalFilling\ReportGeneration.aspx.vb">
+      <DependentUpon>ReportGeneration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DigitalFilling\Search.aspx.designer.vb">
+      <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DigitalFilling\Search.aspx.vb">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DigitalFilling\SubCabinet.aspx.designer.vb">
+      <DependentUpon>SubCabinet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DigitalFilling\SubCabinet.aspx.vb">
+      <DependentUpon>SubCabinet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FIN Statement\accountingRatio.aspx.designer.vb">
+      <DependentUpon>accountingRatio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FIN Statement\accountingRatio.aspx.vb">
+      <DependentUpon>accountingRatio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FIN Statement\AccountPolicies.aspx.designer.vb">
+      <DependentUpon>AccountPolicies.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FIN Statement\AccountPolicies.aspx.vb">
+      <DependentUpon>AccountPolicies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FIN Statement\ADODashboard.aspx.designer.vb">
+      <DependentUpon>ADODashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FIN Statement\ADODashboard.aspx.vb">
+      <DependentUpon>ADODashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FIN Statement\ADO_Batchdetails.aspx.designer.vb">
+      <DependentUpon>ADO_Batchdetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FIN Statement\ADO_Batchdetails.aspx.vb">
+      <DependentUpon>ADO_Batchdetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FIN Statement\CashFlow.aspx.designer.vb">
+      <DependentUpon>CashFlow.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FIN Statement\CashFlow.aspx.vb">
+      <DependentUpon>CashFlow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FIN Statement\JournalEntry.aspx.designer.vb">
+      <DependentUpon>JournalEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FIN Statement\JournalEntry.aspx.vb">
+      <DependentUpon>JournalEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FIN Statement\JournalEntryDetails.aspx.designer.vb">
+      <DependentUpon>JournalEntryDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FIN Statement\JournalEntryDetails.aspx.vb">
+      <DependentUpon>JournalEntryDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FIN Statement\PartnersFund.aspx.designer.vb">
+      <DependentUpon>PartnersFund.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FIN Statement\PartnersFund.aspx.vb">
+      <DependentUpon>PartnersFund.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FIN Statement\ScheduleDashboard.aspx.designer.vb">
+      <DependentUpon>ScheduleDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FIN Statement\ScheduleDashboard.aspx.vb">
+      <DependentUpon>ScheduleDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FIN Statement\ScheduleNote.aspx.designer.vb">
+      <DependentUpon>ScheduleNote.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FIN Statement\ScheduleNote.aspx.vb">
+      <DependentUpon>ScheduleNote.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FIN Statement\ScheduleReport.aspx.designer.vb">
+      <DependentUpon>ScheduleReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FIN Statement\ScheduleReport.aspx.vb">
+      <DependentUpon>ScheduleReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FIN Statement\Schedules.aspx.designer.vb">
+      <DependentUpon>Schedules.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FIN Statement\Schedules.aspx.vb">
+      <DependentUpon>Schedules.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FIN Statement\Trade.aspx.designer.vb">
+      <DependentUpon>Trade.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FIN Statement\Trade.aspx.vb">
+      <DependentUpon>Trade.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FIN Statement\UploadStockEntry.aspx.designer.vb">
+      <DependentUpon>UploadStockEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FIN Statement\UploadStockEntry.aspx.vb">
+      <DependentUpon>UploadStockEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FIN Statement\UploadTrailbalanceSchedule.aspx.designer.vb">
+      <DependentUpon>UploadTrailbalanceSchedule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FIN Statement\UploadTrailbalanceSchedule.aspx.vb">
+      <DependentUpon>UploadTrailbalanceSchedule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FixedAsset\AssetAdditionDashBoard.aspx.designer.vb">
+      <DependentUpon>AssetAdditionDashBoard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FixedAsset\AssetAdditionDashBoard.aspx.vb">
+      <DependentUpon>AssetAdditionDashBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FixedAsset\AssetAdditionExcelUpload.aspx.designer.vb">
+      <DependentUpon>AssetAdditionExcelUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FixedAsset\AssetAdditionExcelUpload.aspx.vb">
+      <DependentUpon>AssetAdditionExcelUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FixedAsset\AssetDeletion.aspx.designer.vb">
+      <DependentUpon>AssetDeletion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FixedAsset\AssetDeletion.aspx.vb">
+      <DependentUpon>AssetDeletion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FixedAsset\AssetDeletionDashboard.aspx.designer.vb">
+      <DependentUpon>AssetDeletionDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FixedAsset\AssetDeletionDashboard.aspx.vb">
+      <DependentUpon>AssetDeletionDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FixedAsset\AssetMaster.aspx.designer.vb">
+      <DependentUpon>AssetMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FixedAsset\AssetMaster.aspx.vb">
+      <DependentUpon>AssetMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FixedAsset\AssetMasterPage.aspx.designer.vb">
+      <DependentUpon>AssetMasterPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FixedAsset\AssetMasterPage.aspx.vb">
+      <DependentUpon>AssetMasterPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FixedAsset\AssetOpeningBalExcelUpload.aspx.designer.vb">
+      <DependentUpon>AssetOpeningBalExcelUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FixedAsset\AssetOpeningBalExcelUpload.aspx.vb">
+      <DependentUpon>AssetOpeningBalExcelUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FixedAsset\AssetRegister.aspx.designer.vb">
+      <DependentUpon>AssetRegister.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FixedAsset\AssetRegister.aspx.vb">
+      <DependentUpon>AssetRegister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FixedAsset\AssetTransactionAddition.aspx.designer.vb">
+      <DependentUpon>AssetTransactionAddition.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FixedAsset\AssetTransactionAddition.aspx.vb">
+      <DependentUpon>AssetTransactionAddition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FixedAsset\DepreciationComputation.aspx.designer.vb">
+      <DependentUpon>DepreciationComputation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FixedAsset\DepreciationComputation.aspx.vb">
+      <DependentUpon>DepreciationComputation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FixedAsset\FixedReport.aspx.designer.vb">
+      <DependentUpon>FixedReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FixedAsset\FixedReport.aspx.vb">
+      <DependentUpon>FixedReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FixedAsset\FXADynamicReport.aspx.designer.vb">
+      <DependentUpon>FXADynamicReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FixedAsset\FXADynamicReport.aspx.vb">
+      <DependentUpon>FXADynamicReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FixedAsset\FXAInvReport.aspx.designer.vb">
+      <DependentUpon>FXAInvReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FixedAsset\FXAInvReport.aspx.vb">
+      <DependentUpon>FXAInvReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FixedAsset\FXAPhysicalReport.aspx.designer.vb">
+      <DependentUpon>FXAPhysicalReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FixedAsset\FXAPhysicalReport.aspx.vb">
+      <DependentUpon>FXAPhysicalReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FixedAsset\LocationSetUp.aspx.designer.vb">
+      <DependentUpon>LocationSetUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FixedAsset\LocationSetUp.aspx.vb">
+      <DependentUpon>LocationSetUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FixedAsset\PhysicalRPTVerification.aspx.designer.vb">
+      <DependentUpon>PhysicalRPTVerification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FixedAsset\PhysicalRPTVerification.aspx.vb">
+      <DependentUpon>PhysicalRPTVerification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Global.asax.vb">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Home.Master.designer.vb">
+      <DependentUpon>Home.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Home.Master.vb">
+      <DependentUpon>Home.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePages\Audit.aspx.designer.vb">
+      <DependentUpon>Audit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePages\Audit.aspx.vb">
+      <DependentUpon>Audit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePages\Cust_user_Homepage.aspx.designer.vb">
+      <DependentUpon>Cust_user_Homepage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePages\Cust_user_Homepage.aspx.vb">
+      <DependentUpon>Cust_user_Homepage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePages\DigitalFillingHome.aspx.designer.vb">
+      <DependentUpon>DigitalFillingHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePages\DigitalFillingHome.aspx.vb">
+      <DependentUpon>DigitalFillingHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePages\Home.aspx.designer.vb">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePages\Home.aspx.vb">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePages\Master.aspx.designer.vb">
+      <DependentUpon>Master.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePages\Master.aspx.vb">
+      <DependentUpon>Master.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Loginpage.aspx.designer.vb">
+      <DependentUpon>Loginpage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Loginpage.aspx.vb">
+      <DependentUpon>Loginpage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master.Master.designer.vb">
+      <DependentUpon>Master.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Master.Master.vb">
+      <DependentUpon>Master.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\AuditChecklist.aspx.designer.vb">
+      <DependentUpon>AuditChecklist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\AuditChecklist.aspx.vb">
+      <DependentUpon>AuditChecklist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\AuditChecklistDetails.aspx.designer.vb">
+      <DependentUpon>AuditChecklistDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\AuditChecklistDetails.aspx.vb">
+      <DependentUpon>AuditChecklistDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\AuditLog.aspx.designer.vb">
+      <DependentUpon>AuditLog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\AuditLog.aspx.vb">
+      <DependentUpon>AuditLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\CompanyDetails.aspx.designer.vb">
+      <DependentUpon>CompanyDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\CompanyDetails.aspx.vb">
+      <DependentUpon>CompanyDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\CustomerDetails.aspx.designer.vb">
+      <DependentUpon>CustomerDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\CustomerDetails.aspx.vb">
+      <DependentUpon>CustomerDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\CustomerMaster.aspx.designer.vb">
+      <DependentUpon>CustomerMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\CustomerMaster.aspx.vb">
+      <DependentUpon>CustomerMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\DynamicReport.aspx.designer.vb">
+      <DependentUpon>DynamicReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\DynamicReport.aspx.vb">
+      <DependentUpon>DynamicReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\EmployeeMaster.aspx.designer.vb">
+      <DependentUpon>EmployeeMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\EmployeeMaster.aspx.vb">
+      <DependentUpon>EmployeeMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\EmployeeMasterDetailsaspx.aspx.designer.vb">
+      <DependentUpon>EmployeeMasterDetailsaspx.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\EmployeeMasterDetailsaspx.aspx.vb">
+      <DependentUpon>EmployeeMasterDetailsaspx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\EProfile.aspx.designer.vb">
+      <DependentUpon>EProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\EProfile.aspx.vb">
+      <DependentUpon>EProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\ExcelUpload.aspx.designer.vb">
+      <DependentUpon>ExcelUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\ExcelUpload.aspx.vb">
+      <DependentUpon>ExcelUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\GeneralMaster.aspx.designer.vb">
+      <DependentUpon>GeneralMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\GeneralMaster.aspx.vb">
+      <DependentUpon>GeneralMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\GeneralMasterDetails.aspx.designer.vb">
+      <DependentUpon>GeneralMasterDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\GeneralMasterDetails.aspx.vb">
+      <DependentUpon>GeneralMasterDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\GRACeSettings.aspx.designer.vb">
+      <DependentUpon>GRACeSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\GRACeSettings.aspx.vb">
+      <DependentUpon>GRACeSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\HolidayMaster.aspx.designer.vb">
+      <DependentUpon>HolidayMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\HolidayMaster.aspx.vb">
+      <DependentUpon>HolidayMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\LeaveDetails.aspx.designer.vb">
+      <DependentUpon>LeaveDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\LeaveDetails.aspx.vb">
+      <DependentUpon>LeaveDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\ModulePermission.aspx.designer.vb">
+      <DependentUpon>ModulePermission.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\ModulePermission.aspx.vb">
+      <DependentUpon>ModulePermission.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\ModuleSplPermission.aspx.designer.vb">
+      <DependentUpon>ModuleSplPermission.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\ModuleSplPermission.aspx.vb">
+      <DependentUpon>ModuleSplPermission.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Masters\OrganizationStructure.aspx.designer.vb">
+      <DependentUpon>OrganizationStructure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\OrganizationStructure.aspx.vb">
+      <DependentUpon>OrganizationStructure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\ReportContentMaster.aspx.designer.vb">
+      <DependentUpon>ReportContentMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\ReportContentMaster.aspx.vb">
+      <DependentUpon>ReportContentMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\ReportTemplateMaster.aspx.designer.vb">
+      <DependentUpon>ReportTemplateMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\ReportTemplateMaster.aspx.vb">
+      <DependentUpon>ReportTemplateMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\UserMaster.aspx.designer.vb">
+      <DependentUpon>UserMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\UserMaster.aspx.vb">
+      <DependentUpon>UserMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\UserMasterDetails.aspx.designer.vb">
+      <DependentUpon>UserMasterDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\UserMasterDetails.aspx.vb">
+      <DependentUpon>UserMasterDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\MyExtensions\MyWebExtension.vb">
+      <VBMyExtensionTemplateID>Microsoft.VisualBasic.Web.MyExtension</VBMyExtensionTemplateID>
+      <VBMyExtensionTemplateVersion>1.0.0.0</VBMyExtensionTemplateVersion>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ServerError.aspx.designer.vb">
+      <DependentUpon>ServerError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ServerError.aspx.vb">
+      <DependentUpon>ServerError.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.vb">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.vb">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StandardAudit\AuditorIssue.aspx.designer.vb">
+      <DependentUpon>AuditorIssue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StandardAudit\AuditorIssue.aspx.vb">
+      <DependentUpon>AuditorIssue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StandardAudit\AuditSummary.aspx.designer.vb">
+      <DependentUpon>AuditSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StandardAudit\AuditSummary.aspx.vb">
+      <DependentUpon>AuditSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StandardAudit\ConductAudit.aspx.designer.vb">
+      <DependentUpon>ConductAudit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StandardAudit\ConductAudit.aspx.vb">
+      <DependentUpon>ConductAudit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StandardAudit\DashboardAndSchedule.aspx.designer.vb">
+      <DependentUpon>DashboardAndSchedule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StandardAudit\DashboardAndSchedule.aspx.vb">
+      <DependentUpon>DashboardAndSchedule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StandardAudit\DashboardAndScheduleDeatils.aspx.designer.vb">
+      <DependentUpon>DashboardAndScheduleDeatils.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StandardAudit\DashboardAndScheduleDeatils.aspx.vb">
+      <DependentUpon>DashboardAndScheduleDeatils.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StandardAudit\DRLSampling.aspx.designer.vb">
+      <DependentUpon>DRLSampling.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StandardAudit\DRLSampling.aspx.vb">
+      <DependentUpon>DRLSampling.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StandardAudit\DRLSamplingCU.aspx.designer.vb">
+      <DependentUpon>DRLSamplingCU.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StandardAudit\DRLSamplingCU.aspx.vb">
+      <DependentUpon>DRLSamplingCU.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StandardAudit\FinalAuditReport.aspx.designer.vb">
+      <DependentUpon>FinalAuditReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StandardAudit\FinalAuditReport.aspx.vb">
+      <DependentUpon>FinalAuditReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StandardAudit\frmAuditLedgerUpload.aspx.designer.vb">
+      <DependentUpon>frmAuditLedgerUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StandardAudit\frmAuditLedgerUpload.aspx.vb">
+      <DependentUpon>frmAuditLedgerUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StandardAudit\frmUploadTBExcel.aspx.designer.vb">
+      <DependentUpon>frmUploadTBExcel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StandardAudit\frmUploadTBExcel.aspx.vb">
+      <DependentUpon>frmUploadTBExcel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StandardAudit\AnnualPlan.aspx.designer.vb">
+      <DependentUpon>AnnualPlan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StandardAudit\AnnualPlan.aspx.vb">
+      <DependentUpon>AnnualPlan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StandardAudit\MRIssue.aspx.designer.vb">
+      <DependentUpon>MRIssue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StandardAudit\MRIssue.aspx.vb">
+      <DependentUpon>MRIssue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StandardAudit\SampleSelection.aspx.designer.vb">
+      <DependentUpon>SampleSelection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StandardAudit\SampleSelection.aspx.vb">
+      <DependentUpon>SampleSelection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StandardAudit\UploadObservations.aspx.designer.vb">
+      <DependentUpon>UploadObservations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StandardAudit\UploadObservations.aspx.vb">
+      <DependentUpon>UploadObservations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Testing.aspx.designer.vb">
+      <DependentUpon>Testing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Testing.aspx.vb">
+      <DependentUpon>Testing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="testing1.aspx.designer.vb">
+      <DependentUpon>testing1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="testing1.aspx.vb">
+      <DependentUpon>testing1.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Trial\Test2.aspx.designer.vb">
+      <DependentUpon>Test2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Trial\Test2.aspx.vb">
+      <DependentUpon>Test2.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.vb">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.designer.vb">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.vb">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.designer.vb">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Assignment\AuditAssignment.rdlc" />
+    <EmbeddedResource Include="Reports\Assignment\ITReturns.rdlc" />
+    <EmbeddedResource Include="Reports\Assignment\ProformaInvoice.rdlc" />
+    <EmbeddedResource Include="Reports\Assignment\TaxInvoice.rdlc" />
+    <EmbeddedResource Include="Reports\DigitalAudit\PandL.rdlc" />
+    <EmbeddedResource Include="Reports\DigitalAudit\ReportCashFlow.rdlc" />
+    <EmbeddedResource Include="Reports\DigitalAudit\ReportSchedules.rdlc" />
+    <EmbeddedResource Include="Reports\DigitalAudit\ReportSchedulesDetails.rdlc" />
+    <EmbeddedResource Include="Reports\DigitalAudit\RptFFOA.rdlc" />
+    <EmbeddedResource Include="Reports\DigitalAudit\RptFFOAEXCL.rdlc" />
+    <EmbeddedResource Include="Reports\DigitalAudit\RptFFOAPDF.rdlc" />
+    <EmbeddedResource Include="Reports\DigitalAudit\rptSchdeuleJs.rdlc" />
+    <EmbeddedResource Include="Reports\DigitalAudit\rptSchduleNote.rdlc" />
+    <EmbeddedResource Include="Reports\DigitalAudit\rptScheduleSlosingStock.rdlc" />
+    <EmbeddedResource Include="Reports\DigitalAudit\ScheduleExportOPB.rdlc" />
+    <EmbeddedResource Include="Reports\DigitalAudit\ScheduleManufacturing.rdlc" />
+    <EmbeddedResource Include="Reports\DigitalAudit\SchedulesReport.rdlc" />
+    <EmbeddedResource Include="Reports\DigitalFilling\Cabinet.rdlc" />
+    <EmbeddedResource Include="Reports\DigitalFilling\Descriptor.rdlc" />
+    <EmbeddedResource Include="Reports\DigitalFilling\DocumentType.rdlc" />
+    <EmbeddedResource Include="Reports\DigitalFilling\Folders.rdlc" />
+    <EmbeddedResource Include="Reports\DigitalFilling\ReportGeneration.rdlc" />
+    <EmbeddedResource Include="Reports\DigitalFilling\SubCabinet.rdlc" />
+    <EmbeddedResource Include="Reports\FINStatement\AccountingPolicies.rdlc" />
+    <EmbeddedResource Include="Reports\FINStatement\AccountingRatio.rdlc" />
+    <EmbeddedResource Include="Reports\FINStatement\CashFlow.rdlc" />
+    <EmbeddedResource Include="Reports\FINStatement\PartnershipFirms.rdlc" />
+    <EmbeddedResource Include="Reports\FINStatement\RptTrade.rdlc" />
+    <EmbeddedResource Include="Reports\FINStatement\rptTrailBalance.rdlc" />
+    <EmbeddedResource Include="Reports\FINStatement\rptTrailBalanceData.rdlc" />
+    <EmbeddedResource Include="Reports\FixedAsset\AssetAddDashBoard.rdlc" />
+    <EmbeddedResource Include="Reports\FixedAsset\AssetDepComp.rdlc" />
+    <EmbeddedResource Include="Reports\FixedAsset\AssetDynamicReport.rdlc" />
+    <EmbeddedResource Include="Reports\FixedAsset\AssetITAct.rdlc" />
+    <EmbeddedResource Include="Reports\FixedAsset\AssetITReport.rdlc" />
+    <EmbeddedResource Include="Reports\FixedAsset\AssetRegReport.rdlc" />
+    <EmbeddedResource Include="Reports\FixedAsset\FixedAssetCAReport.rdlc" />
+    <EmbeddedResource Include="Reports\FixedAsset\FixedAssetITReport.rdlc" />
+    <EmbeddedResource Include="Reports\FixedAsset\FixedAssetReport.rdlc" />
+    <EmbeddedResource Include="Reports\FixedAsset\FixedAssetReportDetailed.rdlc" />
+    <EmbeddedResource Include="Reports\FixedAsset\FixedAsstInvReport.rdlc" />
+    <EmbeddedResource Include="Reports\FixedAsset\PhysicalRPTVerification.rdlc" />
+    <EmbeddedResource Include="Reports\Master\CompanyDetails.rdlc" />
+    <EmbeddedResource Include="Reports\Master\CustomerMaster.rdlc" />
+    <EmbeddedResource Include="Reports\Master\DynamicReport.rdlc" />
+    <EmbeddedResource Include="Reports\Master\EmployeeMaster.rdlc" />
+    <EmbeddedResource Include="Reports\Master\GeneralMaster.rdlc" />
+    <EmbeddedResource Include="Reports\Master\GRACeSettings.rdlc" />
+    <EmbeddedResource Include="Reports\Master\HolidayMaster.rdlc" />
+    <EmbeddedResource Include="Reports\Master\OrganizationStructure.rdlc" />
+    <EmbeddedResource Include="Reports\Master\ReportContent.rdlc" />
+    <EmbeddedResource Include="Reports\Master\ReportTemplate.rdlc" />
+    <EmbeddedResource Include="Reports\Master\UserMaster.rdlc" />
+    <EmbeddedResource Include="Reports\StandardAudit\ConductAudit.rdlc" />
+    <EmbeddedResource Include="Reports\StandardAudit\FinalReport.rdlc" />
+    <EmbeddedResource Include="Reports\StandardAudit\IFC.rdlc" />
+    <EmbeddedResource Include="Reports\StandardAudit\KAM.rdlc" />
+    <EmbeddedResource Include="Reports\StandardAudit\MR.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Site.Master" />
+    <Content Include="Site.Mobile.Master" />
+    <Content Include="ViewSwitcher.ascx" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="StyleSheet\glyphicons-halflings-regular.eot" />
+    <Content Include="StyleSheet\glyphicons-halflings-regular.ttf" />
+    <Content Include="StyleSheet\glyphicons-halflings-regular.woff" />
+    <Content Include="StyleSheet\bootstrap.min.css.map" />
+    <Content Include="tinymce\examples\media\sample.dcr" />
+    <Content Include="tinymce\examples\media\sample.ram" />
+    <Content Include="tinymce\examples\media\sample.rm" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="BVRTrace\" />
+    <Folder Include="Json\" />
+    <Folder Include="NewFolder1\" />
+    <Folder Include="TempRpt\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinesLayer\BusinesLayer.vbproj">
+      <Project>{c0c4a3e0-f377-4985-8260-e22e51134afc}</Project>
+      <Name>BusinesLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DatabaseLayer\DatabaseLayer.vbproj">
+      <Project>{5ba6773b-5163-4352-9621-094448cf04c1}</Project>
+      <Name>DatabaseLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51432</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44377/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

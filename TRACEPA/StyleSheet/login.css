@@ -1,0 +1,137 @@
+.login {
+    background-color: whitesmoke;
+    /*background: #20002c;*/ /* fallback for old browsers */
+    /*background: -webkit-linear-gradient(to right, #cbb4d4, #20002c);*/ /* Chrome 10-25, Safari 5.1-6 */
+    /*background: linear-gradient(to right, #cbb4d4, #20002c);*/ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    height: 100%;
+    width: 100%;
+    /*padding-top: 9%;*/
+}
+
+.panel-heading {
+    background-color: transparent !important;
+    border: 0px;
+}
+
+    .panel-heading img {
+        margin: 0 auto;
+    }
+
+.panel {
+    background-color: #fff !important;
+    border: 0px;
+}
+.item-card {
+    transition: 0.5s;
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: 10px 10px 10px black;
+    border-color:black;
+    text-align: center;
+    margin-top: 125px;
+    background-color: white;
+    border-radius:10px;
+}
+#loginform input {
+    /*background-color: transparent !important;*/
+    border: 0px;
+    box-shadow: 0px;
+    border-radius: 10px;
+}
+
+    #loginform .form-control placeholder {
+        background-color: transparent !important;
+        border: 0px;
+        box-shadow: none;
+        color: #ffffff;
+    }
+
+#loginform .input-group-addon {
+    background-color: transparent !important;
+    border: 0px;
+    box-shadow: none;
+    color: #ffffff;
+}
+.btn-lg, .btn-group-lg > .btn {
+  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+  border-radius: 0.3rem;
+}
+.btn-sm, .btn-group-sm > .btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 0.2rem;
+}
+
+
+#loginform .input-group {
+    background: url(../Images/line1.png) no-repeat 50% 100%;
+    padding-bottom: 10px;
+}
+
+#loginform .curpo {
+    cursor: pointer;
+}
+
+::-webkit-input-placeholder {
+    color: #cdd1bf !important;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    color: #ffffff !important;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+    color: #ffffff !important;
+}
+
+:-ms-input-placeholder {
+    color: #ffffff !important;
+}
+
+.panel.panel-info {
+    border: 0px;
+    box-shadow: none;
+}
+
+.glyphicon-access {
+    background: url(../Images/access_code_icon.png) no-repeat 0px 0px !important;
+    border-radius: 0px;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    float: left;
+}
+
+.glyphicon-user1 {
+    background: url(../Images/user_icon.png) no-repeat 0px 0px !important;
+    border-radius: 0px;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    float: left;
+}
+
+.glyphicon-password {
+    background: url(../Images/password_icon.png) no-repeat 0px 0px !important;
+    border-radius: 0px;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    float: left;
+}
+
+.forgotPwd {
+    font-size: 18px;
+    width: 300px;
+    color: #ffffff;
+    margin-left: 155px;
+    font-family: Segoe UI, sans-serif;
+}
+
+    .forgotPwd a {
+        font-size: 14px;
+        color: #ffffff;
+        font-family: Segoe UI, sans-serif;
+    }

@@ -1,0 +1,693 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Digital_AuditOffice.master.vb" Inherits="TRACePA.Digital_AuditOffice" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>TRACe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="StyleSheet/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="StyleSheet/custom.css" type="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</head>
+<script src="JavaScripts/jquery-1.12.3.min.js" type="text/javascript"></script>
+<script src="JavaScripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="JavaScripts/html5shiv.js" type="text/javascript"></script>
+<script src="JavaScripts/respond.min.js" type="text/javascript"></script>
+<script src="StyleSheet/vendor.min.js" type="text/javascript"></script>
+<script src="JavaScripts/scripts.js" type="text/javascript"></script>
+
+<script src="StyleSheet/app.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var timeout;
+    var checktimeOutWarning;
+    var iCount = 0;
+    var dt = new Date();
+    var start = dt.getTime();
+    function checkTime(intSessionTimeOut, intSessionTimeOutWarning) {
+        timeout = intSessionTimeOut;
+        checktimeOutWarning = intSessionTimeOutWarning;
+        var d = new Date();
+        var now = d.getTime();
+        var timeSpent = (now - start);
+        var timealert = intSessionTimeOut - intSessionTimeOutWarning;
+        //$('#ModalWarning').modal('show')
+        //$('#ModalLogOut').modal('show')
+
+        document.onkeypress = function (event) {
+            event = (event || window.event);
+            if (event.keyCode == 123) {
+                return false;
+            }
+        }
+        document.onmousedown = function (event) {
+            event = (event || window.event);
+            if (event.keyCode == 123) {
+                return false;
+            }
+        }
+        document.onkeydown = function (event) {
+            event = (event || window.event);
+            if (event.keyCode == 123) {
+                return false;
+            }
+        }
+
+        $(document).keydown(function (event) {
+            var pressedKey = String.fromCharCode(event.keyCode).toLowerCase();
+            if (event.ctrlKey && pressedKey == "u") {
+                return false;
+            }
+            if (event.ctrlKey && event.shiftKey && (pressedKey == "i")) {
+                return false;
+            }
+        });
+
+        if ((timealert < timeSpent) && (timealert < timeout)) {
+            if (iCount == 0) {
+                $('#ModalWarning').modal('show')
+                iCount = 1
+            }
+        }
+        if (timeSpent > timeout) {
+            $("#ModalWarning").modal('hide');
+            $('#ModalLogOut').modal('show')
+            return true;
+        }
+        setTimeout('checkTime(timeout,checktimeOutWarning)', 1000);
+    }
+</script>
+<script type="text/javascript">
+    function resize_iframe() {
+        var height = window.innerWidth;//Firefox
+        if (document.body.clientHeight) {
+            height = document.body.clientHeight;//IE
+        }
+        //resize the iframe according to the size of the
+        //window (all these should be on the same line)
+        document.getElementById("glu").style.height = parseInt(height -
+            document.getElementById("glu").offsetTop - 8) + "px";
+    }
+    // this will resize the iframe every
+    // time you change the size of the window.
+    window.onresize = resize_iframe;
+    //Instead of using this you can use:
+    //	<BODY onresize="resize_iframe()">
+    //-->
+</script>
+<%--<body onresize="$('#iframe1').attr('height', $(window).height());" style="margin: 0;" runat="server" id="bdyProgramMaster" oncontextmenu="return false;" onkeydown="return (event.keyCode!=13)">--%>
+<body onresize="$('#iframe1').attr('height', $(window).height());" style="margin: 0;" runat="server" id="bdyProgramMaster" onkeydown="return (event.keyCode!=13)">
+    <form runat="server">
+        <div id="container">
+            <div class="col-sm-2 col-md-2 col-lg-2 voucher_sidebar pull-left" id="voucher_sidebar" style="width: 16%; overflow-x: no-display;">
+                <div class="quick_Links dropdown keep-open">
+                    <div id="logo_trace">
+                        <asp:ImageButton ID="imgbtnTRACeLog" runat="server" />
+                    </div>
+                    <ul id="TopMenu" aria-label="Vertical button group" role="group" class="btn-group-vertical backgroundgap">
+                        <li id="liAssignmentMain" runat="server"><a data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;1. Assignments</a>
+                            <ul aria-labelledby="btnGroupVerticalDrop1" class="dropdown-menu">
+                                <li>
+                                    <asp:LinkButton runat="server" ID="lnkbtnAssignmentsDashboard" Text="1.1 Dashboard" /></li>
+                                <li>
+                                    <asp:LinkButton runat="server" ID="lnkbtnScheduleAssignments" Text="1.2 Schedule" /></li>
+                                <li>
+                                    <asp:LinkButton runat="server" ID="lnkbtnTaskAssignments" Text="1.3 Tasks" /></li>
+                                <li>
+                                    <asp:LinkButton runat="server" ID="lnkbtnDynamicReports" Text="1.4 Dynamic Reports" /></li>
+                                <li>
+                                    <asp:LinkButton runat="server" ID="lnkbtnComplianceTask" Text="1.5 Compliance" /></li>
+                                <li>
+                                    <asp:LinkButton runat="server" ID="lnkbtnInvoice" Text="1.6 Invoice" /></li>
+                            </ul>
+                        </li>
+                        <li id="liMasters" runat="server"><a data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;2. Financial Audit</a>
+                            <ul class="dropdown-menu">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages1" aria-expanded="false" aria-controls="collapsePages">
+                                    <div style="color: white;font-weight:normal">&nbsp;&nbsp;<span class="glyphicon glyphicon-chevron-right"></span>2.1 Masters</div>
+                                </a>
+                                <div class="collapse" id="collapsePages1" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                    <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages1">
+                                        <ul aria-labelledby="btnGroupChartofAccounts">
+                                       <li>
+                                                <asp:LinkButton runat="server" ID="lnkbtnSchedules" Text="2.1.1 Schedules" /></li>
+                                            <li>
+                                                <asp:LinkButton runat="server" ID="lnkbtnReports" Text="2.1.2 Reports" /></li>
+                                            <%--  <li id="li1" runat="server">
+                                                <asp:LinkButton runat="server" ID="lnkbtnMastersSchedule" Text="2.1.2 Masters Schedule" Font-Underline="false" />
+                                            </li>--%>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </ul>   
+                            <ul class="dropdown-menu">                                
+                                      <li id="liJE" runat="server" class="backgroundgap">
+                                                <asp:LinkButton runat="server" ID="lnkbtnJournalEntry" CssClass="btn btn-default pull-left dropdown-toggle" Style="padding: 10px 0px 10px 0px" Text="&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;2.2. Journal Entry" /></li>
+                                </ul>
+                            <ul class="dropdown-menu">     
+                                     <li id="liUPT" runat="server" class="backgroundgap">
+                                                <asp:LinkButton runat="server" ID="lnkbtnTrailBalanceSchedule" CssClass="btn btn-default pull-left dropdown-toggle" Style="padding: 10px 0px 10px 0px" Text="&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;2.3 Upload Trail Balance <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for Schedule" /></li>
+                                                              </ul>   
+                            <ul class="dropdown-menu">
+                                <li id="liAuxilaryReport" runat="server" class="backgroundgap">
+                                    <asp:LinkButton runat="server" ForeColor="White" ID="lnkbtnAuxilaryReport" CssClass="btn btn-default pull-left dropdown-toggle" Style="padding: 10px 0px 10px 0px" Text="&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;2.5 Disclosures" />
+                                </li>
+                            </ul>
+                            <ul class="dropdown-menu">
+                                <li id="liReport" runat="server" class="backgroundgap">
+                                    <asp:LinkButton runat="server" ForeColor="White" ID="lnkbtnReport" CssClass="btn btn-default pull-left dropdown-toggle" Style="padding: 10px 0px 10px 0px" Text="&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;2.6 Report" />
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li id="liDigitalOffice" runat="server"><a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle" id="btnDigitalOffice"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;3. Digital Office</a>
+                            <ul aria-labelledby="btnGroupVerticalDrop1" class="dropdown-menu">
+                                <li id="liOC" runat="server">
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages8" aria-expanded="false" aria-controls="collapsePages">
+                                        <div style="color: white;font-weight:normal"><span class="glyphicon glyphicon-chevron-right"></span>3.1 Office Correspondence</div>
+                                    </a>
+                                    <div class="collapse" id="collapsePages8" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                        <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages8">
+                                            <ul aria-labelledby="btnGroupVerticalDrop1">
+                                                <li>
+                                                    <asp:LinkButton runat="server" ID="lnkbtnInward" Text="3.1.1 Inward" /></li>
+                                                <li>
+                                                    <asp:LinkButton runat="server" ID="lnkbtnOutward" Text="3.1.2 Outward" /></li>
+                                                <li>
+                                                    <asp:LinkButton runat="server" ID="lnkbtnGmail" Text="3.1.3 E-mail" /></li>
+                                                <li>
+                                                    <asp:LinkButton runat="server" ID="lnkbtnBRRPlanning" Text="3.1.4 Inward Tracker" /></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </li>
+                                <li id="liDF" runat="server">
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages9" aria-expanded="false" aria-controls="collapsePapx;">
+                                        <div style="color: white;font-weight:normal"><span class="glyphicon glyphicon-chevron-right"></span>3.2 Digital Filling    </div>
+                                    </a>
+                                    <div class="collapse" id="collapsePages9" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                        <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages9">
+                                            <ul aria-labelledby="btnGroupVerticalDrop1" class="backgroundgap">
+                                                <li>
+                                                    <asp:LinkButton runat="server" ID="lnkbtnDigitalFillinhDashboard" Text="3.2.1 Digital Filling Dashboard" /></li>
+                                                <li>
+                                                    <asp:LinkButton runat="server" ID="lnkbtnCabinet" Text="3.2.1 Cabinet" /></li>
+                                                <li>
+                                                    <asp:LinkButton runat="server" ID="lnkbtnSubCabinet" Text="3.2.2 Sub Cabinet" /></li>
+                                                <li>
+                                                    <asp:LinkButton runat="server" ID="lnkbtnFolder" Text="3.2.3 Folder" /></li>
+                                                <li>
+                                                    <asp:LinkButton runat="server" ID="lnkbtnDescriptor" Text="3.2.4 Descriptor" /></li>
+                                                <li>
+                                                    <asp:LinkButton runat="server" ID="lnkbtnDocType" Text="3.2.5 DocumentType" /></li>
+                                                <li>
+                                                    <asp:LinkButton runat="server" ID="lnkIndexing" Text="3.2.6 File Upload" /></li>
+                                                <li>
+                                                    <asp:LinkButton runat="server" ID="lnkSearch" Text="3.2.7 Document Search" /></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </li>
+                                <li id="liADO" runat="server">
+                                    <div style="color: white;font-weight:normal">
+                                        <asp:LinkButton runat="server" ForeColor="White" ID="lnkbtnADODashBroard" CssClass="btn btn-default pull-left dropdown-toggle" Style="padding: 10px 0px 10px 21px" Text="3.3 Digital Vouching" /></ nav>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li id="liFixedAsset" runat="server"><a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle" id="btnFixedAsset"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;4. FIXED ASSET</a>
+                            <ul aria-labelledby="btnGroupVerticalDrop1" class="dropdown-menu">
+
+                              <%--  <li id="FXASTDashboard" runat="server" visible="false">
+                                    <span class="glyphicon glyphicon-chevron-right btn-def dropdown-toggle pull-left" data-toggle="dropdown" style="margin-top: 0px; top: 22px;"></span>
+                                    <asp:LinkButton runat="server" ID="lnkbtnFxdAst" CssClass="btn btn-default pull-left dropdown-toggle" Style="padding: 10px 0px 10px 21px" Text="Asset master" />
+                                </li>--%>
+
+                               <%-- <li id="liAssetMaster" runat="server">
+                                    <asp:LinkButton runat="server" ForeColor="White" ID="lnkbtnAssetMasterPage" CssClass="btn btn-default pull-left dropdown-toggle" Style="padding: 10px 0px 0px 0px" Text="&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;4.1 Asset Master" />
+                                </li>--%>
+
+                                <%--<li id="FXASTRegister" runat="server">
+                                <span class="glyphicon glyphicon-chevron-right btn-def dropdown-toggle pull-left" data-toggle="dropdown" style="margin-top: 0px; top: 22px;"></span>
+                                <asp:LinkButton runat="server" ID="lnkbtnAstReg" CssClass="btn btn-default pull-left dropdown-toggle" Style="padding: 10px 0px 10px 21px" Text="4.1 Asset Master DashBoard" />
+                            </li>--%>
+                             <%--   <li id="FXASTRegister" runat="server">
+                                    <asp:LinkButton runat="server" ForeColor="White" ID="lnkbtnAstReg" CssClass="btn btn-default pull-left dropdown-toggle" Style="padding: 10px 0px 0px 0px" Text="&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;4.2 Asset Master DashBoard" />
+                                </li>--%>
+
+                                <li id="Li1" runat="server">
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages11" aria-expanded="false" aria-controls="collapsePages">
+                                        <div style="color: white;font-weight:normal"><span class="glyphicon glyphicon-chevron-right"></span>4.1 MASTER / SETTINGS</div>
+                                    </a>
+                                    <div class="collapse" id="collapsePages11" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                        <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages11">
+                                            <ul aria-labelledby="btnGroupVerticalDrop1">
+                                                <li>
+                                                    <asp:LinkButton runat="server" ID="lnkbtnLocationSetup" Text="4.1.1 Location Setup" /></li>
+                                                <li>
+                                                    <asp:LinkButton runat="server" ID="lnkbtnAssetMasterPage" Text="4.1.2 Asset Classification" /></li>
+                                                <li>
+                                                    <asp:LinkButton runat="server" ID="lnkbtnAstReg" Text="4.1.3 Asset Creation" /></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </li>
+
+                                <%--  <li id="Li2" runat="server">
+                            <span class="glyphicon glyphicon-chevron-right btn-def dropdown-toggle pull-left" data-toggle="dropdown" style="margin-top: 0px; top: 22px;"></span>
+                            <asp:LinkButton runat="server" ID="lnkbtnAssetTransaction" CssClass="btn btn-default pull-left dropdown-toggle" Style="padding: 10px 0px 10px 21px" Text="1.1 Asset Addition" />
+                        </li>   --%>
+                                <li id="FXASTTrns" runat="server">
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages5" aria-expanded="false" aria-controls="collapsePages">
+                                        <div style="color: white;font-weight:normal"><span class="glyphicon glyphicon-chevron-right"></span>4.2 ASSET TRANSACTION</div>
+                                    </a>
+                                    <div class="collapse" id="collapsePages5" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                        <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages5">
+                                            <ul aria-labelledby="btnGroupVerticalDrop1">
+                                                <li>
+                                                    <asp:LinkButton runat="server" ID="lnkbtnAssetTransactionadd" Text="4.2.1 Asset Addition/Revaluation" /></li>
+                                                <li>
+                                                    <asp:LinkButton runat="server" ID="lnkbtnAssetTransactionDel" Text="4.2.2 Asset Deletion" /></li>
+                                              <%--  <li>
+                                                    <asp:LinkButton runat="server" ID="lnkbtnAssetAddlnDtls" Visible ="false" Text="4.2.3 Asset Additional Details" /></li>--%>
+
+                                                <li id="FXAOPExcel" runat="server">
+                                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages6" aria-expanded="false" aria-controls="collapsePages">
+                                                        <div style="color: white; font-weight: normal"><span class="glyphicon glyphicon-chevron-right"></span>4.2.3 Excel Upload</div>
+                                                    </a>
+                                                    <div class="collapse" id="collapsePages6" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                                        <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages6">
+                                                            <ul aria-labelledby="btnGroupVerticalDrop1">
+                                                                <li>
+                                                                    <asp:LinkButton runat="server" ID="lnkbtnAssetMaster" Text="Asset Master" /></li>
+                                                                <li>
+                                                                    <asp:LinkButton runat="server" ID="lnkbtnAssetAddition" Text="Asset Addition" /></li>
+                                                            </ul>
+                                                        </nav>
+                                                    </div>
+                                                </li>
+
+
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </li>
+
+                                <%--<li id="FXASTDepComp" runat="server">
+                                <span class="glyphicon glyphicon-chevron-right btn-def dropdown-toggle pull-left" data-toggle="dropdown" style="margin-top: 0px; top: 22px;"></span>
+                                <asp:LinkButton runat="server" ID="lnkbtnDepComp" CssClass="btn btn-default pull-left dropdown-toggle" Style="padding: 10px 0px 10px 21px" Text="4.3 Depreciation Computation" />
+                            </li>--%>
+
+                                <li id="FXASTDepComp" runat="server">
+                                    <asp:LinkButton runat="server" ForeColor="White" ID="lnkbtnDepComp" CssClass="btn btn-default pull-left dropdown-toggle" Style="padding: 10px 0px 0px 0px" Text="&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;4.3 Depreciation Computation" />
+                                </li>
+
+                                
+
+                                <%--<li id="FXAOPExcelView" runat="server">
+                                <span class="glyphicon glyphicon-chevron-right btn-def dropdown-toggle pull-left" data-toggle="dropdown" style="margin-top: 0px; top: 22px;"></span>
+                                <asp:LinkButton runat="server" ID="lnkbtnFXOPExcelview" CssClass="btn btn-default pull-left dropdown-toggle" Style="padding: 10px 0px 10px 21px" Text="4.5 Physical Asset Verification" />
+                            </li>--%>
+
+                                <li id="FXAOPExcelView" visible ="false"  runat="server">
+                                    <asp:LinkButton runat="server" ForeColor="White" ID="lnkbtnFXOPExcelview" CssClass="btn btn-default pull-left dropdown-toggle"  Style="padding: 10px 0px 0px 0px" Text="&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;4.6 Physical Asset Verification" />
+                                </li>
+
+                                         <li id="lnkFAXDReport" runat="server">
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages7" aria-expanded="false" aria-controls="collapsePages">
+                                        <div style="color: white;font-weight:normal"><span class="glyphicon glyphicon-chevron-right"></span>4.4 REPORTS</div>
+                                    </a>
+                                    <div class="collapse" id="collapsePages7" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                        <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages7">
+                                            <ul aria-labelledby="btnGroupVerticalDrop1">
+                                                <li>
+                                                    <asp:LinkButton runat="server" ID="lnkbtnPhysicalReport" Text="4.4.1 Report" /></li>
+                                                <li>
+                                                    <asp:LinkButton runat="server" ID="lnkbtnDynamicReport" Text="4.4.2 Dynamic Report" /></li>
+                                                      <li>
+                                                    <asp:LinkButton runat="server" ID="lnkbtnIndReport" Text="4.4.3 Assetwise Report" /></li>
+                                              
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </li>
+
+                              <%--  <li id="lnkFAXDReport" runat="server">
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages7" aria-expanded="false" aria-controls="collapsePages">
+                                        <div style="color: white;font-weight:normal"><span class="glyphicon glyphicon-chevron-right"></span>4.4 REPORTS</div>
+                                    </a>
+                                    <div class="collapse" id="collapsePages7" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                        <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages7">
+                                            <ul aria-labelledby="btnGroupVerticalDrop1">
+                                                <li>
+                                                    <asp:LinkButton runat="server" ID="lnkbtnDynamicReport" Text="4.4.1 Dynamic Report" /></li>
+                                                <li>
+                                                    <asp:LinkButton runat="server" ID="lnkbtnPhysicalReport" Text="4.4.2 Physical Report" /></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </li>--%>
+                            </ul>
+                        </li>
+                        <li id="liScan" runat="server" visible="false"><span class="glyphicon glyphicon-chevron-right btn-def dropdown-toggle pull-left" data-toggle="dropdown" style="margin-top: 0px; top: 24px;"></span>
+                            <asp:LinkButton runat="server" ID="lnkbtnNormalScan" CssClass="btn btn-default pull-left dropdown-toggle" Style="padding: 10px 0px 10px 21px" Text="11. Scan" Visible="false" />
+                            <ul aria-labelledby="btnGroupVerticalDrop3" class="dropdown-menu"></ul>
+                            <div class="clearfix"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-sm-10 col-md-10 col-lg-10 voucher_main" style="padding-left: 0px;">
+                <nav class="navbar navbar-default customNavbar navbar-fixed-top" style="margin-left: 16.5%; margin-right: 1%;">
+                    <div class="container-fluid">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <asp:LinkButton runat="server" ID="lnkbtnHOME"><span class="glyphicon glyphicon-home"></span>HOME<span class="arrow1"></span></asp:LinkButton></li>
+                            <li>
+                                <asp:LinkButton runat="server" ID="lnkbtnMASTERS"><span class="glyphicon glyphicon-list-alt"></span>MASTERS<span class="arrow1"></span></asp:LinkButton></li>
+                            <li>
+                                <asp:LinkButton runat="server" Visible="false" ID="lnkbtnAUDIT"><span class="glyphicon glyphicon-globe"></span>AUDIT<span class="arrow1"></span></asp:LinkButton></li>
+                            <li>
+                                <asp:LinkButton runat="server" ID="lnkbtnASSIGNMENTS"><span class="glyphicon glyphicon-edit"></span>ASSIGNMENTS<span class="arrow1"></span></asp:LinkButton></li>
+                            <li>
+                                <asp:LinkButton runat="server" ID="lnkbtnCorporateAudit"><span class="glyphicon glyphicon-list-alt"></span>AUDIT-OTHERS<span class="arrow1"></span></asp:LinkButton></li>
+                            <li>
+                                <asp:LinkButton runat="server" ID="lnkbtnAccounts"><span class="glyphicon glyphicon-list-alt"></span>FINANCIAL AUDIT<span class="arrow1"></span></asp:LinkButton></li>
+                            <li class="active">
+                                <asp:LinkButton runat="server" ID="lnkbtnDigital_AuditOffice"><span class="glyphicon glyphicon-list-alt"></span>DIGITAL AUDIT OFFICE<span class="arrow1"></span></asp:LinkButton></li>
+                            <li>
+                                <asp:LinkButton runat="server" ID="lnkbtnRISK"><span class="glyphicon glyphicon-stats"></span>RISK<span class="arrow1"></span></asp:LinkButton></li>
+                            <li>
+                                <asp:LinkButton runat="server" ID="lnkbtnCOMPLIANCE"><span class="glyphicon glyphicon-check"></span>COMPLIANCE<span class="arrow1"></span></asp:LinkButton></li>
+                            <li>
+                                <asp:LinkButton runat="server" ID="lnkbtnEmailManagement" Visible="false"><span class="glyphicon glyphicon glyphicon-envelope"></span>EMAIL MANAGEMENT<span class="arrow1"></span></asp:LinkButton></li>
+                            <li>
+                                <asp:LinkButton runat="server" ID="lnkbtnSearch" Visible="false"><span class="glyphicon glyphicon glyphicon-tasks"></span>SEARCH<span class="arrow1"></span></asp:LinkButton></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right logoutDropdown">
+                            <li class="dropdown setting">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <asp:LinkButton runat="server" ID="lnkbtnMyProfile" Text="My Profile" /></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li>
+                                        <asp:LinkButton runat="server" ID="lnkbtnChangePassword" Text="Change Password" /></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li>
+                                        <asp:LinkButton runat="server" ID="lnkbtnLogout" Text="Logout" /></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="pull-right" style="margin-top: 10px; margin-right: 10px;">
+                            <%--<div class="pull-right login-up">--%>
+                            <span class="glyphicon glyphicon-user"></span>
+                            <asp:Label ID="lblUserName" runat="server"></asp:Label>
+                        </div>
+                    </div>
+                </nav>
+                <div style="margin-top: 5%;" id="glu">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div id="ModalWarning" class="modal fade" data-backdrop="static" data-keyboard="false" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Time Out Warning</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            <asp:Label ID="lblTimeOutWarning" runat="server"></asp:Label>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" data-dismiss="modal" class="btn-ok" runat="server">
+                            OK
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="ModalLogOut" class="modal fade" data-backdrop="static" data-keyboard="false" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">TRACe</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Your TRACe session has expired. Please login again.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button data-dismiss="modal" runat="server" class="btn-ok" onserverclick="btnLogOut_Click">
+                            OK
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="ModalValidation" class="modalmsg fade" data-backdrop="static" data-keyboard="false" role="dialog">
+            <div class="modalmsg-dialog">
+                <div class="modalmsg-content">
+                    <div class="modalmsg-header">
+                        <h4 class="modal-title"><b>TRACe</b></h4>
+                    </div>
+                    <div class="modalmsg-body">
+                        <div id="divMsgType" class="alert alert-info">
+                            <p>
+                                <strong>
+                                    <asp:Label ID="lblValidationMsg" runat="server"></asp:Label></strong>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="modalmsg-footer">
+                        <button data-dismiss="modal" runat="server" class="btn-ok" id="btnOk">
+                            OK
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="ModalChangePassword" class="modal fade" data-backdrop="static" data-keyboard="false" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title"><b>Change Password</b></h4>
+                        <asp:Label ID="lblCPError" runat="server" data-backdrop="static" data-keyboard="false" CssClass="ErrorMsgLeft"></asp:Label>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <asp:Label ID="lblCurrentPasssword" runat="server" Text="* Old Password"></asp:Label>
+                            <asp:RequiredFieldValidator CssClass="ErrorMsgRight" ID="RFVCurrentPasssword" runat="server" ControlToValidate="txtCurrentPasssword" Display="Static" ErrorMessage="Enter Old Password." SetFocusOnError="True" ValidationGroup="pwd"></asp:RequiredFieldValidator>
+                            <asp:TextBox autocomplete="off" ID="txtCurrentPasssword" runat="server" CssClass="aspxcontrols" TextMode="Password" onpaste="return false" />
+                            <asp:CompareValidator CssClass="ErrorMsgLeft" runat="server" ID="CVCurrentPasssword" ControlToValidate="txtCurrentPasssword" Operator="Equal" Type="String" ErrorMessage="Invalid Old Password." ValidationGroup="pwd" />
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <asp:Label ID="lblNewPassword" runat="server" Text="New Password"></asp:Label>
+                            <asp:RequiredFieldValidator CssClass="ErrorMsgRight" ID="RFVNewPasssword" runat="server" ControlToValidate="txtNewPassword" Display="Static" ErrorMessage="Enter New Password." SetFocusOnError="True" ValidationGroup="pwd"></asp:RequiredFieldValidator>
+                            <asp:TextBox autocomplete="off" ID="txtNewPassword" runat="server" CssClass="aspxcontrols" TextMode="Password" onpaste="return false" />
+                            <asp:RegularExpressionValidator CssClass="ErrorMsgLeft" ID="RegExpNewPwd" ControlToValidate="txtNewPassword" ValidationExpression="sRegExpNewPwd" runat="server" ErrorMessage="Follow Password policy." ValidationGroup="pwd"></asp:RegularExpressionValidator>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <asp:Label ID="lblConfirmPassword" runat="server" Text="Confirm Password"></asp:Label>
+                            <asp:RequiredFieldValidator CssClass="ErrorMsgRight" ID="RFVConfirmPassword" runat="server" ControlToValidate="txtConfirmPassword" Display="Static" ErrorMessage="Confirm Password." SetFocusOnError="True" ValidationGroup="pwd"></asp:RequiredFieldValidator>
+                            <asp:TextBox autocomplete="off" ID="txtConfirmPassword" runat="server" CssClass="aspxcontrols" TextMode="Password" onpaste="return false" />
+                            <asp:CompareValidator CssClass="ErrorMsgLeft" runat="server" ID="CVConfirmPassword" ControlToValidate="txtNewPassword" ControlToCompare="txtConfirmPassword" Operator="Equal" Type="String" ErrorMessage="Passwords does not match." ValidationGroup="pwd" />
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <asp:Label ID="lblCPNoteHeading" runat="server" Text="Note : "></asp:Label>
+                            <asp:Label ID="lblCONote" runat="server" Text="" CssClass="aspxlabelbold"></asp:Label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="form-group pull-right">
+                            <asp:Button runat="server" Text="Change" class="btn-ok" ID="btnCPUpdate" ValidationGroup="pwd" OnClick="btnCPUpdate_Click"></asp:Button>
+                            <asp:Button runat="server" Text="Cancel" class="btn-ok" ID="btnCPCancel" OnClick="btnCPCancel_Click"></asp:Button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="ModalPassword" class="modalmsg fade" role="dialog" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title"><b>TRACe</b></h4>
+                        <asp:Label ID="Label1" runat="server" data-backdrop="static" data-keyboard="false" CssClass="ErrorMsgLeft"></asp:Label>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <asp:Label ID="lblCheckPassword" runat="server" Text="Enter your password to view/edit this form."></asp:Label>
+                            <asp:RequiredFieldValidator CssClass="ErrorMsgRight" ID="RFVCheckPassword" runat="server" ControlToValidate="txtCheckPassword" Display="Dynamic" ErrorMessage="Enter password." SetFocusOnError="True" ValidationGroup="Password"></asp:RequiredFieldValidator>
+                            <asp:TextBox autocomplete="off" ID="txtCheckPassword" runat="server" CssClass="aspxcontrols" TextMode="Password" placeholder=" Enter Password"></asp:TextBox>
+                            <asp:CompareValidator CssClass="ErrorMsgRight" runat="server" ID="CVCheckPassword" ControlToValidate="txtCheckPassword" Operator="Equal" Type="String" ErrorMessage="Invalid old passwords." ValidationGroup="Password" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button runat="server" Text="Ok" class="btn-ok" ID="btnCheckPwd" ValidationGroup="Password" OnClick="btnCheckPwd_Click"></asp:Button>
+                        <asp:Button runat="server" Text="Cancel" class="btn-ok" ID="btnCheckCancel" OnClick="btnCheckCancel_Click"></asp:Button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="myProfileModal" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button runat="server" type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"><b>User Profile</b></h4>
+                        <asp:Label ID="lblUPError" runat="server" CssClass="ErrorMsgLeft"></asp:Label>
+                    </div>
+                    <div class="modal-body" style="height: 500px">
+                        <div class="col-sm-12 col-md-12">
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <asp:Label ID="lblHeadingLoginName" runat="server" Text="Login Name"></asp:Label>
+                                    <asp:TextBox autocomplete="off" ID="txtLoginName" runat="server" TabIndex="-1" CssClass="aspxcontrolsdisable"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <asp:Label ID="lblSAPcode" runat="server" Text="SAP Code"></asp:Label>
+                                    <asp:TextBox autocomplete="off" ID="txtSAPcode" runat="server" TabIndex="-1" CssClass="aspxcontrolsdisable"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <asp:Label ID="lblEmpName" runat="server" Text="Employee Name"></asp:Label>
+                                    <asp:TextBox autocomplete="off" ID="txtEmpName" runat="server" TabIndex="-1" CssClass="aspxcontrolsdisable"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12">
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <asp:Label ID="lblDesignation" runat="server" Text="Designation"></asp:Label>
+                                    <asp:TextBox autocomplete="off" ID="txtDesignation" runat="server" TabIndex="-1" CssClass="aspxcontrolsdisable"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <asp:Label ID="lblRole" runat="server" Text="Role"></asp:Label>
+                                    <asp:TextBox autocomplete="off" ID="txtRole" runat="server" TabIndex="-1" CssClass="aspxcontrolsdisable"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <asp:Label ID="lblPermission" runat="server" Text="Permission"></asp:Label>
+                                    <asp:TextBox autocomplete="off" ID="txtPermission" runat="server" TabIndex="-1" CssClass="aspxcontrolsdisable"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12">
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <asp:Label ID="lblMobileNo" runat="server" Text="Mobile No. (+91)"></asp:Label>
+                                    <asp:TextBox autocomplete="off" ID="txtMobNo" runat="server" TabIndex="1" MaxLength="10" data-toggle="tooltip" data-placement="bottom" title="Only numbers" CssClass="aspxcontrols" TextMode="Phone"></asp:TextBox>
+                                    <asp:RegularExpressionValidator ID="REVMobNo" runat="server" ControlToValidate="txtMobNo" CssClass="ErrorMsgRight" Display="Dynamic" SetFocusOnError="True" ValidationGroup="Profile" onkeyup="nospaces(this)"></asp:RegularExpressionValidator>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <asp:Label ID="lblEmail" runat="server" Text="* E-Mail"></asp:Label>
+                                    <asp:TextBox autocomplete="off" ID="txtMail" runat="server" TabIndex="7" CssClass="aspxcontrols"></asp:TextBox>
+                                    <asp:RequiredFieldValidator CssClass="ErrorMsgRight" ID="RFVEmail" runat="server" ControlToValidate="txtMail" Display="Dynamic" ErrorMessage="Enter E-mail" SetFocusOnError="True" ValidationGroup="Profile"></asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator CssClass="ErrorMsgRight" ID="REVEmail" runat="server" ControlToValidate="txtMail" Display="Dynamic" SetFocusOnError="True" ValidationGroup="Profile" onkeyup="nospaces(this)"></asp:RegularExpressionValidator>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <asp:Label ID="lblExp" runat="server" Text="Total year of experience"></asp:Label>
+                                    <asp:DropDownList ID="ddlExperience" runat="server" CssClass="aspxcontrols">
+                                    </asp:DropDownList>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12">
+                            <div class="col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <asp:Label ID="lblSQues" runat="server" Text="* Security Question"></asp:Label>
+                                    <asp:RequiredFieldValidator CssClass="ErrorMsgRight" ID="RFVSecurityQuestion" runat="server" ControlToValidate="txtSecurityQuestion" Display="Dynamic" SetFocusOnError="True" ValidationGroup="Profile"></asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator CssClass="ErrorMsgRight" ID="REVSecurityQuestion" runat="server" ControlToValidate="txtSecurityQuestion" Display="Dynamic" SetFocusOnError="True" ValidationGroup="Profile"></asp:RegularExpressionValidator>
+                                    <asp:TextBox autocomplete="off" ID="txtSecurityQuestion" MaxLength="250" runat="server" TabIndex="11" CssClass="aspxcontrols"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12">
+                            <div class="col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <asp:Label ID="lblAnswer" runat="server" Text="* Answer"></asp:Label>
+                                    <asp:RequiredFieldValidator CssClass="ErrorMsgRight" ID="RFVAnswer" runat="server" ControlToValidate="txtAnswer" Display="Dynamic" SetFocusOnError="True" ValidationGroup="Profile"></asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator CssClass="ErrorMsgRight" ID="REVAnswer" runat="server" ControlToValidate="txtAnswer" Display="Dynamic" SetFocusOnError="True" ValidationGroup="Profile"></asp:RegularExpressionValidator>
+                                    <asp:TextBox autocomplete="off" ID="txtAnswer" runat="server" MaxLength="250" TabIndex="12" CssClass="aspxcontrols"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12">
+                            <div class="col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <asp:Label ID="lblExperiencesummary" runat="server" Text="Experience Summary"></asp:Label>
+                                    <asp:RegularExpressionValidator CssClass="ErrorMsgRight" ID="REVExperiencesummary" runat="server" ControlToValidate="txtOthers" Display="Dynamic" SetFocusOnError="True" ValidationGroup="Profile"></asp:RegularExpressionValidator>
+                                    <asp:TextBox autocomplete="off" ID="txtExperiencesummary" MaxLength="8000" runat="server" TabIndex="13" CssClass="aspxcontrols"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12">
+                            <div class="col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <asp:Label ID="lblQualification" runat="server" Text="Qualification"></asp:Label>
+                                    <asp:CheckBoxList ID="cblQualification" runat="server" AutoPostBack="false" RepeatDirection="Horizontal" RepeatColumns="4" CssClass="myCheckbox">
+                                    </asp:CheckBoxList>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12">
+                            <div class="col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <asp:Label ID="lblOtherQualification" runat="server" Text="Other Qualification"></asp:Label>
+                                    <asp:RegularExpressionValidator CssClass="ErrorMsgRight" ID="REVOthers" runat="server" ControlToValidate="txtOthers" Display="Dynamic" SetFocusOnError="True" ValidationGroup="Profile"></asp:RegularExpressionValidator>
+                                    <asp:TextBox autocomplete="off" ID="txtOthers" MaxLength="5000" runat="server" CssClass="aspxcontrols"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button runat="server" Text="Update" class="btn-ok" ID="btnUpdateUserProfile" ValidationGroup="Profile" OnClick="btnUpdateUserProfile_Click"></asp:Button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script>
+        $(document).ready(function () {
+            $('.dropdown-menu').click(function (e) {
+                e.stopPropagation();
+            });
+
+            $('.dropdown.keep-open').on({
+                "shown.bs.dropdown": function () { this.closable = false; },
+                "click": function () { this.closable = true; },
+                "hide.bs.dropdown": function () { return this.closable; }
+            });
+
+            $('ul li a').click(function () {
+                $('ul li.active').removeClass('active');
+                $(this).closest('li').addClass('active');
+            });
+        });
+    </script>
+</body>
+</html>

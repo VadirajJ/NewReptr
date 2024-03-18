@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsDigitalFilling" targetNamespace="http://tempuri.org/dsDigitalFilling.xsd" xmlns:mstns="http://tempuri.org/dsDigitalFilling.xsd" xmlns="http://tempuri.org/dsDigitalFilling.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsDigitalFilling" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsDigitalFilling" msprop:Generator_UserDSName="dsDigitalFilling">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Cabinet" msprop:Generator_TableClassName="CabinetDataTable" msprop:Generator_TableVarName="tableCabinet" msprop:Generator_TablePropName="Cabinet" msprop:Generator_RowDeletingName="CabinetRowDeleting" msprop:Generator_RowChangingName="CabinetRowChanging" msprop:Generator_RowEvHandlerName="CabinetRowChangeEventHandler" msprop:Generator_RowDeletedName="CabinetRowDeleted" msprop:Generator_UserTableName="Cabinet" msprop:Generator_RowChangedName="CabinetRowChanged" msprop:Generator_RowEvArgName="CabinetRowChangeEvent" msprop:Generator_RowClassName="CabinetRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CBN_NAME" msprop:Generator_ColumnVarNameInTable="columnCBN_NAME" msprop:Generator_ColumnPropNameInRow="CBN_NAME" msprop:Generator_ColumnPropNameInTable="CBN_NAMEColumn" msprop:Generator_UserColumnName="CBN_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="CBN_SubCabCount" msprop:Generator_ColumnVarNameInTable="columnCBN_SubCabCount" msprop:Generator_ColumnPropNameInRow="CBN_SubCabCount" msprop:Generator_ColumnPropNameInTable="CBN_SubCabCountColumn" msprop:Generator_UserColumnName="CBN_SubCabCount" type="xs:string" minOccurs="0" />
+              <xs:element name="CBN_FolderCount" msprop:Generator_ColumnVarNameInTable="columnCBN_FolderCount" msprop:Generator_ColumnPropNameInRow="CBN_FolderCount" msprop:Generator_ColumnPropNameInTable="CBN_FolderCountColumn" msprop:Generator_UserColumnName="CBN_FolderCount" type="xs:string" minOccurs="0" />
+              <xs:element name="Cbn_department" msdata:Caption="Org_Name" msprop:Generator_ColumnVarNameInTable="columnCbn_department" msprop:Generator_ColumnPropNameInRow="Cbn_department" msprop:Generator_ColumnPropNameInTable="Cbn_departmentColumn" msprop:Generator_UserColumnName="Cbn_department" type="xs:string" minOccurs="0" />
+              <xs:element name="CBN_CreatedBy" msprop:Generator_ColumnVarNameInTable="columnCBN_CreatedBy" msprop:Generator_ColumnPropNameInRow="CBN_CreatedBy" msprop:Generator_ColumnPropNameInTable="CBN_CreatedByColumn" msprop:Generator_UserColumnName="CBN_CreatedBy" type="xs:string" minOccurs="0" />
+              <xs:element name="CBN_CreatedOn" msprop:Generator_ColumnVarNameInTable="columnCBN_CreatedOn" msprop:Generator_ColumnPropNameInRow="CBN_CreatedOn" msprop:Generator_ColumnPropNameInTable="CBN_CreatedOnColumn" msprop:Generator_UserColumnName="CBN_CreatedOn" type="xs:string" minOccurs="0" />
+              <xs:element name="CBN_DelFlag" msprop:Generator_ColumnVarNameInTable="columnCBN_DelFlag" msprop:Generator_ColumnPropNameInRow="CBN_DelFlag" msprop:Generator_ColumnPropNameInTable="CBN_DelFlagColumn" msprop:Generator_UserColumnName="CBN_DelFlag" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SubCabinet" msprop:Generator_TableClassName="SubCabinetDataTable" msprop:Generator_TableVarName="tableSubCabinet" msprop:Generator_TablePropName="SubCabinet" msprop:Generator_RowDeletingName="SubCabinetRowDeleting" msprop:Generator_RowChangingName="SubCabinetRowChanging" msprop:Generator_RowEvHandlerName="SubCabinetRowChangeEventHandler" msprop:Generator_RowDeletedName="SubCabinetRowDeleted" msprop:Generator_UserTableName="SubCabinet" msprop:Generator_RowChangedName="SubCabinetRowChanged" msprop:Generator_RowEvArgName="SubCabinetRowChangeEvent" msprop:Generator_RowClassName="SubCabinetRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CBN_NAME" msprop:Generator_ColumnVarNameInTable="columnCBN_NAME" msprop:Generator_ColumnPropNameInRow="CBN_NAME" msprop:Generator_ColumnPropNameInTable="CBN_NAMEColumn" msprop:Generator_UserColumnName="CBN_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="CBN_FolderCount" msprop:Generator_ColumnVarNameInTable="columnCBN_FolderCount" msprop:Generator_ColumnPropNameInRow="CBN_FolderCount" msprop:Generator_ColumnPropNameInTable="CBN_FolderCountColumn" msprop:Generator_UserColumnName="CBN_FolderCount" type="xs:string" minOccurs="0" />
+              <xs:element name="Cbn_department" msdata:Caption="Org_Name" msprop:Generator_ColumnVarNameInTable="columnCbn_department" msprop:Generator_ColumnPropNameInRow="Cbn_department" msprop:Generator_ColumnPropNameInTable="Cbn_departmentColumn" msprop:Generator_UserColumnName="Cbn_department" type="xs:string" minOccurs="0" />
+              <xs:element name="CBN_CreatedBy" msprop:Generator_ColumnVarNameInTable="columnCBN_CreatedBy" msprop:Generator_ColumnPropNameInRow="CBN_CreatedBy" msprop:Generator_ColumnPropNameInTable="CBN_CreatedByColumn" msprop:Generator_UserColumnName="CBN_CreatedBy" type="xs:string" minOccurs="0" />
+              <xs:element name="CBN_CreatedOn" msprop:Generator_ColumnVarNameInTable="columnCBN_CreatedOn" msprop:Generator_ColumnPropNameInRow="CBN_CreatedOn" msprop:Generator_ColumnPropNameInTable="CBN_CreatedOnColumn" msprop:Generator_UserColumnName="CBN_CreatedOn" type="xs:string" minOccurs="0" />
+              <xs:element name="CBN_DelFlag" msprop:Generator_ColumnVarNameInTable="columnCBN_DelFlag" msprop:Generator_ColumnPropNameInRow="CBN_DelFlag" msprop:Generator_ColumnPropNameInTable="CBN_DelFlagColumn" msprop:Generator_UserColumnName="CBN_DelFlag" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Folder" msprop:Generator_TableClassName="FolderDataTable" msprop:Generator_TableVarName="tableFolder" msprop:Generator_TablePropName="Folder" msprop:Generator_RowDeletingName="FolderRowDeleting" msprop:Generator_RowChangingName="FolderRowChanging" msprop:Generator_RowEvHandlerName="FolderRowChangeEventHandler" msprop:Generator_RowDeletedName="FolderRowDeleted" msprop:Generator_UserTableName="Folder" msprop:Generator_RowChangedName="FolderRowChanged" msprop:Generator_RowEvArgName="FolderRowChangeEvent" msprop:Generator_RowClassName="FolderRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FOL_NAME" msprop:Generator_ColumnVarNameInTable="columnFOL_NAME" msprop:Generator_ColumnPropNameInRow="FOL_NAME" msprop:Generator_ColumnPropNameInTable="FOL_NAMEColumn" msprop:Generator_UserColumnName="FOL_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="CBN_Name" msprop:Generator_ColumnVarNameInTable="columnCBN_Name" msprop:Generator_ColumnPropNameInRow="CBN_Name" msprop:Generator_ColumnPropNameInTable="CBN_NameColumn" msprop:Generator_UserColumnName="CBN_Name" type="xs:string" minOccurs="0" />
+              <xs:element name="PGE_DETAILS_ID" msprop:Generator_ColumnVarNameInTable="columnPGE_DETAILS_ID" msprop:Generator_ColumnPropNameInRow="PGE_DETAILS_ID" msprop:Generator_ColumnPropNameInTable="PGE_DETAILS_IDColumn" msprop:Generator_UserColumnName="PGE_DETAILS_ID" type="xs:string" minOccurs="0" />
+              <xs:element name="Cbn_department" msdata:Caption="Org_Name" msprop:Generator_ColumnVarNameInTable="columnCbn_department" msprop:Generator_ColumnPropNameInRow="Cbn_department" msprop:Generator_ColumnPropNameInTable="Cbn_departmentColumn" msprop:Generator_UserColumnName="Cbn_department" type="xs:string" minOccurs="0" />
+              <xs:element name="FOL_CreatedBy" msprop:Generator_ColumnVarNameInTable="columnFOL_CreatedBy" msprop:Generator_ColumnPropNameInRow="FOL_CreatedBy" msprop:Generator_ColumnPropNameInTable="FOL_CreatedByColumn" msprop:Generator_UserColumnName="FOL_CreatedBy" type="xs:string" minOccurs="0" />
+              <xs:element name="FOL_CreatedOn" msprop:Generator_ColumnVarNameInTable="columnFOL_CreatedOn" msprop:Generator_ColumnPropNameInRow="FOL_CreatedOn" msprop:Generator_ColumnPropNameInTable="FOL_CreatedOnColumn" msprop:Generator_UserColumnName="FOL_CreatedOn" type="xs:string" minOccurs="0" />
+              <xs:element name="FOL_Delflag" msprop:Generator_ColumnVarNameInTable="columnFOL_Delflag" msprop:Generator_ColumnPropNameInRow="FOL_Delflag" msprop:Generator_ColumnPropNameInTable="FOL_DelflagColumn" msprop:Generator_UserColumnName="FOL_Delflag" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

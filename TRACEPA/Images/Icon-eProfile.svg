@@ -1,0 +1,13 @@
+<svg id="Icon-eProfile" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <g id="Rectangle_4128" data-name="Rectangle 4128" fill="#fff" stroke="#025ed6" stroke-width="2">
+    <rect width="30" height="30" rx="6" stroke="none"/>
+    <rect x="1" y="1" width="28" height="28" rx="5" fill="none"/>
+  </g>
+  <g id="Group_26270" data-name="Group 26270" transform="translate(-280.5 -124.549)">
+    <g id="Ellipse_453" data-name="Ellipse 453" transform="translate(291 133.549)" fill="#fff" stroke="#025ed6" stroke-width="2">
+      <circle cx="4.5" cy="4.5" r="4.5" stroke="none"/>
+      <circle cx="4.5" cy="4.5" r="3.5" fill="none"/>
+    </g>
+    <path id="Path_76248" data-name="Path 76248" d="M2433-7344.549h11.888" transform="translate(-2143.5 7490.549)" fill="#fff" stroke="#025ed6" stroke-linecap="round" stroke-width="2"/>
+  </g>
+</svg>
