@@ -184,7 +184,7 @@
                     <div class="modalmsg-dialog">
                         <div class="modalmsg-content">
                             <div class="modalmsg-header">
-                                <h4 class="modal-title"><b>vadiraj</b></h4>
+                                <h4 class="modal-title"><b>TRACe</b></h4>
                             </div>
                             <div class="modalmsg-body">
                                 <div id="divMsgType" class="alert alert-warning">
