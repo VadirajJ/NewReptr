@@ -574,8 +574,12 @@ $('#<%=ddlExtTrnNo.ClientID%>').select2();
         </asp:GridView>
     </div>
         <div style="text-align:right;padding-right:80px;font-size:12px">
-             <asp:Label ID="lblAddTotal" runat="server" Text="Total:-" Font-Bold="true"></asp:Label>
+             <asp:Label ID="lblAddTotal" runat="server" Text="Addition Total:-" Font-Bold="true"></asp:Label>
         <asp:Label ID="lblAdditionTotal" runat="server"></asp:Label>
+            </div>
+         <div style="text-align:right;padding-right:80px;font-size:12px">
+             <asp:Label ID="lblOriginalTotal" runat="server" Text="Original Cost Total:-" Font-Bold="true"></asp:Label>
+        <asp:Label ID="lblOrig" runat="server"></asp:Label>
             </div>
     <asp:Panel runat="server" Visible="false">
         <div class="col-sm-12 col-md-12 form-group" style="padding: 0px">

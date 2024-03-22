@@ -680,6 +680,24 @@ Partial Public Class AssetTransactionAddition
     Protected WithEvents lblAdditionTotal As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''lblOriginalTotal control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblOriginalTotal As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''lblOrig control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblOrig As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''txtAmount control.
     '''</summary>
     '''<remarks>

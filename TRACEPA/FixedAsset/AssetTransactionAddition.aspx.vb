@@ -2,6 +2,8 @@
 Imports System.Data
 Imports BusinesLayer
 Imports Microsoft.Reporting.WebForms
+Imports Spire.Xls
+Imports System.Linq
 Partial Class AssetTransactionAddition
     Inherits System.Web.UI.Page
     Private sFormName As String = "AssetTransactionAddition"
@@ -162,8 +164,8 @@ Partial Class AssetTransactionAddition
                     ddlBay.Enabled = False
                     drpAstype.Enabled = False
                     txtbxItmCode.Enabled = False
-                    lblAdditionTotal.Visible = True
-                    lblAddTotal.Visible = True
+                    lblOrig.Visible = True
+                    lblOriginalTotal.Visible = True
                     dgAddtionalDetails.Visible = True
                     If ddlTrTypes.SelectedIndex = 2 Then
                     End If
@@ -177,6 +179,8 @@ Partial Class AssetTransactionAddition
                     ddlBay.Enabled = True
                     lblAdditionTotal.Visible = False
                     lblAddTotal.Visible = False
+                    lblOrig.Visible = False
+                    lblOriginalTotal.Visible = False
                     dgAddtionalDetails.Visible = True
                     drpAstype.Enabled = True
                     txtbxItmCode.Enabled = True
@@ -1151,13 +1155,22 @@ Partial Class AssetTransactionAddition
             Else
                 objAsstTrn.dAFAA_AssetAge = "0"
             End If
-            If dtDisplay2.Rows.Count > 0 Then
-                If Val(txtbxamount.Text) <> 0 Then
-                    Dim depreciatedAmount As Double = Val(txtbxamount.Text)
-                    Dim totalAmount As Double = depreciatedAmount + Val(dtDisplay2.Rows(0)("Total").ToString)
-                    txtbxamount.Text = totalAmount.ToString()
-                End If
-            End If
+            'Dim ForeignExch As Decimal = 0
+            'ForeignExch = dtDisplay2.AsEnumerable().Sum(Function(row) If(row.IsNull("Total"), 0, Convert.ToDouble(row("Total"))))
+            'If ddlTrTypes.SelectedIndex = 5 Then
+            '    If Val(txtDepreciableAmount.Text) <> 0 Then
+            '        If dtDisplay2.Rows.Count > 0 Then
+            '            If Val(txtbxamount.Text) <> 0 Then
+            '                Dim depreciatedAmount As Double = Val(txtbxamount.Text)
+            '                Dim totalAmount As Double = depreciatedAmount + ForeignExch
+            '                txtbxamount.Text = totalAmount.ToString()
+            '            End If
+            '        End If
+            '    Else
+            '        txtbxamount.Text = "0"
+            '    End If
+            'End If
+
             If txtbxamount.Text <> "" Then
                 objAsstTrn.dAFAA_AssetAmount = txtbxamount.Text
             Else
@@ -1168,13 +1181,21 @@ Partial Class AssetTransactionAddition
             Else
                 objAsstTrn.dAFAA_FYAmount = 0
             End If
-            If dtDisplay2.Rows.Count > 0 Then
-                If Val(txtDepreciableAmount.Text) <> 0 Then
-                    Dim depreciatedAmount As Double = Val(txtDepreciableAmount.Text)
-                    Dim totalAmount As Double = depreciatedAmount + Val(dtDisplay2.Rows(0)("Total").ToString)
-                    txtDepreciableAmount.Text = totalAmount.ToString()
-                End If
-            End If
+            'Dim ForeignExch1 As Decimal = 0
+            'ForeignExch1 = dtDisplay2.AsEnumerable().Sum(Function(row) If(row.IsNull("Total"), 0, Convert.ToDouble(row("Total"))))
+            'If ddlTrTypes.SelectedIndex = 5 Then
+            '    If Val(txtDepreciableAmount.Text) <> 0 Then
+            '        If dtDisplay2.Rows.Count > 0 Then
+            '            If Val(txtbxamount.Text) <> 0 Then
+            '                Dim depreciatedAmount As Double = Val(txtDepreciableAmount.Text)
+            '                Dim totalAmount As Double = depreciatedAmount + ForeignExch1
+            '                txtDepreciableAmount.Text = totalAmount.ToString()
+            '            End If
+            '        End If
+            '    Else
+            '        txtDepreciableAmount.Text = "0"
+            '    End If
+            'End If
             If txtDepreciableAmount.Text <> "" Then
                 objAsstTrn.dAFAA_DepreAmount = txtDepreciableAmount.Text
             Else
@@ -1224,7 +1245,8 @@ Partial Class AssetTransactionAddition
             ddlExtTrnNo_SelectedIndexChanged(sender, e)
             lblAdditionTotal.Visible = True
             lblAddTotal.Visible = True
-            dtDisplay2.Clear()
+            lblOrig.Visible = True
+            lblOriginalTotal.Visible = True
         Catch ex As Exception
             lblError.Text = objerrorclass.GetErrorMessages(sSession.AccessCode, ex.Message)
             Components.AppException.LogError(sSession.AccessCode, ex.Message, sFormName, "imgbtnsave_Click" & " Error_Line = '" & objclsGeneralFunctions.GetLineNumber(ex) & "'" & "")
@@ -1237,13 +1259,24 @@ Partial Class AssetTransactionAddition
                 dgAddtionalDetails.DataSource = dtDisplay2
                 dgAddtionalDetails.DataBind()
                 lblAdditionTotal.Text = 0
-                For i = 0 To dtDisplay2.Rows.Count - 1
 
-                    If ddlTrTypes.SelectedIndex = 2 Then
-                        lblAdditionTotal.Text = Convert.ToString(Convert.ToInt32(lblAdditionTotal.Text) + Convert.ToInt32(dtDisplay2.Rows(i)("Total")))
-                    Else
-                        lblAdditionTotal.Text = txtDepreciableAmount.Text
-                    End If
+
+                If ddlTrTypes.SelectedIndex = 2 Then
+                    Dim ForeignExch As Decimal = dtDisplay2.AsEnumerable().Sum(Function(row) If(row.IsNull("Total"), 0, Convert.ToDouble(row("Total"))))
+                    lblAdditionTotal.Text = Convert.ToString(Convert.ToInt32(lblAdditionTotal.Text)) + ForeignExch
+                    lblAdditionTotal.Visible = True
+                    lblAddTotal.Visible = True
+                    lblOrig.Visible = False
+                    lblOriginalTotal.Visible = False
+                Else
+                    Dim ForeignExch As Decimal = dtDisplay2.AsEnumerable().Sum(Function(row) If(row.IsNull("Total"), 0, Convert.ToDouble(row("Total"))))
+                    lblOrig.Text = Convert.ToString(Convert.ToInt32(txtbxamount.Text)) + ForeignExch
+                    lblAdditionTotal.Visible = False
+                    lblAddTotal.Visible = False
+                    lblOrig.Visible = True
+                    lblOriginalTotal.Visible = True
+                End If
+                For i = 0 To dtDisplay2.Rows.Count - 1
                     If IsDBNull(dtDisplay2.Rows(i)("AssetCheck").ToString()) = False Then
                         If dtDisplay2.Rows(i)("AssetCheck").ToString() = "" Or dtDisplay2.Rows(i)("AssetCheck").ToString() = "0" Then
                             ChkAddDep.Checked = False
@@ -1255,7 +1288,6 @@ Partial Class AssetTransactionAddition
             Else
                 dgAddtionalDetails.DataSource = Nothing
                 dgAddtionalDetails.DataBind()
-                lblAdditionTotal.Text = Convert.ToString(Convert.ToInt32(txtDepreciableAmount.Text))
             End If
         Catch ex As Exception
             lblError.Text = objerrorclass.GetErrorMessages(sSession.AccessCode, ex.Message)
@@ -3109,8 +3141,6 @@ Partial Class AssetTransactionAddition
             dgAddtionalDetails.Visible = True
             'dtDisplay2.Clear()
             ScriptManager.RegisterStartupScript(Me, Me.GetType(), "toggle", "$('#collapseRRIT').collapse('show');", True)
-
-
         Catch ex As Exception
             lblError.Text = objErrorClass.GetErrorMessages(sSession.AccessCode, ex.Message)
             Components.AppException.LogError(sSession.AccessCode, ex.Message, sFormName, "ImgBtnAddDetails_Click" & " Error_Line = '" & objclsGeneralFunctions.GetLineNumber(ex) & "'" & "")
@@ -3150,14 +3180,13 @@ Partial Class AssetTransactionAddition
     End Sub
 
     Private Sub dgAddtionalDetails_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles dgAddtionalDetails.RowCommand
+
         Dim i As Integer = 0
         Dim lblID As New Label, lblMasID As New Label
         Dim ID, MasID As Integer
         Dim ds As New DataSet
         Dim sOpDel As String = ""
-        Dim sOpOriginalCost As String = ""
         lblError.Text = ""
-        Dim dtdis As DataTable
         Try
             If e.CommandName = "Delete" Then
                 Dim clickedRow As GridViewRow = TryCast(DirectCast(e.CommandSource, ImageButton).NamingContainer, GridViewRow)
@@ -3167,12 +3196,9 @@ Partial Class AssetTransactionAddition
                 MasID = Val(lblMasID.Text)
                 If ID <> 0 Or MasID <> 0 Then
                     If ddlTrTypes.SelectedIndex = 1 Then
-                        objAsstTrn.Deactivate(sSession.AccessCode, sSession.AccessCodeID, ID, MasID, sOpDel, sOpOriginalCost)
-                        dtdis = objAsstTrn.getdt(sSession.AccessCode, sSession.AccessCodeID, ID, MasID, sOpDel, sOpOriginalCost)
-                        sOpDel = txtDepreciableAmount.Text - Val(dtdis.Rows(0)("FAAD_Total").ToString)
-                        sOpOriginalCost = txtbxamount.Text - Val(dtdis.Rows(0)("FAAD_Total").ToString)
+                        sOpDel = txtDepreciableAmount.Text
                     End If
-                    objAsstTrn.DeleteRow(sSession.AccessCode, sSession.AccessCodeID, ID, MasID, sOpDel, sOpOriginalCost)
+                    objAsstTrn.DeleteRow(sSession.AccessCode, sSession.AccessCodeID, ID, MasID, sOpDel)
                     BindDetails(MasID)
                 End If
 
@@ -3480,6 +3506,7 @@ Partial Class AssetTransactionAddition
             Dim FYOpeningBal As Double = 0.0
             lblError.Text = ""
 
+
             If txtbxamount.Text = "" Then
                 dOrignalCost = 0
             Else
@@ -3493,6 +3520,7 @@ Partial Class AssetTransactionAddition
             End If
 
             txtDepreciableAmount.Text = dOrignalCost - FYOpeningBal
+
         Catch ex As Exception
             lblError.Text = objErrorClass.GetErrorMessages(sSession.AccessCode, ex.Message)
             Components.AppException.LogError(sSession.AccessCode, ex.Message, sFormName, "txtOpeningBal_TextChanged" & " Error_Line = '" & objclsGeneralFunctions.GetLineNumber(ex) & "'" & "")
@@ -3657,8 +3685,6 @@ Partial Class AssetTransactionAddition
 
             dRow("AssetValue") = txtExchAmount.Text
 
-
-            BindDetails(ddlExtTrnNo.SelectedValue)
             dtDisplay.Rows.Add(dRow)
             dtDisplay2.Merge(dtDisplay)
             dgAddtionalDetails.DataSource = dtDisplay2

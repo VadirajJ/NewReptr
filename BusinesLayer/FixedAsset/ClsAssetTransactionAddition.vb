@@ -2886,38 +2886,20 @@ Public Class ClsAssetTransactionAddition
         End Try
     End Function
 
-    Public Sub DeleteRow(ByVal sNameSpace As String, ByVal iCompID As Integer, ByVal Masid As Integer, ByVal id As Integer, ByVal sOpBalDel As String, ByVal sOpenOriginalCost As String)
+    Public Sub DeleteRow(ByVal sNameSpace As String, ByVal iCompID As Integer, ByVal Masid As Integer, ByVal id As Integer, ByVal sOpBalDel As String)
         Dim sSql As String
         Try
+            sSql = "delete from  Acc_FixedAssetAdditionDetails where FAAD_MasID=" & id & " and FAAD_PKID=" & Masid & ""
+            objDBL.SQLExecuteNonQuery(sNameSpace, sSql)
+
             If sOpBalDel <> "" Then
-                sSql = "update Acc_FixedAssetAdditionDel set AFAA_DepreAmount = '" & sOpBalDel & "',AFAA_AssetAmount = '" & sOpenOriginalCost & "' where AFAA_ID =" & id & "  and AFAA_CompId = 1"
+                sSql = "update Acc_FixedAssetAdditionDel set AFAA_DepreAmount = '" & sOpBalDel & "'  where AFAA_ID =" & id & "  and AFAA_CompId = 1"
                 objDBL.SQLExecuteNonQuery(sNameSpace, sSql)
             End If
         Catch ex As Exception
             Throw
         End Try
     End Sub
-    Public Sub Deactivate(ByVal sNameSpace As String, ByVal iCompID As Integer, ByVal Masid As Integer, ByVal id As Integer, ByVal sOpBalDel As String, ByVal sOpenOriginalCost As String)
-        Dim sSql As String
-        Try
-            sSql = "update Acc_FixedAssetAdditionDetails set FAAD_Status = 'D' where FAAD_MasID=" & id & " and FAAD_PKID=" & Masid & ""
-            objDBL.SQLExecuteNonQuery(sNameSpace, sSql)
-        Catch ex As Exception
-            Throw
-        End Try
-    End Sub
-
-    Public Function getdt(ByVal sNameSpace As String, ByVal iCompID As Integer, ByVal Masid As Integer, ByVal id As Integer, ByVal sOpBalDel As String, ByVal sOpenOriginalCost As String) As DataTable
-        Dim sSql As String
-        Dim dt As New DataTable
-        Try
-            sSql = "select * from  Acc_FixedAssetAdditionDetails where FAAD_Status = 'D' and FAAD_MasID=" & id & " and FAAD_PKID=" & Masid & ""
-            dt = objDBL.SQLExecuteDataTable(sNameSpace, sSql)
-            Return dt
-        Catch ex As Exception
-            Throw
-        End Try
-    End Function
 
     '  Public Function LoadDepRate(ByVal sNameSpace As String, ByVal iCompID As Integer, ByVal iAssetClassId As Integer, ByVal iAssetId As Integer) As DataTable
     'Dim sSql As String = ""

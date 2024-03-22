@@ -567,7 +567,7 @@ Public Class ClsDepreciationComputation
             dt.Columns.Add("DepreciationforFY")
             dt.Columns.Add("wrtnvalue")
 
-            sSql = "Select distinct(AFAA_TrType),AFAA_ItemDescription,AFAA_FYAmount,AFAA_AssetType,AFAA_AssetAmount,AFAA_ItemCode,AFAA_ItemType,AFAA_Location,AFAA_Division,AFAA_Department,AFAA_Bay,AFAA_Delflag from Acc_FixedAssetAdditionDel Where AFAA_CompID=" & iCompID & " and AFAA_CustId=" & iCustID & " and AFAA_YearID <=" & iYearId & " and AFAA_Delflag = 'A' "
+            sSql = "Select distinct(AFAA_TrType),AFAA_Id,AFAA_ItemDescription,AFAA_FYAmount,AFAA_AssetType,AFAA_AssetAmount,AFAA_ItemCode,AFAA_ItemType,AFAA_Location,AFAA_Division,AFAA_Department,AFAA_Bay,AFAA_Delflag from Acc_FixedAssetAdditionDel Where AFAA_CompID=" & iCompID & " and AFAA_CustId=" & iCustID & " and AFAA_YearID <=" & iYearId & " and AFAA_Delflag = 'A' "
             'If iDuration = 3 Then
             '    sSql = sSql & ""
             'End If
@@ -705,14 +705,8 @@ Public Class ClsDepreciationComputation
                             'dr("OrignalCost") = Convert.ToDecimal(Math.Round(dt1.Rows(i)("AFAA_AssetAmount"))).ToString("#,##0")
                             'Dim dtdel As New DataTable
                             Dim dDiffAmount As Double = 0.0
-
-                            'dtdel = GetDelAmount(sNameSpace, iCompID, dt1.Rows(i)("AFAA_AssetType"), dt1.Rows(i)("AFAA_ItemType"), iCustID, dt1.Rows(i)("AFAA_Location"), dt1.Rows(i)("AFAA_Division"), dt1.Rows(i)("AFAA_Department"), dt1.Rows(i)("AFAA_Bay"))
-                            'If dtdel.Rows.Count > 0 Then
-                            '    ddelOPBAmt = dtdel.Rows(0)("Amount")
-                            '    dDiffAmount = dt1.Rows(i)("AFAA_AssetAmount") - ddelOPBAmt
-                            '    dr("OrignalCost") = Convert.ToDecimal(Math.Round(dDiffAmount)).ToString("#,##0")
-                            'Else
                             dr("OrignalCost") = Convert.ToDecimal(Math.Round(dt1.Rows(i)("AFAA_AssetAmount"))).ToString("#,##0.00")
+
                             'End If
 
                             If ResidualValue <> 0 Then
@@ -896,7 +890,8 @@ Public Class ClsDepreciationComputation
                                 '    dDiffAmount = dt1.Rows(i)("AFAA_AssetAmount") - ddelOPBAmt
                                 '    dr("OrignalCost") = Convert.ToDecimal(Math.Round(dDiffAmount)).ToString("#,##0")
                                 'Else
-                                dr("OrignalCost") = Convert.ToDecimal(Math.Round(dt1.Rows(i)("AFAA_AssetAmount"))).ToString("#,##0")
+                                Dim ForeignExchange As String = objDBL.SQLExecuteScalar(sNameSpace, "select FAAD_Total from Acc_FixedAssetAdditionDetails Where FAAD_MasID=" & dt1.Rows(i)("AFAA_Id") & " And FAAD_CompID=1 And FAAD_Status='C' and FAAD_CustId = " & iCustID & "")
+                                dr("OrignalCost") = Convert.ToDecimal(Math.Round(dt1.Rows(i)("AFAA_AssetAmount"))).ToString("#,##0") + Val(ForeignExchange)
                                 'End If
 
                                 If ResidualValue <> 0 Then
@@ -2660,7 +2655,7 @@ m:                  End If
             dt.Columns.Add("DepreciationforFY")
             dt.Columns.Add("wrtnvalue")
 
-            sSql = "Select distinct(AFAA_TrType),AFAA_ItemDescription,AFAA_FYAmount,AFAA_AssetType,AFAA_AssetAmount,AFAA_ItemCode,AFAA_ItemType,AFAA_Location,AFAA_Division,AFAA_Department,AFAA_Bay from Acc_FixedAssetAdditionDel Where AFAA_CompID=" & iCompID & " and AFAA_CustId=" & iCustId & " and AFAA_YearID <=" & iYearId & " and AFAA_Delflag <> 'D' order by AFAA_ItemType"
+            sSql = "Select distinct(AFAA_TrType),AFAA_Id,AFAA_ItemDescription,AFAA_FYAmount,AFAA_AssetType,AFAA_AssetAmount,AFAA_ItemCode,AFAA_ItemType,AFAA_Location,AFAA_Division,AFAA_Department,AFAA_Bay from Acc_FixedAssetAdditionDel Where AFAA_CompID=" & iCompID & " and AFAA_CustId=" & iCustId & " and AFAA_YearID <=" & iYearId & " and AFAA_Delflag <> 'D' order by AFAA_ItemType"
             dt1 = objDBL.SQLExecuteDataSet(sNameSpace, sSql).Tables(0)
 
             If dt1.Rows.Count > 0 Then
@@ -2826,7 +2821,7 @@ m:                  End If
                             Dim dDiffAmount As Double = 0.0
 
                             If IsDBNull(dt1.Rows(i)("AFAA_AssetAmount")) = False Then
-
+                                Dim ForeignExchange As String = objDBL.SQLExecuteScalar(sNameSpace, "select FAAD_Total from Acc_FixedAssetAdditionDetails Where FAAD_MasID=" & dt1.Rows(i)("AFAA_Id") & " And FAAD_CompID=1 And FAAD_Status='C' and FAAD_CustId = " & iCustId & "")
                                 dtdel = GetDelAmount(sNameSpace, iCompID, dt1.Rows(i)("AFAA_AssetType"), dt1.Rows(i)("AFAA_ItemType"), iCustId, dt1.Rows(i)("AFAA_Location"), dt1.Rows(i)("AFAA_Division"), dt1.Rows(i)("AFAA_Department"), dt1.Rows(i)("AFAA_Bay"))
                                 If dtdel.Rows.Count > 0 Then
                                     ddelOPBAmt = dtdel.Rows(0)("Amount")
@@ -2834,6 +2829,10 @@ m:                  End If
                                     dr("OrignalCost") = Convert.ToDecimal(Math.Round(dDiffAmount)).ToString("#,##0")
                                 Else
                                     dr("OrignalCost") = Convert.ToDecimal(Math.Round(dt1.Rows(i)("AFAA_AssetAmount"))).ToString("#,##0")
+                                End If
+
+                                If Val(ForeignExchange) <> 0 Then
+                                    dr("OrignalCost") = dr("OrignalCost") + Val(ForeignExchange)
                                 End If
 
                                 If ResidualValue <> 0 Then
