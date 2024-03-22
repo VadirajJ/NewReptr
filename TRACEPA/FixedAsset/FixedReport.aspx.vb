@@ -274,6 +274,7 @@ Public Class FixedReport
                 Else
                     Dim rds As New ReportDataSource("DataSet1", dt)
                     ReportViewer1.LocalReport.DataSources.Add(rds)
+
                     ReportViewer1.LocalReport.ReportPath = Server.MapPath("~/Reports/FixedAsset/FixedAssetReport.rdlc")
                     ReportViewer1.ZoomMode = Microsoft.Reporting.WebForms.ZoomMode.Percent
                     ReportViewer1.ZoomPercent = 125

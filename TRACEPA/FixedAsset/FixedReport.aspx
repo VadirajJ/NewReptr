@@ -28,19 +28,21 @@
             });
         });
 
-<%--        $(window).load(function () {
-            $(".loader").fadeOut("slow");
-        })
-
         $(document).ready(function () {
             $('[data-toggle="tooltip"]').tooltip();
 
             $('#<%=ddlCustomerName.ClientID%>').select2();
             $('#<%=ddlFinancialYear.ClientID%>').select2();
-            $('#<%=ddlReportType.ClientID%>').select2();
-        });--%>
+            $('#<%=ddlLocatn.ClientID%>').select2();
+            $('#<%=ddlDivision.ClientID%>').select2();
+            $('#<%=ddlDeptmnt.ClientID%>').select2();
+            $('#<%=ddlBay.ClientID%>').select2();
+            $('#<%=ddlpAstypeInv.ClientID%>').select2();
+            $('#<%=ddlAssetItem.ClientID%>').select2();
+<%--            $('#<%=ddlReportType.ClientID%>').select2();--%>
+        });
 
-    </script>
+</script>
     <script lang="javascript" type="text/javascript">
         $(document).ready(function () {
             $('[data-toggle="tooltip"]').tooltip();
@@ -121,11 +123,11 @@
             </div>
         <div class="card">
             <div class="col-sm-12 col-md-12 form-group" style="padding: 0px">
-                <div class="col-sm-2 col-md-2">
+                <div class="col-sm-3 col-md-3">
                     <asp:Label runat="server" Text="* Customer Name"></asp:Label>
                     <asp:DropDownList ID="ddlCustomerName" runat="server" CssClass="aspxcontrols" AutoPostBack="true"></asp:DropDownList>
                 </div>
-                <div class="col-sm-2 col-md-2">
+                <div class="col-sm-3 col-md-3">
                     <div class="form-group">
                         <asp:Label ID="lblHeadingFY" Text="Financial year" runat="server"></asp:Label>
                         <asp:DropDownList ID="ddlFinancialYear" runat="server" AutoPostBack="true" CssClass="aspxcontrols">
@@ -176,7 +178,7 @@
             <ul class="nav nav-tabs" role="tablist">
                 <li id="liEmpBasic" class="active" runat="server">
                     <asp:LinkButton ID="lnkbtnEmpBasicDetails" Text="Report" runat="server" Font-Size="11px" Font-Bold="true" /></li>
-                <li id="liEmpMaster" runat="server">
+                <li id="liEmpMaster" runat="server" visible="false">
                     <asp:LinkButton ID="lnkbtnEmpMaster" Text="Dynamic Report" runat="server" Font-Size="11px" Font-Bold="true" /></li>
                 <li id="liEmpDetails" runat="server">
                     <asp:LinkButton ID="lnkbtnEmpDetails" Text="AssetWise Report" runat="server" Font-Size="11px" Font-Bold="true" /></li>
@@ -304,7 +306,7 @@
     <rsweb:ReportViewer ID="ReportViewer2" runat="server" Width="99%" Height="539px" PageCountMode="Actual"></rsweb:ReportViewer>
 </div>
 </div>
-
+           <%-- 'hi--%>
             <div runat="server" role="tabpanel" class="tab-pane" id="divEmpDetails">
                 <div class="col-sm-12 col-md-12" style="padding-left: 0px">
                     <div class="col-sm-3 col-md-3">

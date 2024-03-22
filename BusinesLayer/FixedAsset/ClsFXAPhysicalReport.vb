@@ -83,6 +83,7 @@ Public Class ClsFXAPhysicalReport
             dt.Columns.Add("Deprate")
             dt.Columns.Add("Amount")
             dt.Columns.Add("WDVasonTY")
+            dt.Columns.Add("TotalInitialDep")
             dt.Columns.Add("DepOnOA")
             dt.Columns.Add("DepOnD")
             dt.Columns.Add("DepOnCurrentRP")
@@ -91,9 +92,9 @@ Public Class ClsFXAPhysicalReport
             dt.Columns.Add("Todate")
             dt.Columns.Add("FinancialYear")
 
-            sSql = "" : sSql = "select ADITAct_AssetClassID,ADITAct_RateofDep,isnull(sum(ADITAct_WrittenDownValue),0) as WrittenDownValue,isnull(sum(ADITAct_BfrQtrAmount),0) as Lessthan180days, "
+            sSql = "" : sSql = "select ADITAct_ID,ADITAct_AssetClassID,ADITAct_RateofDep,isnull(sum(ADITAct_WrittenDownValue),0) as WrittenDownValue,isnull(sum(ADITAct_BfrQtrAmount),0) as Lessthan180days, "
             sSql = sSql & " isnull(sum(ADITAct_AftQtrAmount),0) as Morethan180days,isnull(sum(ADITAct_DelAmount),0) as DelAmount from Acc_AssetDepITAct"
-            sSql = sSql & " where ADITAct_YearID=" & iyearId & " and ADITAct_CustId=" & iCustId & "  and ADITAct_CompID=" & iACID & "  group by ADITAct_AssetClassID,ADITAct_RateofDep"
+            sSql = sSql & " where ADITAct_YearID=" & iyearId & " and ADITAct_CustId=" & iCustId & "  and ADITAct_CompID=" & iACID & "  group by ADITAct_ID,ADITAct_AssetClassID,ADITAct_RateofDep"
 
             dtDetails = objDBL.SQLExecuteDataTable(sNameSpace, sSql)
             For i = 0 To dtDetails.Rows.Count - 1
@@ -128,27 +129,40 @@ Public Class ClsFXAPhysicalReport
                         dWDVatthebegOftheyear = dWDVatthebegOftheyear + dWDVasonPYs
                     End If
                 End If
-
+                Dim sBeforeInitAmount As String = ""
                 If IsDBNull(dtDetails.Rows(i)("Morethan180days")) = False Then
                     dRow("Morethan180days") = Convert.ToDecimal(Math.Round(dtDetails.Rows(i)("Morethan180days"))).ToString("#,##0")
                     Morethan180days = dtDetails.Rows(i)("Morethan180days")
                     dMorethan180day = dtDetails.Rows(i)("Morethan180days")
+                    If dRow("Morethan180days") <> "0" Then
+                        sBeforeInitAmount = objDBL.SQLGetDescription(sNameSpace, "select FAAD_InitDep from Acc_FixedAssetAdditionDetails where FAAD_AssetType =" & dtDetails.Rows(i)("ADITAct_AssetClassID") & " and FAAD_CustId =" & iCustId & "  and FAAD_YearID = " & iyearId & "")
+                    End If
                     dMorethan180days = dMorethan180days + dMorethan180day
                 Else
                     Morethan180days = 0
                     dRow("Morethan180days") = ""
                 End If
-
+                Dim sAfterInitAmount As String = ""
                 If IsDBNull(dtDetails.Rows(i)("Lessthan180days")) = False Then
                     dRow("Lessthan180days") = Convert.ToDecimal(Math.Round(dtDetails.Rows(i)("Lessthan180days"))).ToString("#,##0")
                     Lessthan180days = dtDetails.Rows(i)("Lessthan180days")
                     dLessthan180day = dtDetails.Rows(i)("Lessthan180days")
+                    If dRow("Lessthan180days") <> "0" Then
+                        sAfterInitAmount = objDBL.SQLGetDescription(sNameSpace, "Select ADITAct_InitAmt as After180days From Acc_AssetDepITAct Where ADITAct_ID=" & dtDetails.Rows(i)("ADITAct_ID") & "  and ADITAct_CustId=" & iCustId & " and ADITAct_YearID=" & iyearId & "")
+                    End If
                     dLessthan180days = dLessthan180days + dLessthan180day
                 Else
                     Lessthan180days = 0
                     dRow("Lessthan180days") = ""
                 End If
-
+                dRow("TotalInitialDep") = Val(sBeforeInitAmount) + Val(sAfterInitAmount)
+                If dRow("TotalInitialDep") = "1" Then
+                    If dMorethan180days <> "0" Then
+                        dRow("TotalInitialDep") = Morethan180days * 20 / 100
+                    Else
+                        dRow("TotalInitialDep") = Morethan180days * 10 / 100
+                    End If
+                End If
                 If IsDBNull(dtDetails.Rows(i)("DelAmount")) = False Then
                     dRow("Deletions") = Convert.ToDecimal(Math.Round(dtDetails.Rows(i)("DelAmount"))).ToString("#,##0")
                     Deletions = dtDetails.Rows(i)("DelAmount")
@@ -167,6 +181,8 @@ Public Class ClsFXAPhysicalReport
                     Rate = 0
                 End If
 
+
+
                 dRow("Total") = Convert.ToDecimal(Math.Round(Val(WDVasonPY) + Val(Morethan180days) + Val(Lessthan180days) - Val(Deletions))).ToString("#,##0")
                 dTotals = dRow("Total")
                 dTotalss = dTotalss + dTotals
@@ -183,7 +199,6 @@ Public Class ClsFXAPhysicalReport
                 DepOnCurrentRP = dRow("DepOnCurrentRP")
                 DepOnCurrentRPeriod = DepOnCurrentRPeriod + DepOnCurrentRP
 
-
                 If IsDBNull(dtDetails.Rows(i)("ADITAct_RateofDep")) = False Then
                     dRow("Amount") = Convert.ToDecimal(Math.Round(((Val(WDVasonPY) + Val(Morethan180days) - Val(Deletions)) * dRow("Deprate") / 100) + ((Val(Lessthan180days) * dRow("Deprate") / 100) / 2))).ToString("#,##0")
                     dAmount = dRow("Amount")
@@ -193,11 +208,11 @@ Public Class ClsFXAPhysicalReport
                     dRow("Amount") = ""
                 End If
 
-                dRow("WDVasonTY") = Convert.ToDecimal(Math.Round(dRow("Total") - dRow("Amount"))).ToString("#,##0") 'YEAR END
+                dRow("WDVasonTY") = Convert.ToDecimal(Math.Round(dRow("Total") - dRow("Amount"))).ToString("#,##0") - dRow("TotalInitialDep") 'YEAR END
                 dWDVasonTY = dRow("WDVasonTY")
                 dWDVasonTYs = dWDVasonTYs + dWDVasonTY
 
-                dRow("Currentreportingperiod") = Convert.ToDecimal(Math.Round(dRow("Total") - dRow("DepOnCurrentRP"))).ToString("#,##0")
+                dRow("Currentreportingperiod") = Convert.ToDecimal(Math.Round(dRow("Total") - dRow("DepOnCurrentRP"))).ToString("#,##0") - dRow("TotalInitialDep")
                 dCurrentreportingperiod = dRow("Currentreportingperiod")
                 dCurrentreportingperiods = dCurrentreportingperiods + dCurrentreportingperiod
 

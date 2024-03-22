@@ -465,6 +465,7 @@
           .gridview th:nth-child(14) {
         border-left: 1px solid white; /* Adjust border color and style as needed */
     }
+
             </style>
             <script>
    function addHeaderRow() {
@@ -575,7 +576,7 @@ window.onload = function () {
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Class of Asset" HeaderStyle-Width="5%">
+                        <asp:TemplateField HeaderText="Class of Asset">
                             <ItemTemplate>
                                 <asp:Label ID="lblClassofAsset" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.ClassofAsset") %>'></asp:Label>
                             </ItemTemplate>
@@ -585,6 +586,8 @@ window.onload = function () {
                             <ItemTemplate>
                                 <asp:Label ID="lblRateofDep" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.RateofDep") %>'></asp:Label>
                             </ItemTemplate>
+                             <ItemStyle Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False"
+                                HorizontalAlign="Center" VerticalAlign="Top" />
                         </asp:TemplateField>
 
                         <asp:TemplateField HeaderText="WDV Opening Value" HeaderStyle-Width="5%" FooterStyle-HorizontalAlign="Right">
@@ -600,20 +603,26 @@ window.onload = function () {
                             <ItemStyle Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False"
                                 HorizontalAlign="Center" VerticalAlign="Top" />
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Before 180days Addition" Visible="true" HeaderStyle-Width="1%">
+                        <asp:TemplateField HeaderText="Before 180days Addition" Visible="true" HeaderStyle-Width="5%">
                             <ItemTemplate>
                                 <asp:Label ID="lblBfrQtrAmount" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.BfrQtrAmount") %>'></asp:Label>
                             </ItemTemplate>
+                             <ItemStyle Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False"
+                                HorizontalAlign="center" VerticalAlign="Top" />
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="After 180days Addition" Visible="true" HeaderStyle-Width="1%">
                             <ItemTemplate>
                                 <asp:Label ID="lblAftQtrAmount" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.AftQtrAmount") %>'></asp:Label>
                             </ItemTemplate>
+                             <ItemStyle Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False"
+                                HorizontalAlign="center" VerticalAlign="Top" />
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Total Addition in Year" HeaderStyle-Width="5%">
                             <ItemTemplate>
                                 <asp:Label ID="lblAdditionDuringtheYear" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.AdditionDuringtheYear") %>'></asp:Label>
                             </ItemTemplate>
+                             <ItemStyle Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False"
+                                HorizontalAlign="Center" VerticalAlign="Top" />
                             <FooterTemplate>
                                 <asp:Label ID="lblFAdditionDuringtheYear" runat="server"></asp:Label>
                             </FooterTemplate>
@@ -626,21 +635,29 @@ window.onload = function () {
                             <ItemTemplate>
                                 <asp:Label ID="lblWDVOpeningDepreciation" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.WDVOpeningDepreciation") %>'></asp:Label>
                             </ItemTemplate>
+                             <ItemStyle Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False"
+                                HorizontalAlign="Center" VerticalAlign="Top" />
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Before 180days Dep" Visible="true" HeaderStyle-Width="1%">
                             <ItemTemplate>
                                 <asp:Label ID="lblBfrQtrDep" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.BfrQtrDep") %>'></asp:Label>
                             </ItemTemplate>
+                             <ItemStyle Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False"
+                                HorizontalAlign="Center" VerticalAlign="Top" />
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="After 180days Dep" Visible="true" HeaderStyle-Width="1%">
                             <ItemTemplate>
                                 <asp:Label ID="lblAftQtrDep" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.AftQtrDep") %>'></asp:Label>
                             </ItemTemplate>
+                             <ItemStyle Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False"
+                                HorizontalAlign="Center" VerticalAlign="Top" />
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Initial Depreciation Amount" HeaderStyle-Width="5%">
                             <ItemTemplate>
                                 <asp:Label ID="lblInitDepAmt" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.InitDepAmt") %>'></asp:Label>
                             </ItemTemplate>
+                             <ItemStyle Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False"
+                                HorizontalAlign="Center" VerticalAlign="Top" />
                             <FooterTemplate>
                                 <asp:Label ID="lblFInitDepAmt" runat="server"></asp:Label>
                             </FooterTemplate>
